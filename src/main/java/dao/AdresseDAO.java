@@ -1,7 +1,6 @@
 package dao;
 
-import staggers.Adresse;
-import staggers.Utilisateur;
+import stage2go.Adresse;
 
 import java.sql.*;
 

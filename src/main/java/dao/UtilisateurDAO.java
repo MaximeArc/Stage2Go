@@ -1,6 +1,6 @@
 package dao;
 
-import staggers.Utilisateur;
+import stage2go.Utilisateur;
 
 
 import java.sql.*;
@@ -19,8 +19,8 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     private static final String NUM_TEL = "num_tel";
     private static final String ADMIS_STAGE = "admis_stage";
     private static final String SEXE = "sexe";
-    private static final String MOT_DE_PASSE = "mot_de_passe";
-    private static final String EST_ADMIN = "est_admin";
+    private static final String MOT_DE_PASSE = "mdp";
+    private static final String EST_ADMIN = "admin";
     private static final String ROLE = "role";
 
     private static UtilisateurDAO instance = null;
@@ -129,18 +129,18 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
                 String requete = "SELECT * FROM " + TABLE + " WHERE " + CLE_PRIMAIRE + " = " + id;
                 ResultSet rs = Connexion.executeQuery(requete);
                 rs.next();
-                int promo = rs.getInt(PROMO);
+                //int promo = rs.getInt(PROMO);
                 String nom = rs.getString(NOM);
                 String prenom = rs.getString(PRENOM);
-                Date date_naissance = rs.getDate(DATE_NAISSANCE);
+               // Date date_naissance = rs.getDate(DATE_NAISSANCE);
                 String email = rs.getString(EMAIL);
-                String num_tel = rs.getString(NUM_TEL);
-                boolean admis_stage = rs.getBoolean(ADMIS_STAGE);
-                String sexe = rs.getString(SEXE);
+               // String num_tel = rs.getString(NUM_TEL);
+                //boolean admis_stage = rs.getBoolean(ADMIS_STAGE);
+                //String sexe = rs.getString(SEXE);
                 String mot_de_passe = rs.getString(MOT_DE_PASSE);
                 boolean est_admin = rs.getBoolean(EST_ADMIN);
-                String role = rs.getString(ROLE);
-                utilisateur = new Utilisateur(id, promo, nom, prenom, date_naissance, email, num_tel, admis_stage, sexe, mot_de_passe, est_admin, role);
+                //String role = rs.getString(ROLE);
+                utilisateur = new Utilisateur(id, nom, prenom, email, mot_de_passe, est_admin);
                 donnees.put(id, utilisateur);
 
             } catch (SQLException e) {

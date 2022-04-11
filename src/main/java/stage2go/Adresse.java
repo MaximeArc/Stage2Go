@@ -1,6 +1,4 @@
-package staggers;
-
-import java.sql.Date;
+package stage2go;
 
 public class Adresse {
 

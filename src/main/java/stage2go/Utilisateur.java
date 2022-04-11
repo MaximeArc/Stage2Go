@@ -1,4 +1,4 @@
-package staggers;
+package stage2go;
 
 
 import java.sql.Date;
@@ -19,20 +19,14 @@ public class Utilisateur {
     private String role;
 
 
-    public Utilisateur(int id, int promo, String nom, String prenom, Date date_naissance, String email, String num_tel,
-                       boolean admis_stage, String sexe, String mot_de_passe, boolean est_admin, String role) {
+    public Utilisateur(int id, String nom, String prenom,  String email,
+                       String mot_de_passe, boolean est_admin) {
         this.id = id;
-        this.promo = promo;
         this.nom = nom;
         this.prenom = prenom;
-        this.date_naissance = date_naissance;
         this.email = email;
-        this.num_tel = num_tel;
-        this.admis_stage = admis_stage;
-        this.sexe = sexe;
         this.mot_de_passe = mot_de_passe;
         this.est_admin = est_admin;
-        this.role = role;
     }
 
     public int getId() {

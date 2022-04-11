@@ -1,8 +1,6 @@
-package staggers;
+package stage2go;
 
-import dao.AdresseDAO;
 import dao.Connexion;
-import dao.EntrepriseDAO;
 import dao.UtilisateurDAO;
 
 public class RunProject {
@@ -11,10 +9,10 @@ public class RunProject {
     public static void main(String[] args) {
         /* Utilisateur */
 
-        Utilisateur test = new Utilisateur(4, 2020, "BOLLORE", "Clément", null, "farinel.sacha@gmail.com",
-                "0688972850", true, "masculin", "root", false, "étudiant");
-        System.out.println(UtilisateurDAO.getInstance().create(test));
-        //System.out.println(UtilisateurDAO.getInstance().read(1));
+       // Utilisateur test = new Utilisateur(4, 2020, "BOLLORE", "Clément", null, "farinel.sacha@gmail.com",
+               // "0688972850", true, "masculin", "root", false, "étudiant");
+        //System.out.println(UtilisateurDAO.getInstance().create(test));
+        System.out.println(UtilisateurDAO.getInstance().read(1));
         //System.out.println(UtilisateurDAO.getInstance().update(test));
         //System.out.println(UtilisateurDAO.getInstance().delete(test));
 

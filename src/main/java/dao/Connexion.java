@@ -1,7 +1,5 @@
 package dao;
 
-import staggers.Utilisateur;
-
 import java.sql.*;
 
 public class Connexion {
@@ -13,9 +11,9 @@ public class Connexion {
     public static Connection getInstance() {
         if (connect == null) {
             String connectionUrl =
-                    "jdbc:sqlserver://localhost\\SQLEXPRESS;database=BDStage2;"
-                            + "user=MaximeA;"
-                            + "password=maxime;"
+                    "jdbc:sqlserver://localhost\\SQLEXPRESS01;database=BDstage2;"
+                            + "user=bastien;"
+                            + "password=sio;"
                             + "encrypt=true;"
                             + "trustServerCertificate=true;";
             try (Connection connection = DriverManager.getConnection(connectionUrl)) {

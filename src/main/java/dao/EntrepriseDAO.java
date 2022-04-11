@@ -1,6 +1,6 @@
 package dao;
 
-import staggers.Entreprise;
+import stage2go.Entreprise;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

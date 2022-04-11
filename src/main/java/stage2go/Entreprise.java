@@ -1,8 +1,6 @@
-package staggers;
+package stage2go;
 
-import java.util.Date;
-
-    public class Entreprise {
+public class Entreprise {
 
 
         private int id;
