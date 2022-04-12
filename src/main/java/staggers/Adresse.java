@@ -10,7 +10,7 @@ public class Adresse {
     private String adresse;
     private String ville;
     private int code_postal;
-    private String departement;
+    // String departement;
     private String pays;
     private int id_utilisateur;
     private int id_entreprise;
@@ -23,7 +23,7 @@ public class Adresse {
         this.adresse = adresse;
         this.ville = ville;
         this.code_postal = code_postal;
-        this.departement = departement;
+        //this.departement = departement;
         this.pays = pays;
         this.id_utilisateur = id_utilisateur;
         this.id_entreprise = id_entreprise;
