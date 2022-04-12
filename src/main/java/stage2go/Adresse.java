@@ -13,18 +13,13 @@ public class Adresse {
     private int id_utilisateur;
     private int id_entreprise;
 
-    public Adresse(int id, int numero, String type_de_voie, String adresse, String ville, int code_postal,
-                   String departement, String pays, int id_utilisateur, int id_entreprise) {
+    public Adresse(int id, int numero, String adresse, String ville, int code_postal)
+                    {
         this.id = id;
         this.numero = numero;
-        this.type_de_voie = type_de_voie;
         this.adresse = adresse;
         this.ville = ville;
         this.code_postal = code_postal;
-        this.departement = departement;
-        this.pays = pays;
-        this.id_utilisateur = id_utilisateur;
-        this.id_entreprise = id_entreprise;
     }
 
     public int getId() {
