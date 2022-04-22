@@ -10,13 +10,14 @@ public class EntrepriseDAO extends DAO<Entreprise> {
     private static final String TABLE = "ENTREPRISE";
     private static final String CLE_PRIMAIRE = "id";
     private static final String NOM = "nom";
-    private static final String EMAIL = "email";
+    private static final String DESCRIPTION = "description";
+    private static final String ACTIVITE = "activite";
+    private static final String TECHNO = "techno";
+    private static final int NB_EMPLOYES = Integer.parseInt("nb_employes");
+    private static final String LOGO = "logo";
     private static final String NOM_CONTACT = "nom_contact";
     private static final String EMAIL_CONTACT = "email_contact";
-    private static final String NB_EMPLOYES = "nb_employes";
-    private static final String DESCRIPTION = "description";
-    private static final String TECHNO ="techno";
-    private static final String TELETRAVAIL ="teletravail";
+    private static final boolean TELETRAVAIL = Boolean.parseBoolean("teletravail");
 
     private static EntrepriseDAO instance = null;
 
@@ -58,19 +59,18 @@ public class EntrepriseDAO extends DAO<Entreprise> {
                 String requete = "SELECT * FROM " + TABLE + " WHERE " + CLE_PRIMAIRE + " = " + id;
                 ResultSet rs = Connexion.executeQuery(requete);
                 rs.next();
-
                 String nom = rs.getString(NOM);
-                String email = rs.getString(EMAIL);
-                //  String num_tel = rs.getString(NUM_TEL);
+                String description = rs.getString(DESCRIPTION);
+                String activite = rs.getString(ACTIVITE);
+                String techno = rs.getString(TECHNO);
+                int nb_employes = rs.getInt(NB_EMPLOYES);
+                String logo = rs.getString(LOGO);
                 String nom_contact = rs.getString(NOM_CONTACT);
                 String email_contact = rs.getString(EMAIL_CONTACT);
-                //  String num_contact = rs.getString(NUM_CONTACT);
-                int nb_employes = rs.getInt(NB_EMPLOYES);
-                // int nb_stagiaire_max = rs.getInt(NB_STAGIAIRE_MAX);
-                String description = rs.getString(DESCRIPTION);
-                // boolean est_favoris = rs.getBoolean(EST_FAVORIS);
+                boolean teletravail = rs.getBoolean(String.valueOf(TELETRAVAIL));
 
-                entreprise = new Entreprise(id, nom, email, nom_contact, email_contact, nb_employes, description, techno, teletravail);
+
+                entreprise = new Entreprise(id, nom, description, activite, techno, nb_employes, logo, nom_contact, email_contact, teletravail);
                 donnees.put(id, entreprise);
 
             } catch (SQLException e) {
