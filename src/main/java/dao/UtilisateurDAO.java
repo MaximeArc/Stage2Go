@@ -15,9 +15,14 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     private static final String MOT_DE_PASSE = "mdp";
     private static final String EST_ADMIN = "admin";
 
+    // -------------------------------------------------------------------
+    // --------- Patron de conception Singleton (en 3 étapes) ---------- //
+    // -------------------------------------------------------------------
 
+    // 1- Instance privée unique à null
     private static UtilisateurDAO instance = null;
 
+    // 2- Méthode statique get pour récupérer cette instance unique
     public static UtilisateurDAO getInstance() {
         if (instance == null) {
             instance = new UtilisateurDAO();
@@ -25,6 +30,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         return instance;
     }
 
+    // 3- Constructeur passé en privé
     private UtilisateurDAO() {
         super();
     }
