@@ -11,16 +11,18 @@ public class Utilisateur {
     private String email;
     private String mot_de_passe;
     private boolean admin;
+    private int id_stagiaire;
 
 
     public Utilisateur(int id, String nom, String prenom,  String email,
-                       String mot_de_passe, boolean admin) {
+                       String mot_de_passe, boolean admin, int id_stagiaire) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.mot_de_passe = mot_de_passe;
         this.admin = admin;
+        this.id_stagiaire = id_stagiaire;
     }
 
     public int getId() {
@@ -58,12 +60,11 @@ public class Utilisateur {
         this.mot_de_passe = mot_de_passe;
     }
 
-    public boolean getAdmin() {
-        return admin;
-    }
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
-    }
+    public boolean getAdmin() { return admin; }
+    public void setAdmin(boolean admin) { this.admin = admin; }
+
+    public int getId_stagiaire() { return id_stagiaire; }
+    public void setId_stagiaire(int id_stagiaire) { this.id_stagiaire = id_stagiaire; }
 
 
     @Override
@@ -74,7 +75,8 @@ public class Utilisateur {
                 ", prenom='" + prenom + '\'' +
                 ", email='" + email + '\'' +
                 ", mot_de_passe='" + mot_de_passe + '\'' +
-                ", est_admin=" + admin +
+                ", admin=" + admin +
+                ", id_stagiaire=" + id_stagiaire +
                 '}';
     }
 }
