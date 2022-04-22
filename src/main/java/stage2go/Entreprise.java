@@ -7,7 +7,7 @@ public class Entreprise {
         private String description;
         private String activite;
         private String techno;
-        private int nb_employe;
+        private int nb_employes;
         private String logo;
         private String nom_contact;
         private String email_contact;
@@ -19,7 +19,7 @@ public class Entreprise {
                           String description,
                           String activite,
                           String techno,
-                          int nb_employe,
+                          int nb_employes,
                           String logo,
                           String nom_contact,
                           String email_contact,
@@ -29,7 +29,7 @@ public class Entreprise {
             this.description = description;
             this.activite = activite;
             this.techno = techno;
-            this.nb_employe = nb_employe;
+            this.nb_employes = nb_employes;
             this.logo = logo;
             this.nom_contact = nom_contact;
             this.email_contact = email_contact;
@@ -71,11 +71,11 @@ public class Entreprise {
             this.techno = techno;
         }
 
-        public int getNb_employe() {
-            return nb_employe;
+        public int getNb_employes() {
+            return nb_employes;
         }
-        public void setNb_employe(int nb_employe) {
-            this.nb_employe = nb_employe;
+        public void setNb_employes(int nb_employes) {
+            this.nb_employes = nb_employes;
         }
 
         public String getLogo() {
@@ -116,7 +116,7 @@ public class Entreprise {
                     ", description='" + description + '\'' +
                     ", activite='" + activite + '\'' +
                     ", techno='" + techno + '\'' +
-                    ", nb_employe='" + nb_employe + '\'' +
+                    ", nb_employes='" + nb_employes + '\'' +
                     ", logo='" + logo + '\'' +
                     ", nom_contact='" + nom_contact + '\'' +
                     ", email_contact='" + email_contact + '\'' +
