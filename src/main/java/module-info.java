@@ -1,4 +1,4 @@
-module com.example.staggers {
+module com.example.stage2go {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
