@@ -1,25 +1,21 @@
 package dao;
 
-import staggers.Adresse;
-import staggers.Utilisateur;
+import stage2go.Adresse;
 
 import java.sql.*;
 
 
 public class AdresseDAO extends DAO<Adresse> {
 
-    private static final String TABLE = "ADRESSE";
+    private static final String TABLE = "adresse";
     private static final String CLE_PRIMAIRE = "id";
 
     private static final String NUMERO = "numero";
-    private static final String TYPE_DE_VOIE = "type_de_voie";
     private static final String ADRESSE = "adresse";
     private static final String VILLE = "ville";
     private static final String CODE_POSTAL = "code_postal";
-    private static final String DEPARTEMENT = "departement";
-    private static final String PAYS = "pays";
-    private static final String ID_UTILISATEUR = "id_utilisateur";
-    private static final String ID_ENTREPRISE = "id_entreprise";
+    //private static final String ID_UTILISATEUR = "id_utilisateur";
+    //private static final String ID_ENTREPRISE = "id_entreprise";
 
     private static AdresseDAO instance = null;
 
@@ -38,20 +34,19 @@ public class AdresseDAO extends DAO<Adresse> {
     public boolean create(Adresse obj) {
         boolean succes = true;
         try {
-            String requete = "INSERT INTO " + TABLE + " (" + NUMERO + "," + TYPE_DE_VOIE + "," + ADRESSE + "," + VILLE + "," + CODE_POSTAL + "," + DEPARTEMENT + "," +
-                    "" + PAYS + "," + ID_UTILISATEUR + "," + ID_ENTREPRISE + ") " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String requete = "INSERT INTO " + TABLE + " (" + NUMERO + "," + ADRESSE + "," + VILLE + "," + CODE_POSTAL + ") " +
+                    "VALUES (?, ?, ?, ?)";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
             // on pose un String en paramètre 1 -1er '?'- et ce String est le nom de l'avion
             pst.setInt(1, obj.getNumero());
-            pst.setString(2, obj.getType_de_voie());
+            //pst.setString(2, obj.getType_de_voie());
             pst.setString(3, obj.getAdresse());
             pst.setString(4, obj.getVille());
             pst.setInt(5, obj.getCode_postal());
-            pst.setString(6, obj.getDepartement());
-            pst.setString(7, obj.getPays());
-            pst.setInt(8, obj.getId_utilisateur());
-            pst.setInt(9, obj.getId_entreprise());
+            //pst.setString(6, obj.getDepartement());
+            // pst.setString(7, obj.getPays());
+            //pst.setInt(8, obj.getId_utilisateur());
+            //pst.setInt(9, obj.getId_entreprise());
 
             // on exécute la mise à jour
             pst.executeUpdate();
@@ -90,18 +85,18 @@ public class AdresseDAO extends DAO<Adresse> {
         boolean success = true;
         int id = obj.getId();
         try {
-            String requete = "UPDATE " + TABLE + " SET " + NUMERO + " = ?, " + TYPE_DE_VOIE + " = ?, " + ADRESSE + " = ? , " + VILLE + " = ?, " + CODE_POSTAL + " = ?, " + DEPARTEMENT + " = ?, " + PAYS + " = ?, " + ID_UTILISATEUR + " = ?,  " + ID_ENTREPRISE + " = ? " +
+            String requete = "UPDATE " + TABLE + " SET " + NUMERO +  " = ?, " + ADRESSE + " = ? , " + VILLE + " = ?, " + CODE_POSTAL + " = ? " +
                     "WHERE " + CLE_PRIMAIRE + " = ?";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
             pst.setInt(1, obj.getNumero());
-            pst.setString(2, obj.getType_de_voie());
+            //pst.setString(2, obj.getType_de_voie());
             pst.setString(3, obj.getAdresse());
             pst.setString(4, obj.getVille());
             pst.setInt(5, obj.getCode_postal());
-            pst.setString(6, obj.getDepartement());
-            pst.setString(7, obj.getPays());
-            pst.setInt(8, obj.getId_utilisateur());
-            pst.setInt(9, obj.getId_entreprise());
+            //pst.setString(6, obj.getDepartement());
+            //pst.setString(7, obj.getPays());
+            //pst.setInt(8, obj.getId_utilisateur());
+            //pst.setInt(9, obj.getId_entreprise());
             pst.setInt(10, id);
             pst.executeUpdate();
             donnees.put(id, obj);
@@ -125,16 +120,11 @@ public class AdresseDAO extends DAO<Adresse> {
                 ResultSet rs = Connexion.executeQuery(requete);
                 rs.next();
                 int numero = rs.getInt(NUMERO);
-                String type_de_voie = rs.getString(TYPE_DE_VOIE);
                 String adresses = rs.getString(ADRESSE);
                 String ville = rs.getString(VILLE);
                 int code_postal = rs.getInt(CODE_POSTAL);
-                String departement = rs.getString(DEPARTEMENT);
-                String pays = rs.getString(PAYS);
-                int id_utilisateur = rs.getInt(ID_UTILISATEUR);
-                int id_entreprise = rs.getInt(ID_ENTREPRISE);
 
-                adresse = new Adresse(id, numero, type_de_voie, adresses, ville, code_postal, departement, pays, id_utilisateur, id_entreprise);
+                adresse = new Adresse(id, numero, adresses, ville, code_postal);
                 donnees.put(id, adresse);
 
             } catch (SQLException e) {
