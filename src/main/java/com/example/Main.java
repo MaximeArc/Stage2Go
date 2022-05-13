@@ -16,10 +16,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("accueilUser.fxml"));
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeRessources.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Identification.fxml")));
         Scene scene = new Scene(root);
-        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.DECORATED);
+        stage.setResizable(false);
 
         root.setOnMousePressed(evt ->{
             x=evt.getSceneX();
