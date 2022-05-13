@@ -2,28 +2,72 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.RessourcesController">
    <children>
-      <AnchorPane layoutX="-7.0" prefHeight="61.0" prefWidth="608.0" style="-fx-background-color: #44bba4;" stylesheets="@../../css/styles.css">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
          <children>
-            <ImageView fitHeight="86.0" fitWidth="87.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../img/LOGO_OK.jpg" />
-               </image>
-            </ImageView>
-            <Button layoutX="168.0" layoutY="23.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="80.0" style="-fx-background-color: #44bba4;" text="Accueil" textAlignment="CENTER" textFill="WHITE" />
-            <Button layoutX="298.0" layoutY="23.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="80.0" style="-fx-background-color: #44bba4;" text="Ressources" textFill="WHITE" />
-            <Button layoutX="434.0" layoutY="23.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0" style="-fx-background-color: #44bba4;" text="Stagiaire" textFill="WHITE" />
+            <AnchorPane layoutY="-4.0" prefHeight="144.0" prefWidth="1200.0" style="-fx-background-color: #44BBA4;">
+               <children>
+                  <ImageView fitHeight="144.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/LOGO_OK.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="734.0" layoutY="48.0" mnemonicParsing="false" onAction="#OnRessourcesClick" style="-fx-background-color: #44BBA4;" text="Ressources" textFill="#fcf8f8">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="600.0" layoutY="48.0" mnemonicParsing="false" style="-fx-background-color: #44BBA4;" text="Accueil" textFill="#fcf8f8">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="1108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Desktop/icons/icons8-sortie-96.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="904.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#fcf8f8">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Label layoutX="547.0" layoutY="158.0" prefHeight="44.0" prefWidth="307.0" text="RESSOURCES" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Hyperlink layoutX="224.0" layoutY="313.0" prefHeight="12.0" prefWidth="766.0" text="Document">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="224.0" layoutY="377.0" prefHeight="12.0" prefWidth="766.0" text="Document">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="224.0" layoutY="448.0" prefHeight="12.0" prefWidth="766.0" text="Document">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="224.0" layoutY="518.0" prefHeight="12.0" prefWidth="766.0" text="Document">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Hyperlink>
          </children>
       </AnchorPane>
-      <Hyperlink layoutX="88.0" layoutY="147.0" prefHeight="25.0" prefWidth="460.0" text="Document1" />
-      <Hyperlink layoutX="88.0" layoutY="189.0" prefHeight="25.0" prefWidth="460.0" text="Document2" />
-      <Hyperlink layoutX="88.0" layoutY="231.0" prefHeight="25.0" prefWidth="460.0" text="Document3" />
-      <Hyperlink layoutX="88.0" layoutY="275.0" prefHeight="25.0" prefWidth="460.0" text="Document4" />
    </children>
 </AnchorPane>
