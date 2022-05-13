@@ -13,8 +13,6 @@ public class AdresseDAO extends DAO<Adresse> {
     private static final String ADRESSE = "adresse";
     private static final String VILLE = "ville";
     private static final String CODE_POSTAL = "code_postal";
-    //private static final String ID_UTILISATEUR = "id_utilisateur";
-    //private static final String ID_ENTREPRISE = "id_entreprise";
 
     private static AdresseDAO instance = null;
 
@@ -36,20 +34,14 @@ public class AdresseDAO extends DAO<Adresse> {
             String requete = "INSERT INTO " + TABLE + " (" + NUMERO + "," + ADRESSE + "," + VILLE + "," + CODE_POSTAL + ") " +
                     "VALUES (?, ?, ?, ?)";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
-            // on pose un String en paramètre 1 -1er '?'- et ce String est le nom de l'avion
             pst.setInt(1, obj.getNumero());
-            //pst.setString(2, obj.getType_de_voie());
             pst.setString(3, obj.getAdresse());
             pst.setString(4, obj.getVille());
-            pst.setInt(5, obj.getCode_postal());
-            //pst.setString(6, obj.getDepartement());
-            // pst.setString(7, obj.getPays());
-            //pst.setInt(8, obj.getId_utilisateur());
-            //pst.setInt(9, obj.getId_entreprise());
+            pst.setInt(2, obj.getCode_postal());
 
             // on exécute la mise à jour
             pst.executeUpdate();
-            //Récupérer la clé qui a été générée et la pousser dans l'objet initial
+            //Récupération de la clé générée et la pousser dans l'objet initial
             ResultSet rs = pst.getGeneratedKeys();
             if (rs.next()) {
                 obj.setId(rs.getInt(1));
@@ -88,15 +80,10 @@ public class AdresseDAO extends DAO<Adresse> {
                     "WHERE " + CLE_PRIMAIRE + " = ?";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
             pst.setInt(1, obj.getNumero());
-            //pst.setString(2, obj.getType_de_voie());
             pst.setString(3, obj.getAdresse());
             pst.setString(4, obj.getVille());
             pst.setInt(5, obj.getCode_postal());
-            //pst.setString(6, obj.getDepartement());
-            //pst.setString(7, obj.getPays());
-            //pst.setInt(8, obj.getId_utilisateur());
-            //pst.setInt(9, obj.getId_entreprise());
-            pst.setInt(10, id);
+            pst.setInt(2, id);
             pst.executeUpdate();
             donnees.put(id, obj);
         } catch (SQLException e) {
