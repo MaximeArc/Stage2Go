@@ -1,4 +1,4 @@
-package com.example.staggers;
+package com.example.stage2go;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
