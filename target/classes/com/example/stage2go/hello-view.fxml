@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #639fff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="417.0" fitWidth="399.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Pictures/Saved%20Pictures/unnamed.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="168.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="133.0" fitWidth="119.0" layoutX="11.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Desktop/Stage2Go/1f512.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="55.0" layoutY="183.0" text="Login" />
+            <Label layoutX="34.0" layoutY="268.0" text="Mot de passe" />
+            <TextField layoutX="-5.0" layoutY="210.0" promptText="Login" />
+            <PasswordField layoutX="-4.0" layoutY="309.0" promptText="Mot de passe" />
+            <Button layoutX="45.0" layoutY="352.0" mnemonicParsing="false" style="-fx-background-color: #ffae00;" text="Log In" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

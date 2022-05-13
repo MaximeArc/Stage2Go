@@ -14,14 +14,14 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     private static final String PROMO = "promo";
     private static final String NOM = "nom";
     private static final String PRENOM = "prenom";
-   // private static final String DATE_NAISSANCE = "date_naissance";
+    // private static final String DATE_NAISSANCE = "date_naissance";
     private static final String EMAIL = "email";
-   // private static final String NUM_TEL = "num_tel";
-   // private static final String ADMIS_STAGE = "admis_stage";
-   // private static final String SEXE = "sexe";
+    // private static final String NUM_TEL = "num_tel";
+    // private static final String ADMIS_STAGE = "admis_stage";
+    // private static final String SEXE = "sexe";
     private static final String MOT_DE_PASSE = "mdp";
     private static final String EST_ADMIN = "admin";
-   // private static final String ROLE = "role";
+    private static final String ROLE = "role";
 
     private static UtilisateurDAO instance = null;
 
@@ -41,12 +41,12 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     public boolean create(Utilisateur obj) {
         boolean success = true;
         try {
-            String requete = "INSERT INTO " + TABLE + " (" + PROMO + "," + NOM + "," + PRENOM + "," + EMAIL + "," +
-                     ","  + MOT_DE_PASSE + "," + EST_ADMIN + "," + ROLE + ") " +
+            String requete = "INSERT INTO " + TABLE + " (" + PROMO + "," + NOM + "," + PRENOM + "," + EMAIL +
+                    ","  + MOT_DE_PASSE + "," + EST_ADMIN + "," + ROLE + ") " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
             // on pose un String en paramètre 1 -1er '?'- et ce String est le nom de l'avion
-           // pst.setInt(1, obj.getPromo());
+            // pst.setInt(1, obj.getPromo());
             pst.setString(2, obj.getNom());
             pst.setString(3, obj.getPrenom());
             //pst.setDate(4, obj.getDate_naissance());
@@ -94,20 +94,20 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         boolean success = true;
         int id = obj.getId();
         try {
-            String requete = "UPDATE " + TABLE + " SET " + PROMO + " = ?, " + NOM + " = ?, " + PRENOM + " = ? , " + DATE_NAISSANCE + " = ?, " + EMAIL + " = ?, " + NUM_TEL + " = ?, " + ADMIS_STAGE + " = ?, " + SEXE + " = ?,  " + MOT_DE_PASSE + " = ?, " + EST_ADMIN + " = ?, " + ROLE + " = ? WHERE " + CLE_PRIMAIRE + " = ?";
+            String requete = "UPDATE " + TABLE + " SET " + PROMO + " = ?, " + NOM + " = ?, " + PRENOM + " = ? , " + EMAIL + " = ?, " + MOT_DE_PASSE + " = ?, " + EST_ADMIN + " = ?, " + ROLE + " = ? WHERE " + CLE_PRIMAIRE + " = ?";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
-           // pst.setInt(1, obj.getPromo());
-            pst.setString(2, obj.getNom());
-            pst.setString(3, obj.getPrenom());
-           // pst.setDate(4, obj.getDate_naissance());
-            pst.setString(5, obj.getEmail());
-           // pst.setString(6, obj.getNum_tel());
-           // pst.setBoolean(7, obj.isAdmis_stage());
-           // pst.setString(8, obj.getSexe());
-            pst.setString(9, obj.getMot_de_passe());
-            pst.setBoolean(10, obj.isEst_admin());
-           // pst.setString(11, obj.getRole());
-            pst.setInt(12, id);
+            // pst.setInt(1, obj.getPromo());
+            pst.setString(1, obj.getNom());
+            pst.setString(2, obj.getPrenom());
+            // pst.setDate(4, obj.getDate_naissance());
+            pst.setString(3, obj.getEmail());
+            // pst.setString(6, obj.getNum_tel());
+            // pst.setBoolean(7, obj.isAdmis_stage());
+            // pst.setString(8, obj.getSexe());
+            pst.setString(4, obj.getMot_de_passe());
+            pst.setBoolean(5, obj.isEst_admin());
+            // pst.setString(11, obj.getRole());
+            pst.setInt(6, id);
             pst.executeUpdate();
             donnees.put(id, obj);
         } catch (SQLException e) {
@@ -132,9 +132,9 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
                 //int promo = rs.getInt(PROMO);
                 String nom = rs.getString(NOM);
                 String prenom = rs.getString(PRENOM);
-               // Date date_naissance = rs.getDate(DATE_NAISSANCE);
+                // Date date_naissance = rs.getDate(DATE_NAISSANCE);
                 String email = rs.getString(EMAIL);
-               // String num_tel = rs.getString(NUM_TEL);
+                // String num_tel = rs.getString(NUM_TEL);
                 //boolean admis_stage = rs.getBoolean(ADMIS_STAGE);
                 //String sexe = rs.getString(SEXE);
                 String mot_de_passe = rs.getString(MOT_DE_PASSE);

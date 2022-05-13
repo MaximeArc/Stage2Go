@@ -74,8 +74,10 @@ public class EntrepriseDAO extends DAO<Entreprise> {
                // int nb_stagiaire_max = rs.getInt(NB_STAGIAIRE_MAX);
                 String description = rs.getString(DESCRIPTION);
                // boolean est_favoris = rs.getBoolean(EST_FAVORIS);
+                String techno = rs.getString(TECHNO);
+                String teletravail= rs.getString(TELETRAVAIL);
 
-                entreprise = new Entreprise(id, nom, email, nom_contact, email_contact, nb_employes, description, techno, teletravail);
+                entreprise = new Entreprise(id, NOM, EMAIL, NOM_CONTACT, EMAIL_CONTACT, NB_EMPLOYES, DESCRIPTION, TECHNO, TELETRAVAIL);
                 donnees.put(id, entreprise);
 
             } catch (SQLException e) {

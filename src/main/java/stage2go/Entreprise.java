@@ -31,7 +31,10 @@ public class Entreprise {
             this.description = description;
         }
 
-        public int getId() {
+    public Entreprise(int id, String nom, String email, String nomContact, String emailContact, String nbEmployes, String description, String techno, String teletravail) {
+    }
+
+    public int getId() {
             return id;
         }
 
