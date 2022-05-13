@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+         <children>
+            <AnchorPane layoutY="-7.0" prefHeight="144.0" prefWidth="1200.0" style="-fx-background-color: #44BBA4;">
+               <children>
+                  <ImageView fitHeight="144.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Downloads/Group%201%20(1).jpg" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="404.0" layoutY="35.0" mnemonicParsing="false" style="-fx-background-color: #44BBA4;" text="Ressources" textFill="#fcf8f8">
+                     <font>
+                        <Font name="System Bold" size="35.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="145.0" layoutY="35.0" mnemonicParsing="false" style="-fx-background-color: #44BBA4;" text="Accueil" textFill="#fcf8f8">
+                     <font>
+                        <Font name="System Bold" size="35.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="1108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Desktop/icons/icons8-sortie-96.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="743.0" layoutY="35.0" mnemonicParsing="false" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#fcf8f8">
+                     <font>
+                        <Font name="System Bold" size="35.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Button layoutX="491.0" layoutY="674.0" mnemonicParsing="false" text="Page suivante" textFill="#44bba4">
+               <effect>
+                  <ColorAdjust brightness="0.23" contrast="-0.05" hue="0.12" saturation="0.05" />
+               </effect>
+               <font>
+                  <Font name="Malgun Gothic Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="39.0" fitWidth="57.0" layoutX="600.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Stage2Go/src/main/resources/com/example/staggers/img/fleche.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="85.0" layoutX="88.0" layoutY="492.0" stroke="BLACK" strokeType="INSIDE" width="1069.0" />
+            <Text layoutX="340.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom/Prénom" wrappingWidth="302.0">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Text>
+      
+            <Label layoutX="578.0" layoutY="137.0" prefHeight="39.0" prefWidth="236.0" text="Liste des Stagiaires :">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="20.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="85.0" layoutX="88.0" layoutY="374.0" stroke="BLACK" strokeType="INSIDE" width="1069.0" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="68.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="77.0" fitWidth="101.0" layoutX="66.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/stagiaire1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="121.0" fitWidth="135.0" layoutX="65.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/stagiaire2.png" />
+         </image></ImageView>
+      <ImageView fitHeight="101.0" fitWidth="105.0" layoutX="86.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/stagiaire3.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="196.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom/Prénom" wrappingWidth="111.0" />
+      <Text layoutX="196.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom/Prénom" wrappingWidth="111.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="47.0" fitWidth="60.0" layoutX="379.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="91.0" fitWidth="105.0" layoutX="91.0" layoutY="489.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/stagiaire4.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="340.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom/Prénom" wrappingWidth="302.0">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="121.0" layoutX="66.0" layoutY="230.0" stroke="BLACK" strokeType="INSIDE" width="1095.0" />
+   </children>
+</AnchorPane>
