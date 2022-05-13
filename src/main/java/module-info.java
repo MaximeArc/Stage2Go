@@ -1,9 +1,11 @@
-module com.example.staggers {
+module com.example {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
 
 
-    opens com.example.staggers to javafx.fxml;
-    exports com.example.staggers;
+    opens com.example to javafx.fxml;
+    exports com.example;
+
+
 }

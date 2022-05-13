@@ -1,7 +1,5 @@
 package dao;
 
-import staggers.Utilisateur;
-
 import java.sql.*;
 
 public class Connexion {
