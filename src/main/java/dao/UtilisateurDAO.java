@@ -1,9 +1,11 @@
 package dao;
 
+import models.Entreprise;
 import models.Utilisateur;
 
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UtilisateurDAO extends DAO<Utilisateur> {
 
@@ -17,6 +19,8 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     private static final String EMAIL = "email";
     private static final String MOT_DE_PASSE = "mdp";
     private static final String EST_ADMIN = "admin";
+    private static final String LIEU_STAGE="lieu_stage";
+    private static final String ANNEE ="annee";
 
 
     private static UtilisateurDAO instance = null;
@@ -136,7 +140,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
                 String mot_de_passe = rs.getString(MOT_DE_PASSE);
                 boolean est_admin = rs.getBoolean(EST_ADMIN);
                 //String role = rs.getString(ROLE);
-                utilisateur = new Utilisateur(id, nom, prenom, email, mot_de_passe, est_admin);
+                //utilisateur = new Utilisateur(id, nom, prenom, email, mot_de_passe, est_admin);
                 donnees.put(id, utilisateur);
 
             } catch (SQLException e) {
@@ -146,5 +150,36 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         return utilisateur;
     }
 
+
+    public ArrayList<Utilisateur> readAll() {
+
+        Utilisateur utilisateur = null;
+        ArrayList<Utilisateur> listeUtilisateur =null;
+        try {
+            String requete = "SELECT * FROM " + TABLE;
+            ResultSet rs = Connexion.executeQuery(requete);
+            listeUtilisateur = new ArrayList<Utilisateur>();
+            boolean hasNext = rs.next();
+            while (hasNext) {
+                utilisateur = getUtilisateur(rs);
+                listeUtilisateur.add(utilisateur);
+                hasNext = rs.next();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listeUtilisateur;
+    }
+
+    private Utilisateur getUtilisateur(ResultSet rs) throws SQLException {
+        Utilisateur utilisateur;
+        String nom = rs.getString(NOM);
+        String prenom = rs.getString(PRENOM);
+        String email = rs.getString(EMAIL);
+        Integer lieu_stage = rs.getInt(LIEU_STAGE);
+        Date annee = rs.getDate(ANNEE);
+        utilisateur = new Utilisateur(nom, prenom, email, lieu_stage, annee);
+        return utilisateur;
+    }
 
 }

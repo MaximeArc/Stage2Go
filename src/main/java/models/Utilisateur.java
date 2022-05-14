@@ -11,22 +11,21 @@ public class Utilisateur {
     private String prenom;
     private Date date_naissance;
     private String email;
-    private String num_tel;
-    private boolean admis_stage;
-    private String sexe;
     private String mot_de_passe;
     private boolean est_admin;
-    private String role;
+    private int lieu_stage;
+    private Date annee;
 
 
-    public Utilisateur(int id,  String nom, String prenom,  String email,
-                       String mot_de_passe, boolean est_admin) {
-        this.id = id;
+
+
+
+    public Utilisateur(String nom, String prenom, String email, int lieu_stage, Date annee) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
-        this.mot_de_passe = mot_de_passe;
-        this.est_admin = est_admin;
+        this.lieu_stage = lieu_stage;
+        this.annee = annee;
     }
 
     public int getId() {
@@ -77,7 +76,7 @@ public class Utilisateur {
         this.email = email;
     }
 
-    public String getNum_tel() {
+  /*  public String getNum_tel() {
         return num_tel;
     }
 
@@ -99,7 +98,7 @@ public class Utilisateur {
 
     public void setSexe(String sexe) {
         this.sexe = sexe;
-    }
+    }*/
 
     public String getMot_de_passe() {
         return mot_de_passe;
@@ -117,12 +116,29 @@ public class Utilisateur {
         this.est_admin = est_admin;
     }
 
-    public String getRole() {
+ /*   public String getRole() {
         return role;
     }
 
     public void setRole(String role) {
         this.role = role;
+    }*/
+
+    public Date getAnnee() {
+        return annee;
+    }
+
+    public void setAnnee(Date annee) {
+        this.annee = annee;
+    }
+
+
+    public int getLieu_stage() {
+        return lieu_stage;
+    }
+
+    public void setLieu_stage(int lieu_stage) {
+        this.lieu_stage = lieu_stage;
     }
 
     @Override
@@ -134,12 +150,10 @@ public class Utilisateur {
                 ", prenom='" + prenom + '\'' +
                 ", date_naissance=" + date_naissance +
                 ", email='" + email + '\'' +
-                ", num_tel='" + num_tel + '\'' +
-                ", admis_stage=" + admis_stage +
-                ", sexe='" + sexe + '\'' +
+
                 ", mot_de_passe='" + mot_de_passe + '\'' +
                 ", est_admin=" + est_admin +
-                ", role='" + role + '\'' +
+
                 '}';
     }
 }

@@ -10,10 +10,8 @@ public class Entreprise {
         private String nom_contact;
         private String email_contact;
         private String description;
-
-
-
-    private int nb_employes;
+        private String ville;
+        private int nb_employes;
         private String techno;
         private String activites;
         private boolean teletravail;
@@ -21,7 +19,7 @@ public class Entreprise {
 
 
 
-    public Entreprise(String nom, String nom_contact, String email_contact, int nb_employes, String description, String techno, boolean teletravail, String activites) {
+    public Entreprise(String nom, String nom_contact, String email_contact, int nb_employes, String description, String techno, boolean teletravail, String activites, String ville) {
 
             this.nom = nom;
             this.nb_employes = nb_employes;
@@ -31,6 +29,7 @@ public class Entreprise {
             this.techno = techno;
             this.activites = activites;
             this.description = description;
+            this.ville = ville;
         }
 
         public int getId() {
@@ -91,7 +90,11 @@ public class Entreprise {
         public int getNb_employes() {return nb_employes;}
         public void setNb_employes(int nb_employes) {this.nb_employes = nb_employes;}
 
-        @Override
+        public String getVille() {return ville;}
+        public void setVille(String ville) {this.ville = ville;}
+
+
+    @Override
         public String toString() {
             return "Entreprise{" +
                     "id=" + id +

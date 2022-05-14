@@ -27,6 +27,7 @@ public class EntrepriseDAO extends DAO<Entreprise> {
     private static final String TECHNO ="techno";
     private static final String TELETRAVAIL ="teletravail";
     private static final String ACTIVITES = "activites";
+    private static final String VILLE = "ville";
 
     private static EntrepriseDAO instance = null;
 
@@ -77,8 +78,9 @@ public class EntrepriseDAO extends DAO<Entreprise> {
                 String techno = rs.getString(TECHNO);
                 boolean teletravail = rs.getBoolean(TELETRAVAIL);
                 String activites = rs.getString(ACTIVITES);
+                String ville = rs.getString(VILLE);
 
-                entreprise = new Entreprise(nom, nom_contact, email_contact, nb_employes, description, techno, teletravail, activites);
+                entreprise = new Entreprise(nom, nom_contact, email_contact, nb_employes, description, techno, teletravail, activites, ville);
                 donnees.put(id, entreprise);
 
             } catch (SQLException e) {
@@ -118,7 +120,8 @@ public class EntrepriseDAO extends DAO<Entreprise> {
         String activites = rs.getString(ACTIVITES);
         boolean teletravail = rs.getBoolean(TELETRAVAIL);
         String techno = rs.getString(TECHNO);
-        entreprise = new Entreprise(nom, nom_contact, email_contact, nb_employes, description, techno, teletravail, activites);
+        String ville = rs.getString(VILLE);
+        entreprise = new Entreprise(nom, nom_contact, email_contact, nb_employes, description, techno, teletravail, activites, ville);
         return entreprise;
     }
   /*  public ObservableList<Entreprise> data = FXCollections.observableArrayList();

@@ -36,7 +36,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Button>
-            <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="67.0" onAction="#OnExitClick" style="-fx-background-color: #44BBA4;">
+            <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" onAction="#OnExitClick" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #44BBA4;">
                <graphic>
                   <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -47,7 +47,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <Button layoutX="544.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterRessourceClick" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #44BBA4;" text="Ajouter un document" textFill="#393e41">
+      <Button layoutX="544.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterRessourceClick" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #44BBA4;" text="Ajouter un document" textFill="#fcf8f8">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
