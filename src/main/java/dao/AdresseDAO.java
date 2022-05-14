@@ -1,6 +1,6 @@
 package dao;
 
-import stage2go.Adresse;
+import models.Adresse;
 
 import java.sql.*;
 

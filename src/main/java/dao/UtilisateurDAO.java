@@ -1,6 +1,6 @@
 package dao;
 
-import stage2go.Utilisateur;
+import models.Utilisateur;
 
 
 import java.sql.*;

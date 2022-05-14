@@ -1,6 +1,6 @@
 package dao;
 
-import stage2go.Entreprise;
+import models.Entreprise;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
