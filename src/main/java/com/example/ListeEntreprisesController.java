@@ -38,7 +38,7 @@ public class ListeEntreprisesController extends NavigationController {
 
         ObservableList<Entreprise> data = FXCollections.observableArrayList(EntrepriseDAO.getInstance().readAll());
         nom.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("nom"));
-        technos.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("technos"));
+        technos.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("techno"));
         description.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("description"));
         nbEmployes.setCellValueFactory(new PropertyValueFactory<Entreprise, Integer>("nb_employes"));
         contact.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("nom_contact"));

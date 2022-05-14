@@ -10,7 +10,10 @@ public class Entreprise {
         private String nom_contact;
         private String email_contact;
         private String description;
-        private int nb_employes;
+
+
+
+    private int nb_employes;
         private String techno;
         private String activites;
         private boolean teletravail;
@@ -81,6 +84,12 @@ public class Entreprise {
 
         public String getTechno() { return techno; }
         public void setTechno(String techno) { this.techno = techno;}
+
+        public String getNom_contact() {return nom_contact;}
+        public void setNom_contact(String nom_contact) {this.nom_contact = nom_contact;}
+
+        public int getNb_employes() {return nb_employes;}
+        public void setNb_employes(int nb_employes) {this.nb_employes = nb_employes;}
 
         @Override
         public String toString() {
