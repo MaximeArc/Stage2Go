@@ -5,55 +5,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
-public class ListeRessourcesController {
-
-    Stage stage;
-    Parent root;
-    Scene scene;
+public class ListeRessourcesController extends NavigationController {
 
 
-    public void OnRessourcesClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("inscriptionEntreprise.fxml"));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void OnAccueilClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("listeEntreprises.fxml"));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void OnStagiaireClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("profil-stagiaire.fxml"));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void OnAjouterRessourceClick(ActionEvent actionEvent) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
-        fileChooser.showOpenDialog(stage);
-    }
-
-    public void OnExitClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 }
 
 

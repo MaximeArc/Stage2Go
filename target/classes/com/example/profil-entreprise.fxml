@@ -41,10 +41,10 @@
                 </Button>
                 <Text layoutX="426.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fiche" textAlignment="CENTER" wrappingWidth="93.578125">
                     <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font>
                 </Text>
-                <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="67.0" onAction="#OnExitClick" style="-fx-background-color: #44BBA4;">
+                <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" onAction="#OnExitClick" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #44BBA4;">
                     <graphic>
                         <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                             <image>

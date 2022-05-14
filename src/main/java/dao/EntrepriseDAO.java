@@ -1,15 +1,24 @@
 package dao;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.AccessibleRole;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import models.Entreprise;
+
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class EntrepriseDAO extends DAO<Entreprise> {
 
     private static final String TABLE = "ENTREPRISE";
     private static final String CLE_PRIMAIRE = "id";
-
     private static final String NOM = "nom";
     private static final String NOM_CONTACT = "nom_contact";
     private static final String EMAIL_CONTACT = "email_contact";
@@ -17,6 +26,7 @@ public class EntrepriseDAO extends DAO<Entreprise> {
     private static final String DESCRIPTION = "description";
     private static final String TECHNO ="techno";
     private static final String TELETRAVAIL ="teletravail";
+    private static final String ACTIVITES = "activites";
 
     private static EntrepriseDAO instance = null;
 
@@ -66,8 +76,9 @@ public class EntrepriseDAO extends DAO<Entreprise> {
                 String description = rs.getString(DESCRIPTION);
                 String techno = rs.getString(TECHNO);
                 boolean teletravail = rs.getBoolean(TELETRAVAIL);
+                String activites = rs.getString(ACTIVITES);
 
-                entreprise = new Entreprise(nom, nom_contact, email_contact, nb_employes, description, techno, teletravail);
+                entreprise = new Entreprise(nom, nom_contact, email_contact, nb_employes, description, techno, teletravail, activites);
                 donnees.put(id, entreprise);
 
             } catch (SQLException e) {
@@ -76,4 +87,56 @@ public class EntrepriseDAO extends DAO<Entreprise> {
         }
         return entreprise;
     }
+
+
+    public ArrayList<Entreprise> readAll() {
+        Entreprise entreprise = null;
+        ArrayList<Entreprise> listeEntreprise =null;
+        try {
+            String requete = "SELECT * FROM " + TABLE;
+            ResultSet rs = Connexion.executeQuery(requete);
+            listeEntreprise = new ArrayList<Entreprise>();
+            boolean hasNext = rs.next();
+            while (hasNext) {
+                entreprise = getEntreprise(rs);
+                listeEntreprise.add(entreprise);
+                hasNext = rs.next();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listeEntreprise;
+    }
+
+    private Entreprise getEntreprise(ResultSet rs) throws SQLException {
+        Entreprise entreprise;
+        String nom = rs.getString(NOM);
+        String nom_contact = rs.getString(NOM_CONTACT);
+        String email_contact = rs.getString(EMAIL_CONTACT);
+        Integer nb_employes = rs.getInt(NB_EMPLOYES);
+        String description = rs.getString(DESCRIPTION);
+        String activites = rs.getString(ACTIVITES);
+        boolean teletravail = rs.getBoolean(TELETRAVAIL);
+        String techno = rs.getString(TECHNO);
+        entreprise = new Entreprise(nom, nom_contact, email_contact, nb_employes, description, techno, teletravail, activites);
+        return entreprise;
+    }
+  /*  public ObservableList<Entreprise> data = FXCollections.observableArrayList();
+
+    public ObservableList<Entreprise> readAll() {
+        try {
+            String requete = "SELECT * FROM " + TABLE;
+            PreparedStatement stat = Connexion.getInstance().prepareStatement(requete);
+            ResultSet rs = stat.executeQuery();
+            while (rs.next()) {
+            data.add(new Entreprise(rs.getString("nom"),rs.getString("nom_contact"),rs.getString("email_contact"),rs.getInt("nb_employes"),rs.getString("description"),rs.getString("techno"),rs.getBoolean("teletravail")));
+            }
+            stat.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }*/
+
+
 }

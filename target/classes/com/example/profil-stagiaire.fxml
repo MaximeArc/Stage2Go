@@ -39,7 +39,7 @@
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="67.0" onAction="#OnExitClick" style="-fx-background-color: #44BBA4;">
+                <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" onAction="#OnExitClick" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #44BBA4;">
                     <graphic>
                         <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -65,12 +65,12 @@
         <TextField layoutX="734.0" layoutY="331.0" prefHeight="44.0" prefWidth="189.0" promptText="Filière" />
         <CheckBox layoutX="734.0" layoutY="530.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="91.0" text="Diplomé" />
         <TextField layoutX="734.0" layoutY="460.0" prefHeight="44.0" prefWidth="189.0" promptText="Linkedin" />
-      <Button layoutX="397.0" layoutY="159" mnemonicParsing="false" onAction="#OnListeStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Liste des stagiaires" textFill="#393e41">
+      <Button layoutX="397.0" layoutY="159" mnemonicParsing="false" onAction="#OnListeStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Liste des stagiaires" textFill="#fcf8f8">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="678.0" layoutY="159" mnemonicParsing="false" onAction="#OnAjouterStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Ajouter un stagiaire" textFill="#393e41">
+      <Button layoutX="678.0" layoutY="159" mnemonicParsing="false" onAction="#OnAjouterStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Ajouter un stagiaire" textFill="#fcf8f8">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

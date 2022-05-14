@@ -9,18 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LoginController {
+public class LoginController extends NavigationController{
 
 
-    Stage stage;
-    Parent root;
-    Scene scene;
-
-    public void OnStagiaireClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("listeEntreprises.fxml"));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 }

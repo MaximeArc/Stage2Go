@@ -40,12 +40,7 @@
                                 <Font name="System Bold" size="24.0" />
                             </font>
                         </Button>
-                        <Text layoutX="426.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter" textAlignment="CENTER" wrappingWidth="93.578125">
-                            <font>
-                                <Font size="20.0" />
-                            </font>
-                        </Text>
-                        <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="67.0" onAction="#OnExitClick" style="-fx-background-color: #44BBA4;">
+                        <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" onAction="#OnExitClick" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #44BBA4;">
                             <graphic>
                                 <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -112,5 +107,10 @@
               </ImageView>
             </children>
         </AnchorPane>
+      <Button layoutX="544.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterEntrepriseClick" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #44BBA4;" text="Ajouter une entreprise" textFill="#393e41">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
