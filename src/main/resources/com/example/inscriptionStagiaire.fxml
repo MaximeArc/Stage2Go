@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,99 +8,115 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.InscriptionStagiaireController">
     <children>
-        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <AnchorPane layoutY="-4.0" prefHeight="144.0" prefWidth="1200.0" style="-fx-background-color: #44BBA4;">
             <children>
-                <AnchorPane layoutY="-4.0" prefHeight="144.0" prefWidth="1200.0" style="-fx-background-color: #44BBA4;">
-                    <children>
-                        <ImageView fitHeight="144.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="144.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../img/LOGO_OK.jpg" />
+                    </image>
+                </ImageView>
+                <Button layoutX="600.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnRessourcesClick" style="-fx-background-color: #44BBA4;" text="Ressources" textFill="#fcf8f8">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Button>
+                <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprise" textFill="#fcf8f8">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Button>
+                <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="1108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../../../../../../Desktop/icons/icons8-sortie-96.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="800.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnStagiaireClick" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#fcf8f8">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Button>
+            <Text layoutX="819.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter" textAlignment="CENTER" wrappingWidth="93.578125">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+                <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="67.0" onAction="#OnExitClick" style="-fx-background-color: #44BBA4;">
+                    <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../img/LOGO_OK.jpg" />
+                                <Image url="@../../img/exit-logout-2857.png" />
                             </image>
                         </ImageView>
-                        <Button layoutX="734.0" layoutY="48.0" mnemonicParsing="false" style="-fx-background-color: #44BBA4;" text="Ressources" textFill="#fcf8f8">
-                            <font>
-                                <Font name="System Bold" size="24.0" />
-                            </font>
-                        </Button>
-                        <Button layoutX="600.0" layoutY="48.0" mnemonicParsing="false" style="-fx-background-color: #44BBA4;" text="Accueil" textFill="#fcf8f8">
-                            <font>
-                                <Font name="System Bold" size="24.0" />
-                            </font>
-                        </Button>
-                        <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="1108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../../../../../../../Desktop/icons/icons8-sortie-96.png" />
-                            </image>
-                        </ImageView>
-                        <Button layoutX="904.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#fcf8f8">
-                            <font>
-                                <Font name="System Bold" size="24.0" />
-                            </font>
-                        </Button>
-                    </children>
-                </AnchorPane>
-              <Label layoutX="547.0" layoutY="158.0" prefHeight="44.0" prefWidth="307.0" text="INSCRIPTION ENTREPRISE" textAlignment="CENTER">
-                  <font>
-                      <Font name="System Bold" size="22.0" />
-                  </font>
-              </Label>
-              <Text layoutX="367.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activité ">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-              <TextField alignment="TOP_CENTER" layoutX="364.0" layoutY="363.0" prefHeight="25.0" prefWidth="215.0" promptText="Activité" />
-              <Text layoutX="856.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre d'employés">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-              <TextField alignment="TOP_CENTER" layoutX="853.0" layoutY="276.0" prefHeight="25.0" prefWidth="149.0" promptText="Nombre d'employés" />
-              <TextField alignment="TOP_CENTER" layoutX="363.0" layoutY="278.0" prefHeight="25.0" prefWidth="215.0" promptText="Nom" />
-              <Text layoutX="363.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-              <Text layoutX="364.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-              <TextField alignment="CENTER" layoutX="364.0" layoutY="528.0" prefHeight="79.0" prefWidth="215.0" promptText="Description" />
-              <Text layoutX="366.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Techno(s) :">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-              <TextField alignment="TOP_CENTER" layoutX="366.0" layoutY="449.0" prefHeight="25.0" prefWidth="215.0" promptText="Techno(s)" />
-              <Button layoutX="612.0" layoutY="676.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: #ffae00;" text="Valider" />
-            <Text layoutX="856.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du contact">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <TextField alignment="TOP_CENTER" layoutX="853.0" layoutY="361.0" prefHeight="25.0" prefWidth="149.0" promptText="Nom du contact" />
-            <Text layoutX="856.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email du contact">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <TextField alignment="TOP_CENTER" layoutX="853.0" layoutY="447.0" prefHeight="25.0" prefWidth="149.0" promptText="Email du contact" />
-            <Text layoutX="854.0" layoutY="533.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Télétravail">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <CheckBox layoutX="939.0" layoutY="520.0" mnemonicParsing="false" />
-              <ImageView fitHeight="127.0" fitWidth="133.0" layoutX="78.0" layoutY="220.0">
-                  <image>
-                      <Image url="@../../img/company.png" />
-                  </image>
-              </ImageView>
+                    </graphic>
+                </Button>
             </children>
         </AnchorPane>
+        <TextField alignment="TOP_CENTER" layoutX="332.0" layoutY="247.0" prefHeight="51.0" prefWidth="249.0" promptText="Nom">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+        <Text layoutX="332.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom :" wrappingWidth="100.0">
+         <font>
+            <Font size="20.0" />
+         </font></Text>
+        <Text layoutX="664.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prenom :">
+         <font>
+            <Font size="20.0" />
+         </font></Text>
+        <TextField alignment="TOP_CENTER" layoutX="664.0" layoutY="247.0" prefHeight="51.0" prefWidth="249.0" promptText="Prenom">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+        <Text layoutX="332.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail :">
+         <font>
+            <Font size="20.0" />
+         </font></Text>
+        <TextField alignment="TOP_CENTER" layoutX="332.0" layoutY="353.0" prefHeight="51.0" prefWidth="249.0" promptText="Mail">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+        <Text layoutX="664.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filiere :">
+         <font>
+            <Font size="20.0" />
+         </font></Text>
+        <TextField alignment="TOP_CENTER" layoutX="667.0" layoutY="353.0" prefHeight="51.0" prefWidth="243.0" promptText="Filiere">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+        <Text layoutX="667.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Année du diplome :">
+         <font>
+            <Font size="20.0" />
+         </font></Text>
+        <TextField alignment="TOP_CENTER" layoutX="667.0" layoutY="456.0" prefHeight="51.0" prefWidth="243.0" promptText="Année de diplome">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+        <Button layoutX="666.0" layoutY="557.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="243.0" style="-fx-background-color: #ffae00;" text="Créer compte">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
+        <Text layoutX="332.0" layoutY="442.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe :">
+         <font>
+            <Font size="20.0" />
+         </font></Text>
+        <TextField alignment="TOP_CENTER" layoutX="332.0" layoutY="456.0" prefHeight="51.0" prefWidth="249.0" promptText="Mot de passe">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+        <Text layoutX="334.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmation mot de passe :">
+         <font>
+            <Font size="20.0" />
+         </font></Text>
+        <TextField alignment="TOP_CENTER" layoutX="332.0" layoutY="557.0" prefHeight="51.0" prefWidth="249.0" promptText="Mot de passe">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+        <ImageView layoutX="14.0" layoutY="137.0">
+            <image>
+                <Image url="@../../../images/icons8-utilisateur-100.png" />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>

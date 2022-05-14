@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ListeEntreprisesController">
+    <children>
+        <AnchorPane layoutY="-4.0" prefHeight="144.0" prefWidth="1200.0" style="-fx-background-color: #44BBA4;">
+            <children>
+                <ImageView fitHeight="144.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../img/LOGO_OK.jpg" />
+                    </image>
+                </ImageView>
+                <Button layoutX="600.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnRessourcesClick" style="-fx-background-color: #44BBA4;" text="Ressources" textFill="#fcf8f8">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Button>
+                <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprise" textFill="#393e41">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Button>
+                <Button layoutX="800.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnStagiaireClick" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#fcf8f8">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Button>
+            <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="67.0"  onAction="#OnExitClick" style="-fx-background-color: #44BBA4;">
+               <graphic>
+                      <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../../img/exit-logout-2857.png" />
+                          </image>
+                      </ImageView>
+               </graphic>
+            </Button>
+            </children>
+        </AnchorPane>
+      <Button layoutX="544.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterEntrepriseClick" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #44BBA4;" text="Ajouter une entreprise" textFill="#393e41">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="910.0" layoutY="323.0" mnemonicParsing="false" onAction="#OnFicheEntrepriseClick" prefHeight="44.0" prefWidth="35.0" style="-fx-background-color: #44BBA4;" textFill="#393e41">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/view-more-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="910.0" layoutY="378.0" mnemonicParsing="false" onAction="#OnFicheEntrepriseClick" prefHeight="44.0" prefWidth="35.0" style="-fx-background-color: #44BBA4;" textFill="#393e41">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/view-more-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="910.0" layoutY="431.0" mnemonicParsing="false" onAction="#OnFicheEntrepriseClick" prefHeight="44.0" prefWidth="35.0" style="-fx-background-color: #44BBA4;" textFill="#393e41">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/view-more-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="910.0" layoutY="489.0" mnemonicParsing="false" onAction="#OnFicheEntrepriseClick" prefHeight="44.0" prefWidth="35.0" style="-fx-background-color: #44BBA4;" textFill="#393e41">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/view-more-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="910.0" layoutY="544.0" mnemonicParsing="false" onAction="#OnFicheEntrepriseClick" prefHeight="44.0" prefWidth="35.0" style="-fx-background-color: #44BBA4;" textFill="#393e41">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/view-more-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+            </children>
+        </AnchorPane>
