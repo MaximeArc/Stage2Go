@@ -1,16 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.staggers.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello Aurelia!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: #44BBA4;">
+         <children>
+            <Button layoutX="162.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: #44BBA4;" text="Home" textFill="#fcf8f8">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="257.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: #44BBA4;" text="Ressources" textFill="#fcf8f8">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="361.0" layoutY="23.0" mnemonicParsing="false" style="-fx-background-color: #44BBA4;" text="Entreprise" textFill="#fcf8f8">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="548.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Desktop/icons/close.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="73.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/Group%201%20(1).jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="96.0" fitWidth="78.0" layoutX="33.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../Desktop/icons/avatarGM.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="141.0" layoutY="152.0" promptText="Nom" />
+      <TextField layoutX="141.0" layoutY="185.0" promptText="Prenom" />
+      <TextField layoutX="141.0" layoutY="218.0" promptText="Email" />
+      <TextArea layoutX="37.0" layoutY="321.0" prefHeight="58.0" prefWidth="526.0" promptText="Commentaires" />
+      <Label layoutX="40.0" layoutY="286.0" prefHeight="17.0" prefWidth="91.0" text="Lieu de stage :" />
+      <TextField layoutX="141.0" layoutY="282.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField layoutX="384.0" layoutY="185.0" prefHeight="25.0" prefWidth="183.0" promptText="Année" />
+      <Text layoutX="230.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profil Stagiaire">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <TextField layoutX="384.0" layoutY="152.0" prefHeight="25.0" prefWidth="183.0" promptText="Filière" />
+      <CheckBox layoutX="384.0" layoutY="286.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="91.0" text="Diplomé" />
+      <TextField layoutX="384.0" layoutY="218.0" prefHeight="25.0" prefWidth="183.0" promptText="Linkedin" />
+   </children>
+</AnchorPane>

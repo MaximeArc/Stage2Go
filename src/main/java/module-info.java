@@ -4,6 +4,6 @@ module com.example.staggers {
     requires java.sql;
 
 
-    opens com.example.staggers to javafx.fxml;
-    exports com.example.staggers;
+    opens com.example.stage2go to javafx.fxml;
+    exports com.example.stage2go;
 }

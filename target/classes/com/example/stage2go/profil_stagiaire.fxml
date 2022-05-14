@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutY="-4.0" prefHeight="144.0" prefWidth="1200.0" style="-fx-background-color: #44BBA4;">
+         <children>
+            <ImageView fitHeight="144.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/logo.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="734.0" layoutY="48.0" mnemonicParsing="false" style="-fx-background-color: #44BBA4;" text="Ressources" textFill="#fcf8f8">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <Button layoutX="600.0" layoutY="48.0" mnemonicParsing="false" style="-fx-background-color: #44BBA4;" text="Accueil" textFill="#fcf8f8">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="1108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icons8-sortie-96.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="904.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#fcf8f8">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="112.0" fitWidth="132.0" layoutX="116.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/avatarGM.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="nom" layoutX="326.0" layoutY="286.0" prefHeight="25.0" prefWidth="261.0" promptText="Nom" />
+      <TextField fx:id="email" layoutX="326.0" layoutY="367.0" prefHeight="25.0" prefWidth="261.0" promptText="Email" />
+      <TextField fx:id="prenom" layoutX="326.0" layoutY="328.0" prefHeight="25.0" prefWidth="261.0" promptText="Prenom" />
+      <TextField fx:id="annee" layoutX="756.0" layoutY="288.0" prefHeight="25.0" prefWidth="261.0" promptText="Filière" />
+      <TextField fx:id="annee1" layoutX="756.0" layoutY="330.0" prefHeight="25.0" prefWidth="261.0" promptText="Année" />
+      <TextField fx:id="annee11" layoutX="756.0" layoutY="369.0" prefHeight="25.0" prefWidth="261.0" promptText="Linkedin" />
+      <TextField fx:id="lieu_stage" layoutX="326.0" layoutY="435.0" prefHeight="25.0" prefWidth="261.0" />
+      <CheckBox fx:id="diplome" layoutX="756.0" layoutY="439.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="91.0" text="Diplomé" />
+      <TextArea fx:id="commentaires" layoutX="122.0" layoutY="508.0" prefHeight="75.0" prefWidth="913.0" promptText="Commentaires" />
+      <Label layoutX="326.0" layoutY="413.0" text="Lieu de stage :" />
+      <Text layoutX="520.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profil Stagiaire">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="122.0" layoutY="634.0" prefHeight="144.0" prefWidth="913.0">
+         <children>
+            <TextField fx:id="prenom1" layoutX="21.0" layoutY="14.0" prefHeight="25.0" prefWidth="878.0" promptText="Nom de l'entreprise" />
+            <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="866.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/poubelle.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="838.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/poubelle.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="122.0" layoutY="605.0" text="Favoris">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
