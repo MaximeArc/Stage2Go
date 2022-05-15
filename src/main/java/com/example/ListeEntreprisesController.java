@@ -3,18 +3,13 @@ package com.example;
 import dao.EntrepriseDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import javafx.fxml.FXML;
-
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-import javafx.scene.layout.VBox;
 import models.Entreprise;
 
 
-public class ListeEntreprisesController extends NavigationController {
+public class ListeEntreprisesController extends Controller {
 
 
     @FXML private TableView<Entreprise> table;
@@ -27,9 +22,10 @@ public class ListeEntreprisesController extends NavigationController {
     //@FXML private TableColumn<Entreprise, String> mail;
     //@FXML private TableColumn<Entreprise, Boolean> teletravail;
     @FXML private TableColumn<Entreprise, String> ville;
+    @FXML private Button addBtn;
 
-    @FXML private TableView tableView;
-    @FXML private Label test;
+
+
 
     private void viewTable(){
 
@@ -44,16 +40,15 @@ public class ListeEntreprisesController extends NavigationController {
         activites.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("activites"));
         ville.setCellValueFactory(new PropertyValueFactory<Entreprise,String>("ville"));
 
-
         table.setItems((ObservableList<Entreprise>) data);
-
     }
+
 
 
 
     public void initialize(){
         viewTable();
-
+        hideButton(addBtn);
     }
 
 

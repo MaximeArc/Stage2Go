@@ -6,18 +6,22 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import models.Utilisateur;
 
 import java.io.IOException;
 import java.util.Optional;
 
-public class NavigationController {
+public class Controller {
 
     Stage stage;
     Parent root;
     Scene scene;
+
+    static Utilisateur connectedUser ; //new Utilisateur(2,"Max","Max","Max","mdp",false,2002,2);;
 
 
     public void OnRessourcesClick(ActionEvent actionEvent) throws IOException {
@@ -75,14 +79,14 @@ public class NavigationController {
         stage.setScene(scene);
         stage.show();
     }
-
+/*
     public void OnLoginClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("listeEntreprises.fxml"));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
+    }*/
 
     public void OnAjouterRessourceClick(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
@@ -104,6 +108,12 @@ public class NavigationController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    void hideButton(Button button){
+        if (!connectedUser.isEst_admin()){
+            button.setVisible(false);
+        }
     }
 
 }

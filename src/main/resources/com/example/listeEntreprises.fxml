@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -44,7 +43,7 @@
             </Button>
             </children>
         </AnchorPane>
-      <Button layoutX="544.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterEntrepriseClick" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #44BBA4;" text="Ajouter une entreprise" textFill="#fcf8f8">
+      <Button fx:id="addBtn" layoutX="544.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterEntrepriseClick" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #44BBA4;" text="Ajouter une entreprise" textFill="#fcf8f8">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -69,6 +68,5 @@
             <TableColumn fx:id="ville" prefWidth="232.0" text="Ville" />
         </columns>
       </TableView>
-      <Label fx:id="test" layoutX="138.0" layoutY="170.0" prefHeight="28.0" prefWidth="166.0" />
             </children>
         </AnchorPane>

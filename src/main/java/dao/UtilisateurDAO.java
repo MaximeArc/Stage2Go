@@ -13,7 +13,6 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     private static final String TABLE = "UTILISATEUR";
     private static final String CLE_PRIMAIRE = "id";
 
-    private static final String PROMO = "promo";
     private static final String NOM = "nom";
     private static final String PRENOM = "prenom";
     private static final String EMAIL = "email";
@@ -41,7 +40,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     public boolean create(Utilisateur obj) {
         boolean success = true;
         try {
-            String requete = "INSERT INTO " + TABLE + " (" + PROMO + "," + NOM + "," + PRENOM + "," + EMAIL + "," +
+            String requete = "INSERT INTO " + TABLE + " (" + NOM + "," + PRENOM + "," + EMAIL + "," +
                     ","  + MOT_DE_PASSE + "," + EST_ADMIN +  ") " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
@@ -94,7 +93,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         boolean success = true;
         int id = obj.getId();
         try {
-            String requete = "UPDATE " + TABLE + " SET " + PROMO + " = ?, " + NOM + " = ?, " + PRENOM + " = ? , "  + EMAIL + " = ?, "  + MOT_DE_PASSE + " = ?, " + EST_ADMIN + " = ? WHERE " + CLE_PRIMAIRE + " = ?";
+            String requete = "UPDATE " + TABLE + " SET "  + " = ?, " + NOM + " = ?, " + PRENOM + " = ? , "  + EMAIL + " = ?, "  + MOT_DE_PASSE + " = ?, " + EST_ADMIN + " = ? WHERE " + CLE_PRIMAIRE + " = ?";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
             // pst.setInt(1, obj.getPromo());
             pst.setString(2, obj.getNom());
@@ -177,5 +176,31 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         utilisateur = new Utilisateur(nom, prenom, email, lieu_stage, annee);
         return utilisateur;
     }
+
+    public static Utilisateur getUtilisateurByMail(String mail){
+        Utilisateur utilisateur = null;
+            System.out.println("Recherche dans la BD");
+            try {
+                String requete = "SELECT * FROM " + TABLE + " WHERE " + EMAIL + "='" + mail + "'";
+                ResultSet rs = Connexion.executeQuery(requete);
+                rs.next();
+                System.out.println(rs);
+
+                String nom = rs.getString(NOM);
+                String prenom = rs.getString(PRENOM);
+                String email = rs.getString(EMAIL);
+                String mot_de_passe = rs.getString(MOT_DE_PASSE);
+                boolean est_admin = rs.getBoolean(EST_ADMIN);
+                Integer annee = rs.getInt(ANNEE);
+                int lieu_stage=rs.getInt(LIEU_STAGE);
+                Integer id = rs.getInt(CLE_PRIMAIRE);
+                utilisateur = new Utilisateur(id, nom, prenom, email, mot_de_passe, est_admin, annee, lieu_stage);
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        return utilisateur;
+    }
+
 
 }

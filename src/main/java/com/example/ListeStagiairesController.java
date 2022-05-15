@@ -12,10 +12,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import models.Utilisateur;
 
-import java.util.Date;
 
-
-public class ListeStagiairesController extends NavigationController {
+public class ListeStagiairesController extends Controller {
 
 
     @FXML

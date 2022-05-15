@@ -1,28 +1,19 @@
 package com.example;
 
 import dao.UtilisateurDAO;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.control.*;
 import models.Utilisateur;
 
-import java.io.IOException;
-import java.util.Optional;
-
-public class ProfilStagiaireController extends NavigationController {
+public class ProfilStagiaireController extends Controller {
 
     @FXML private TextField nom;
     @FXML private TextField prenom;
     @FXML private TextField mail;
     @FXML private TextField annee;
+    @FXML private Button addStagiaire;
+    @FXML private Button listeStagiaire;
+
 
 
 
@@ -33,7 +24,7 @@ public class ProfilStagiaireController extends NavigationController {
     private String anneeToString;
 
     private void viewData(){
-        Utilisateur utilisateur = UtilisateurDAO.getInstance().read(1);
+        Utilisateur utilisateur = UtilisateurDAO.getInstance().read(connectedUser.getId());
 
         nomUtilisateur=utilisateur.getNom();
         prenomUtilisateur=utilisateur.getPrenom();
@@ -49,6 +40,8 @@ public class ProfilStagiaireController extends NavigationController {
     }
 
     public void initialize(){
+        hideButton(listeStagiaire);
+        hideButton(addStagiaire);
         viewData();
 
     }

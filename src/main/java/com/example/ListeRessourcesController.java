@@ -1,21 +1,16 @@
 package com.example;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
-import java.io.IOException;
-import java.util.Optional;
+public class ListeRessourcesController extends Controller {
 
-public class ListeRessourcesController extends NavigationController {
+    @FXML private Button addDoc;
 
 
+    public void initialize(){
+        hideButton(addDoc);
+    }
 }
 
 

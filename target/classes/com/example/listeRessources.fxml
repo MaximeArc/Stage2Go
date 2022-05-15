@@ -47,7 +47,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <Button layoutX="544.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterRessourceClick" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #44BBA4;" text="Ajouter un document" textFill="#fcf8f8">
+      <Button fx:id="addDoc" layoutX="544.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterRessourceClick" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #44BBA4;" text="Ajouter un document" textFill="#fcf8f8">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
