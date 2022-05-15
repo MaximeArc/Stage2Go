@@ -121,7 +121,6 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     public Utilisateur read(int id) {
         Utilisateur utilisateur = null;
         if (donnees.containsKey(id)) {
-            System.out.println("récupéré");
             utilisateur = donnees.get(id);
         } else {
             System.out.println("Recherche dans la BD");
@@ -129,18 +128,14 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
                 String requete = "SELECT * FROM " + TABLE + " WHERE " + CLE_PRIMAIRE + " = " + id;
                 ResultSet rs = Connexion.executeQuery(requete);
                 rs.next();
-                //int promo = rs.getInt(PROMO);
                 String nom = rs.getString(NOM);
                 String prenom = rs.getString(PRENOM);
-                // Date date_naissance = rs.getDate(DATE_NAISSANCE);
                 String email = rs.getString(EMAIL);
-                // String num_tel = rs.getString(NUM_TEL);
-                //boolean admis_stage = rs.getBoolean(ADMIS_STAGE);
-                //String sexe = rs.getString(SEXE);
                 String mot_de_passe = rs.getString(MOT_DE_PASSE);
                 boolean est_admin = rs.getBoolean(EST_ADMIN);
-                //String role = rs.getString(ROLE);
-                //utilisateur = new Utilisateur(id, nom, prenom, email, mot_de_passe, est_admin);
+                Integer annee = rs.getInt(ANNEE);
+                int lieu_stage=rs.getInt(LIEU_STAGE);
+                utilisateur = new Utilisateur(id, nom, prenom, email, mot_de_passe, est_admin, annee, lieu_stage);
                 donnees.put(id, utilisateur);
 
             } catch (SQLException e) {
@@ -156,7 +151,8 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         Utilisateur utilisateur = null;
         ArrayList<Utilisateur> listeUtilisateur =null;
         try {
-            String requete = "SELECT * FROM " + TABLE;
+            String requete = "SELECT * FROM " + TABLE +
+                            " JOIN ENTREPRISE E ON UTILISATEUR.lieu_stage= E.id WHERE admin=0";
             ResultSet rs = Connexion.executeQuery(requete);
             listeUtilisateur = new ArrayList<Utilisateur>();
             boolean hasNext = rs.next();
@@ -177,7 +173,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         String prenom = rs.getString(PRENOM);
         String email = rs.getString(EMAIL);
         Integer lieu_stage = rs.getInt(LIEU_STAGE);
-        Date annee = rs.getDate(ANNEE);
+        int annee = rs.getInt(ANNEE);
         utilisateur = new Utilisateur(nom, prenom, email, lieu_stage, annee);
         return utilisateur;
     }

@@ -44,7 +44,7 @@ public class Connexion {
         return rs;
     }
 
-    public static void fermer() {
+    public static void close() {
         try {
             getInstance().close();
             System.out.println("deconnexion ok");
