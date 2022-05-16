@@ -89,7 +89,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         boolean success = true;
         int id = obj.getId();
         try {
-            String requete = "UPDATE " + TABLE + " SET"  + "= ?, " + NOM + " = ?, " + PRENOM + " = ? , "  + EMAIL + " = ?, "  + MOT_DE_PASSE + " = ?, " + EST_ADMIN + " = ? WHERE " + CLE_PRIMAIRE + " = ?";
+            String requete = "UPDATE " + TABLE + " SET " + NOM + " = ?, " + PRENOM + " = ? , "  + EMAIL + " = ?, "  + MOT_DE_PASSE + " = ?, " + EST_ADMIN + " = ? WHERE " + CLE_PRIMAIRE + " = ?";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
 
             pst.setString(1, obj.getNom());
@@ -157,7 +157,8 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         Utilisateur utilisateur = null;
 
         try {
-            String request = "SELECT * FROM" + TABLE + "WHERE" + EMAIL + "='" + mail + "'";
+            String request = "SELECT * FROM " + TABLE + " WHERE " + EMAIL + "='" + mail + "'";
+            //TODO preparedStatmt
             ResultSet rs = Connexion.executeQuery(request);
             rs.next();
             System.out.println(rs);
