@@ -1,17 +1,20 @@
 #  :rocket: STAGE2GO
 
 # Table des matières
-1. [Description](#Description)
-2. [Objectif](#Objectif)
-3. [Langages](#Langages)
-4. [Statut](#Statut)
-5. [Contexte](#Contexte)
-6. [Developpeurs](#Developpeurs)
+1. [Illustration](#Illustration)
+2. [Description](#Description)
+3. [Objectif](#Objectif)
+4. [Langages](#Langages)
+5. [Statut](#Statut)
+6. [Contexte](#Contexte)
+7. [Developpeurs](#Developpeurs)
 
 
-![illustration]()
+## 1. Illustration <a id="Illustration"> </a>
+![illustration](screenshot1.png)
+![illustration](screenshot2.png)
 
-##  1. Description <a id="Description"> </a>
+##  2. Description <a id="Description"> </a>
 Nous cherchons à développer une application permettant de recenser les différentes entreprises ayant déjà accepté d’anciens stagiaires du GRETA afin de faciliter les recherches des stagiaires de l’année en cours.
 Cet outil est interne au GRETA de Vannes et n'a pas vocation à servir de plateforme d'échange direct entre les entreprises et les stagiaires. Il permet uniquement d’accéder à des ressources informatives.
 
@@ -44,7 +47,13 @@ elle pourra être également utilisée par l’ensemble du personnel administrat
 
 
 ## 3. Objectif <a id="Objectif"> </a>
-
+- Découvrir le langage Java
+- Mettre en place un projet Maven
+- Découvrir la programmation orientée objet
+- Utiliser le patron de conception MVC
+- Utiliser le design pattern Singleton
+- Gérer la connection avec la base de données
+- Créer une application web sécurisée 
 
 
 ## 4. Langages/Outils <a id="Langages"> </a>
