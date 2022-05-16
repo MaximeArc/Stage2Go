@@ -19,7 +19,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
         Scene scene = new Scene(root);
         stage.initStyle(StageStyle.DECORATED);
-        //stage.setResizable(false);
+        stage.setResizable(false);
 
         root.setOnMousePressed(evt ->{
             x=evt.getSceneX();
