@@ -11,6 +11,7 @@ import models.Entreprise;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +45,33 @@ public class EntrepriseDAO extends DAO<Entreprise> {
 
     @Override
     public boolean create(Entreprise obj) {
-        return false;
+        boolean success = true;
+        try {
+            String requete = "INSERT INTO " + TABLE + " (" + NOM + "," + NOM_CONTACT + "," + EMAIL_CONTACT + ","
+                    + NB_EMPLOYES + "," + DESCRIPTION + "," + TECHNO + "," + TELETRAVAIL + "," + ACTIVITES + ","
+                    + VILLE + ")" + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+            PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
+            pst.setString(1, obj.getNom());
+            pst.setString(2, obj.getNomContact());
+            pst.setString(3, obj.getEmail_contact());
+            pst.setInt(4, obj.getNb_employes());
+            pst.setString(5, obj.getDescription());
+            pst.setString(6, obj.getTechno());
+            pst.setBoolean(7, obj.isTeletravail());
+            pst.setString(8, obj.getActivites());
+            pst.setString(9, obj.getVille());
+            pst.executeUpdate();
+            ResultSet rs = pst.getGeneratedKeys();
+            if (rs.next()) {
+                obj.setId(rs.getInt(1));
+            }
+            donnees.put(obj.getId(), obj);
+        } catch (SQLException e) {
+            success = false;
+            e.printStackTrace();
+        }
+        return success;
     }
 
     @Override

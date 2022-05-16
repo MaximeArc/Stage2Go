@@ -14,14 +14,22 @@ import models.Utilisateur;
 import java.io.IOException;
 import java.util.Optional;
 
+
+/*
+Controller principal qui regroupe les methodes utiles dans toute l'application
+*/
+
 public class Controller {
 
     Stage stage;
     Parent root;
     Scene scene;
 
-    static Utilisateur connectedUser ; //new Utilisateur(2,"Max","Max","Max","mdp",false,2002,2);;
+    static Utilisateur connectedUser ;  /* <--- Utilisateur gardé enregistré a la connexion et accessible pour toute l'application*/
 
+/*
+    Action lors du clic sur le bouton Ressources
+*/
 
     public void OnRessourcesClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
@@ -31,6 +39,9 @@ public class Controller {
         stage.show();
     }
 
+/*
+    Action lors du clic sur le bouton Entreprises
+*/
 
     public void OnAccueilClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
@@ -40,6 +51,10 @@ public class Controller {
         stage.show();
     }
 
+/*
+    Action lors du clic sur le bouton Stagiaire
+*/
+
     public void OnStagiaireClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("profil-stagiaire.fxml"));
@@ -47,6 +62,10 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
+
+/*
+    Action lors du clic sur le bouton/image Exit
+*/
 
     public void OnExitClick(ActionEvent actionEvent) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -63,6 +82,10 @@ public class Controller {
         }
     }
 
+/*
+    Action lors du clic sur le bouton Liste Stagiaire
+*/
+
     public void OnListeStagiaireClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("listeStagiaires.fxml"));
@@ -71,6 +94,10 @@ public class Controller {
         stage.show();
     }
 
+/*
+    Action lors du clic sur le bouton Ajouter Stagiaire
+*/
+
     public void OnAjouterStagiaireClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("inscriptionStagiaire.fxml"));
@@ -78,20 +105,21 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
+
 /*
-    public void OnLoginClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("listeEntreprises.fxml"));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }*/
+    Action lors du clic sur le bouton Ajouter Document
+*/
 
     public void OnAjouterRessourceClick(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
+        fileChooser.setTitle("Ajouter document");
         fileChooser.showOpenDialog(stage);
     }
+
+
+/*
+    Action lors du clic sur le bouton Ajouter Entreprise
+*/
 
     public void OnAjouterEntrepriseClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
@@ -101,6 +129,9 @@ public class Controller {
         stage.show();
     }
 
+/*
+    Action lors du clic sur le bouton Fiche Entreprise
+*/
     public void OnFicheEntrepriseClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("profil-entreprise.fxml"));
@@ -108,6 +139,10 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
+
+/*
+    Methode qui cache les boutons admin quand un non-admin est connecté
+*/
 
     void hideButton(Button button){
         if (!connectedUser.isEst_admin()){

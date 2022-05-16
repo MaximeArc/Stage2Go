@@ -42,23 +42,13 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         try {
             String requete = "INSERT INTO " + TABLE + " (" + NOM + "," + PRENOM + "," + EMAIL + "," +
                     ","  + MOT_DE_PASSE + "," + EST_ADMIN +  ") " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    "VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
-            // on pose un String en paramètre 1 -1er '?'- et ce String est le nom de l'avion
-            // pst.setInt(1, obj.getPromo());
-            pst.setString(2, obj.getNom());
-            pst.setString(3, obj.getPrenom());
-            //pst.setDate(4, obj.getDate_naissance());
-            pst.setString(5, obj.getEmail());
-            //pst.setString(6, obj.getNum_tel());
-            //pst.setBoolean(7, obj.isAdmis_stage());
-            //pst.setString(8, obj.getSexe());
-            pst.setString(9, obj.getMot_de_passe());
-            pst.setBoolean(10, obj.isEst_admin());
-            //pst.setString(11, obj.getRole());
-            // on exécute la mise à jour
+            pst.setString(1, obj.getNom());
+            pst.setString(2, obj.getPrenom());
+            pst.setString(3, obj.getEmail());
+
             pst.executeUpdate();
-            //Récupérer la clé qui a été générée et la pousser dans l'objet initial
             ResultSet rs = pst.getGeneratedKeys();
             if (rs.next()) {
                 obj.setId(rs.getInt(1));

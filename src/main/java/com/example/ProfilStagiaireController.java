@@ -42,7 +42,6 @@ public class ProfilStagiaireController extends Controller {
         String lieu_stage = UtilisateurDAO.getInstance().getLieuStageByUtilisateurId(connectedUser.getId());
         String commentaire = UtilisateurDAO.getInstance().getCommentByUtilisateurId(connectedUser.getId());
 
-
         nomUtilisateur=utilisateur.getNom();
         prenomUtilisateur=utilisateur.getPrenom();
         mailUtilisateur=utilisateur.getEmail();

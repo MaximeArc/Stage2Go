@@ -3,10 +3,17 @@ package com.example;
 import dao.EntrepriseDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import models.Entreprise;
+
+import java.io.IOException;
 
 
 public class ListeEntreprisesController extends Controller {
@@ -29,13 +36,16 @@ public class ListeEntreprisesController extends Controller {
         ville.setCellValueFactory(new PropertyValueFactory<Entreprise,String>("ville"));
 
         table.setItems((ObservableList<Entreprise>) data);
+
     }
 
 
     public void initialize(){
         viewTable();
         hideButton(addBtn);
+
     }
+
 
 
 }

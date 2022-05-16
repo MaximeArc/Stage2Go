@@ -15,6 +15,10 @@ public class Main extends Application {
 
     double x,y = 0;
 
+/*
+    Reglage de la fenetre et appel de la premiere "vue"
+*/
+
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
@@ -38,6 +42,9 @@ public class Main extends Application {
         stage.show();
     }
 
+/*
+    Lancement de l'appliccation
+*/
 
     public static void main(String[] args) {
         launch();
