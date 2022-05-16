@@ -34,7 +34,7 @@ public class ListeEntrepriseController {
 
     public void OnStagiaireClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("profil-stagiaire.fxml"));
+        root = FXMLLoader.load(getClass().getResource("profilStagiaire.fxml"));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

@@ -19,11 +19,8 @@ import java.util.Objects;
 
 public class LoginController extends Controller {
 
-   @FXML
-   private TextField identifiant;
-
-   @FXML
-   private PasswordField mdp;
+   @FXML private TextField identifiant;
+   @FXML private PasswordField mdp;
 
     @Override
     public void OnLoginClick(ActionEvent actionEvent) throws IOException {

@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ProfilStagiaireController {
 
@@ -18,7 +19,7 @@ public class ProfilStagiaireController {
 
     public void OnRessourcesClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("listeRessources.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeRessources.fxml")));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -26,7 +27,7 @@ public class ProfilStagiaireController {
 
     public void OnAccueilClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("listeEntreprises.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeEntreprises.fxml")));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -35,7 +36,7 @@ public class ProfilStagiaireController {
 
     public void OnStagiaireClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("profilStagiaire.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profilStagiaire.fxml")));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -43,7 +44,7 @@ public class ProfilStagiaireController {
 
     public void OnListeStagiaireClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("listeStagiaires.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeStagiaires.fxml")));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -51,7 +52,7 @@ public class ProfilStagiaireController {
 
     public void OnAjouterStagiaireClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("inscriptionStagiaire.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("inscriptionStagiaire.fxml")));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -59,7 +60,7 @@ public class ProfilStagiaireController {
 
     public void OnExitClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
