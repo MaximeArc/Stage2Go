@@ -22,16 +22,11 @@
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprise" textFill="#fcf8f8">
+                <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprises" textFill="#fcf8f8">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Button>
-                <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="1108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../../../../../../../Desktop/icons/icons8-sortie-96.png" />
-                    </image>
-                </ImageView>
                 <Button layoutX="800.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnStagiaireClick" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#393e41">
                     <font>
                         <Font name="System Bold" size="24.0" />
@@ -61,10 +56,9 @@
         <TableView fx:id="table" layoutX="18.0" layoutY="216.0" prefHeight="578.0" prefWidth="1174.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
             <columns>
                 <TableColumn fx:id="nom" prefWidth="266.0" text="Nom" />
-                <TableColumn fx:id="prenom" prefWidth="217.0" text="Prenom" />
-            <TableColumn fx:id="mail" prefWidth="220.0" text="Mail" />
-                <TableColumn fx:id="lieu_stage" minWidth="0.0" prefWidth="286.0" text="Lieu du stage" />
-                <TableColumn fx:id="annee" prefWidth="450.0" text="Année" />
+                <TableColumn fx:id="prenom" prefWidth="259.0" text="Prenom" />
+            <TableColumn fx:id="mail" prefWidth="368.0" text="Mail" />
+                <TableColumn fx:id="annee" prefWidth="260.0" text="Année" />
             </columns>
         </TableView>
             </children>

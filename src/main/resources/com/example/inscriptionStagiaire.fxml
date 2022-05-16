@@ -22,16 +22,11 @@
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprise" textFill="#fcf8f8">
+                <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprises" textFill="#fcf8f8">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Button>
-                <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="1108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../../../../../../../Desktop/icons/icons8-sortie-96.png" />
-                    </image>
-                </ImageView>
                 <Button layoutX="800.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnStagiaireClick" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#393e41">
                     <font>
                         <Font name="System Bold" size="24.0" />
@@ -108,11 +103,6 @@
          <font>
             <Font size="20.0" />
          </font></TextField>
-        <ImageView layoutX="14.0" layoutY="137.0">
-            <image>
-                <Image url="@../../../images/icons8-utilisateur-100.png" />
-            </image>
-        </ImageView>
         <Button layoutX="397.0" layoutY="159" mnemonicParsing="false" onAction="#OnListeStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Liste des stagiaires" textFill="#fcf8f8">
             <font>
                 <Font name="System Bold" size="18.0" />

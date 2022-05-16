@@ -179,13 +179,10 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
 
     public static Utilisateur getUtilisateurByMail(String mail){
         Utilisateur utilisateur = null;
-            System.out.println("Recherche dans la BD");
             try {
                 String requete = "SELECT * FROM " + TABLE + " WHERE " + EMAIL + "='" + mail + "'";
                 ResultSet rs = Connexion.executeQuery(requete);
                 rs.next();
-                System.out.println(rs);
-
                 String nom = rs.getString(NOM);
                 String prenom = rs.getString(PRENOM);
                 String email = rs.getString(EMAIL);
@@ -200,6 +197,33 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
                 e.printStackTrace();
             }
         return utilisateur;
+    }
+
+    public String getLieuStageByUtilisateurId (int id) {
+        String nom_stage = null;
+            try {
+                String requete = "SELECT ENTREPRISE.nom FROM " + TABLE + " JOIN ENTREPRISE ON ENTREPRISE.id=" + TABLE + ".lieu_stage WHERE UTILISATEUR." + CLE_PRIMAIRE + " = " + id;
+                ResultSet rs = Connexion.executeQuery(requete);
+                rs.next();
+                nom_stage = rs.getString("nom");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        return nom_stage;
+    }
+
+
+    public String getCommentByUtilisateurId (int id) {
+        String comment = null;
+        try {
+            String requete = "SELECT COMMENTAIRE.contenu FROM " + TABLE + " JOIN COMMENTAIRE ON COMMENTAIRE.id_stagiaire=" + TABLE + ".id WHERE UTILISATEUR." + CLE_PRIMAIRE + " = " + id;
+            ResultSet rs = Connexion.executeQuery(requete);
+            rs.next();
+            comment = rs.getString("contenu");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return comment;
     }
 
 

@@ -16,17 +16,11 @@ import models.Utilisateur;
 public class ListeStagiairesController extends Controller {
 
 
-    @FXML
-    private TableView<Utilisateur> table;
+    @FXML private TableView<Utilisateur> table;
     @FXML private TableColumn<Utilisateur, String> nom;
     @FXML private TableColumn<Utilisateur, String> prenom;
     @FXML private TableColumn<Utilisateur, String> mail;
     @FXML private TableColumn<Utilisateur, Integer> annee;
-    @FXML private TableColumn<Utilisateur, String> lieu_stage;
-
-
-    @FXML private TableView tableView;
-    @FXML private Label test;
 
     private void viewTable(){
 
@@ -35,7 +29,6 @@ public class ListeStagiairesController extends Controller {
         prenom.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("prenom"));
         mail.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("email"));
         annee.setCellValueFactory(new PropertyValueFactory<Utilisateur, Integer>("annee"));
-        lieu_stage.setCellValueFactory(new PropertyValueFactory<Utilisateur,String>("nom_entreprise"));
 
         table.setItems((ObservableList<Utilisateur>) data);
 

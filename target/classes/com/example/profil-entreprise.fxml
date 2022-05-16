@@ -24,16 +24,11 @@
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprise" textFill="#fcf8f8">
+                <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprises" textFill="#fcf8f8">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Button>
-                <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="1108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../../../../../../../Desktop/icons/icons8-sortie-96.png" />
-                    </image>
-                </ImageView>
                 <Button layoutX="800.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnStagiaireClick" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#fcf8f8">
                     <font>
                         <Font name="System Bold" size="24.0" />
@@ -61,13 +56,8 @@
         <TextField layoutX="663.0" layoutY="368.0" prefHeight="44.0" prefWidth="183.0" promptText="Code Postal" />
         <TextField layoutX="664.0" layoutY="292.0" prefHeight="51.0" prefWidth="183.0" promptText="Adresse" />
         <TextField layoutX="663.0" layoutY="434.0" prefHeight="44.0" prefWidth="183.0" promptText="Ville" />
-        <ImageView fitHeight="66.0" fitWidth="65.0" layoutX="42.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../../../../../../../Desktop/icons/company.png" />
-            </image>
-        </ImageView>
         <TextArea layoutX="328.0" layoutY="628.0" prefHeight="109.0" prefWidth="595.0" promptText="Description" />
-        <CheckBox layoutX="663.0" layoutY="513.0" mnemonicParsing="false" text="Télétravail " />
+        <CheckBox layoutX="663.0" layoutY="513.0" mnemonicParsing="false" text="Télétravail" />
         <TextField layoutX="328.0" layoutY="565.0" prefHeight="44.0" prefWidth="222.0" promptText="Nombres Salariés" />
       <TextField layoutX="328.0" layoutY="368.0" prefHeight="44.0" prefWidth="222.0" promptText="Techno" />
       <TextField layoutX="328.0" layoutY="500.0" prefHeight="44.0" prefWidth="222.0" promptText="Mail du contact" />

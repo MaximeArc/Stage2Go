@@ -25,16 +25,11 @@
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprise" textFill="#fcf8f8">
+                <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprises" textFill="#fcf8f8">
                     <font>
                         <Font name="System Bold" size="24.0" />
                     </font>
                 </Button>
-                <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="1108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../../../../../../../Desktop/icons/icons8-sortie-96.png" />
-                    </image>
-                </ImageView>
                 <Button layoutX="800.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnStagiaireClick" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#393e41">
                     <font>
                         <Font name="System Bold" size="24.0" />
@@ -51,11 +46,6 @@
                 </Button>
             </children>
         </AnchorPane>
-        <ImageView fitHeight="96.0" fitWidth="78.0" layoutX="33.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../../../../../../../../Desktop/icons/avatarGM.png" />
-            </image>
-        </ImageView>
         <TextField fx:id="nom" alignment="CENTER" editable="false" layoutX="152.0" layoutY="330.0" prefHeight="44.0" prefWidth="186.0" promptText="Nom">
          <font>
             <Font size="15.0" />
@@ -68,8 +58,11 @@
          <font>
             <Font size="15.0" />
          </font></TextField>
-        <TextArea editable="false" layoutX="152.0" layoutY="570.0" prefHeight="180.0" prefWidth="620.0" promptText="Commentaires" />
-        <Label layoutX="202.0" layoutY="526.0" prefHeight="27.0" prefWidth="125.0" text="Lieu de stage ">
+        <TextArea fx:id="comment" editable="false" layoutX="344.0" layoutY="571.0" prefHeight="179.0" prefWidth="428.0" promptText="Commentaires">
+         <font>
+            <Font size="17.0" />
+         </font></TextArea>
+        <Label layoutX="202.0" layoutY="522.0" prefHeight="27.0" prefWidth="125.0" text="Lieu de stage ">
          <font>
             <Font size="18.0" />
          </font></Label>
@@ -96,25 +89,31 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="65.0" layoutY="425.0" prefHeight="25.0" prefWidth="67.0" text="Prenom">
+      <Label layoutX="65.0" layoutY="424.0" prefHeight="25.0" prefWidth="67.0" text="Prenom">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="504.0" layoutY="340.0" prefHeight="25.0" prefWidth="58.0" text="Mail">
+      <Label layoutX="504.0" layoutY="339.0" prefHeight="25.0" prefWidth="58.0" text="Mail">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="505.0" layoutY="425.0" prefHeight="25.0" prefWidth="58.0" text="Année">
+      <Label layoutX="504.0" layoutY="424.0" prefHeight="25.0" prefWidth="58.0" text="Année">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
         <TableView fx:id="table" layoutX="842.0" layoutY="241.0" prefHeight="509.0" prefWidth="344.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
             <columns>
-                <TableColumn prefWidth="342.0" text="Favoris" />
+                <TableColumn fx:id="nom_entreprise" prefWidth="342.0" text="Favoris" />
             </columns>
         </TableView>
+      <Label layoutX="202.0" layoutY="571.0" prefHeight="27.0" prefWidth="125.0" text="Commentaire">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="186.0" layoutX="65.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>

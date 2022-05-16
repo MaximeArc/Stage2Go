@@ -9,6 +9,7 @@ public class ListeRessourcesController extends Controller {
 
 
     public void initialize(){
+
         hideButton(addDoc);
     }
 }

@@ -25,12 +25,13 @@ public class LoginController extends Controller {
     public void OnLoginClick(ActionEvent actionEvent) throws IOException {
         if(!login.getText().isEmpty() && !mdp.getText().isEmpty()){
            Utilisateur utilisateur = UtilisateurDAO.getUtilisateurByMail(login.getText());
-           connectedUser= utilisateur;
-            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("listeEntreprises.fxml"));
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+
+                    connectedUser= utilisateur;
+                    stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                    root = FXMLLoader.load(getClass().getResource("listeEntreprises.fxml"));
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
         }
 
     }
