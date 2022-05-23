@@ -217,11 +217,11 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     }
 
 
-    /*
+
     public String getCommentByUtilisateurId (int id) {
         String comment = null;
         try {
-            String requete = "SELECT COMMENTAIRE.contenu FROM " + TABLE + " JOIN COMMENTAIRE ON COMMENTAIRE.id_stagiaire=" + TABLE + ".id WHERE UTILISATEUR." + CLE_PRIMAIRE + " = " + id;
+            String requete = "SELECT COMMENTAIRE.contenu FROM " + TABLE + " JOIN COMMENTAIRE ON COMMENTAIRE.id_utilisateur=" + TABLE + ".id WHERE UTILISATEUR." + CLE_PRIMAIRE + " = " + id;
             ResultSet rs = Connexion.executeQuery(requete);
             rs.next();
             comment = rs.getString("contenu");
@@ -230,6 +230,6 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         }
         return comment;
     }
-     */
+
 
 }

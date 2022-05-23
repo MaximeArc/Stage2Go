@@ -43,7 +43,7 @@ public class ProfilStagiaireController<Favori> extends Controller{
     private void viewData(){
         Utilisateur utilisateur = UtilisateurDAO.getInstance().read(connectedUser.getId());
         String lieu_stage = UtilisateurDAO.getInstance().getLieuStageByUtilisateurId(connectedUser.getId());
-        //String commentaire = UtilisateurDAO.getInstance().getCommentByUtilisateurId(connectedUser.getId());
+        String commentaire = UtilisateurDAO.getInstance().getCommentByUtilisateurId(connectedUser.getId());
 
         nomUtilisateur=utilisateur.getNom();
         prenomUtilisateur=utilisateur.getPrenom();
@@ -57,7 +57,7 @@ public class ProfilStagiaireController<Favori> extends Controller{
         mail.setText(mailUtilisateur);
         annee.setText(anneeToString);
         entreprise.setText(lieu_stage);
-        //comment.setText(commentaire);
+        comment.setText(commentaire);
 
 
 
