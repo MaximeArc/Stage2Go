@@ -40,6 +40,5 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch();
-        //av.segarra@gmail.com
     }
 }
