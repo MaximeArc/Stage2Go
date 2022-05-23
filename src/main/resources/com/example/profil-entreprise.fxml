@@ -52,17 +52,17 @@
                 </Button>
             </children>
         </AnchorPane>
-        <TextField alignment="CENTER" layoutX="249.0" layoutY="170.0" prefHeight="51.0" prefWidth="222.0" promptText="Nom" />
-        <TextField layoutX="57.0" layoutY="302.0" prefHeight="51.0" prefWidth="222.0" promptText="Secteur Activité" />
-        <TextField layoutX="57.0" layoutY="444.0" prefHeight="44.0" prefWidth="222.0" promptText="Nom du contact" />
+        <TextField fx:id="nom" alignment="CENTER" layoutX="249.0" layoutY="170.0" prefHeight="51.0" prefWidth="222.0" promptText="Nom" />
+        <TextField fx:id="activite" layoutX="57.0" layoutY="302.0" prefHeight="51.0" prefWidth="222.0" promptText="Secteur Activité" />
+        <TextField fx:id="nomContact" layoutX="57.0" layoutY="444.0" prefHeight="44.0" prefWidth="222.0" promptText="Nom du contact" />
         <TextField layoutX="392.0" layoutY="378.0" prefHeight="44.0" prefWidth="183.0" promptText="Code Postal" />
         <TextField layoutX="393.0" layoutY="302.0" prefHeight="51.0" prefWidth="183.0" promptText="Adresse" />
-        <TextField layoutX="392.0" layoutY="444.0" prefHeight="44.0" prefWidth="183.0" promptText="Ville" />
-        <TextArea layoutX="57.0" layoutY="638.0" prefHeight="109.0" prefWidth="595.0" promptText="Description" />
+        <TextField fx:id="ville" layoutX="392.0" layoutY="444.0" prefHeight="44.0" prefWidth="183.0" promptText="Ville" />
+        <TextArea fx:id="description" layoutX="57.0" layoutY="638.0" prefHeight="109.0" prefWidth="595.0" promptText="Description" />
         <CheckBox layoutX="392.0" layoutY="523.0" mnemonicParsing="false" text="Télétravail" />
-        <TextField layoutX="57.0" layoutY="575.0" prefHeight="44.0" prefWidth="222.0" promptText="Nombres Salariés" />
-      <TextField layoutX="57.0" layoutY="378.0" prefHeight="44.0" prefWidth="222.0" promptText="Techno" />
-      <TextField layoutX="57.0" layoutY="510.0" prefHeight="44.0" prefWidth="222.0" promptText="Mail du contact" />
+        <TextField fx:id="nbSalaries" layoutX="57.0" layoutY="575.0" prefHeight="44.0" prefWidth="222.0" promptText="Nombres Salariés" />
+      <TextField fx:id="techno" layoutX="57.0" layoutY="378.0" prefHeight="44.0" prefWidth="222.0" promptText="Techno" />
+      <TextField fx:id="mailContact" layoutX="57.0" layoutY="510.0" prefHeight="44.0" prefWidth="222.0" promptText="Mail du contact" />
       <TableView layoutX="711.0" layoutY="303.0" prefHeight="446.0" prefWidth="437.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
         <columns>
           <TableColumn prefWidth="436.0" text="Commentaires" />

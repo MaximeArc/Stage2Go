@@ -48,19 +48,8 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="1118.0" layoutY="160.0" mnemonicParsing="false" onAction="#OnFicheEntrepriseClick" prefHeight="21.0" prefWidth="35.0" style="-fx-background-color: #44BBA4;" textFill="#393e41">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../img/view-more-64.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <TableView fx:id="table" layoutX="18.0" layoutY="216.0" prefHeight="578.0" prefWidth="1174.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
+
+      <TableView fx:id="table" layoutX="18.0" layoutY="216.0" onMouseClicked="#selectFromTable" prefHeight="578.0" prefWidth="1174.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
         <columns>
           <TableColumn fx:id="nom" prefWidth="266.0" text="Nom" />
           <TableColumn fx:id="activites" prefWidth="368.0" text="Activité" />

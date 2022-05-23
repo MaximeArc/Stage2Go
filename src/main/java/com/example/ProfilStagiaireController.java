@@ -28,6 +28,8 @@ public class ProfilStagiaireController extends Controller {
     @FXML private TableColumn<Favori, String> nom_entreprise;
 
 
+    static Utilisateur selectedIntern ;
+
 
 
 
@@ -38,23 +40,55 @@ public class ProfilStagiaireController extends Controller {
     private String anneeToString;
 
     private void viewData(){
-        Utilisateur utilisateur = UtilisateurDAO.getInstance().read(connectedUser.getId());
-        String lieu_stage = UtilisateurDAO.getInstance().getLieuStageByUtilisateurId(connectedUser.getId());
-        String commentaire = UtilisateurDAO.getInstance().getCommentByUtilisateurId(connectedUser.getId());
 
-        nomUtilisateur=utilisateur.getNom();
-        prenomUtilisateur=utilisateur.getPrenom();
-        mailUtilisateur=utilisateur.getEmail();
-        anneeUtilisateur=utilisateur.getAnnee();
+        if (!connectedUser.isEst_admin()){
 
-        anneeToString=String.valueOf(anneeUtilisateur);
+            Utilisateur utilisateur = UtilisateurDAO.getInstance().read(connectedUser.getId());
+            String lieu_stage = UtilisateurDAO.getInstance().getLieuStageByUtilisateurId(connectedUser.getId());
+            String commentaire = UtilisateurDAO.getInstance().getCommentByUtilisateurId(connectedUser.getId());
 
-        nom.setText(nomUtilisateur);
-        prenom.setText(prenomUtilisateur);
-        mail.setText(mailUtilisateur);
-        annee.setText(anneeToString);
-        entreprise.setText(lieu_stage);
-        comment.setText(commentaire);
+
+            nomUtilisateur=utilisateur.getNom();
+            prenomUtilisateur=utilisateur.getPrenom();
+            mailUtilisateur=utilisateur.getEmail();
+            anneeUtilisateur=utilisateur.getAnnee();
+
+            anneeToString=String.valueOf(anneeUtilisateur);
+
+            nom.setText(nomUtilisateur);
+            prenom.setText(prenomUtilisateur);
+            mail.setText(mailUtilisateur);
+            annee.setText(anneeToString);
+            entreprise.setText(lieu_stage);
+            comment.setText(commentaire);
+        }
+
+        else{
+
+            selectedIntern = UtilisateurDAO.getUtilisateurByMail("av.segarra@gmail.com");
+
+            Utilisateur stagiaire = UtilisateurDAO.getInstance().read(selectedIntern.getId());
+            String lieu_stage = UtilisateurDAO.getInstance().getLieuStageByUtilisateurId(selectedIntern.getId());
+            String commentaire = UtilisateurDAO.getInstance().getCommentByUtilisateurId(selectedIntern.getId());
+
+
+            nomUtilisateur=stagiaire.getNom();
+            prenomUtilisateur=stagiaire.getPrenom();
+            mailUtilisateur=stagiaire.getEmail();
+            anneeUtilisateur=stagiaire.getAnnee();
+
+            anneeToString=String.valueOf(anneeUtilisateur);
+
+            nom.setText(nomUtilisateur);
+            prenom.setText(prenomUtilisateur);
+            mail.setText(mailUtilisateur);
+            annee.setText(anneeToString);
+            entreprise.setText(lieu_stage);
+            comment.setText(commentaire);
+        }
+
+
+
 
 
 
@@ -68,8 +102,6 @@ public class ProfilStagiaireController extends Controller {
     }
 
     public void initialize(){
-        hideButton(listeStagiaire);
-        hideButton(addStagiaire);
         viewData();
         viewTable();
 

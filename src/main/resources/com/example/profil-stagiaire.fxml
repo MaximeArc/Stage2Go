@@ -74,16 +74,7 @@
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <Button fx:id="listeStagiaire" layoutX="397.0" layoutY="159" mnemonicParsing="false" onAction="#OnListeStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Liste des stagiaires" textFill="#fcf8f8">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="addStagiaire" layoutX="678.0" layoutY="159" mnemonicParsing="false" onAction="#OnAjouterStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Ajouter un stagiaire" textFill="#fcf8f8">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
+
       <Label layoutX="65.0" layoutY="340.0" prefHeight="25.0" prefWidth="43.0" text="Nom">
          <font>
             <Font size="18.0" />

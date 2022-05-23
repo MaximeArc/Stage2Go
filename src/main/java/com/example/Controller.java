@@ -1,6 +1,7 @@
 package com.example;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -8,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.Utilisateur;
@@ -56,11 +59,22 @@ public class Controller {
 */
 
     public void OnStagiaireClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("profil-stagiaire.fxml"));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+
+        if(connectedUser.isEst_admin()){
+            stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("listeStagiairesAdmin.fxml"));
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else{
+            stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("profil-stagiaire.fxml"));
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+
     }
 
 /*
@@ -88,7 +102,7 @@ public class Controller {
 
     public void OnListeStagiaireClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("listeStagiaires.fxml"));
+        root = FXMLLoader.load(getClass().getResource("listeStagiairesAdmin.fxml"));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -99,6 +113,9 @@ public class Controller {
 */
 
     public void OnAjouterStagiaireClick(ActionEvent actionEvent) throws IOException {
+
+
+
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("inscriptionStagiaire.fxml"));
         scene = new Scene(root);
@@ -132,13 +149,7 @@ public class Controller {
 /*
     Action lors du clic sur le bouton Fiche Entreprise
 */
-    public void OnFicheEntrepriseClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("profil-entreprise.fxml"));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+
 
 /*
     Methode qui cache les boutons admin quand un non-admin est connecté
@@ -149,6 +160,9 @@ public class Controller {
             button.setVisible(false);
         }
     }
+
+
+
 
 }
 

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ListeStagiairesAdminController">
+<children>
+    <AnchorPane layoutY="-4.0" prefHeight="144.0" prefWidth="1200.0" style="-fx-background-color: #44BBA4;">
+        <children>
+            <ImageView fitHeight="144.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../../img/LOGO_OK.jpg" />
+                </image>
+            </ImageView>
+            <Button layoutX="600.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnRessourcesClick" style="-fx-background-color: #44BBA4;" text="Ressources" textFill="#fcf8f8">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Button>
+            <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprises" textFill="#fcf8f8">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Button>
+            <Button layoutX="800.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnStagiaireClick" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#393e41">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Button>
+            <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" onAction="#OnExitClick" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #44BBA4;">
+                <graphic>
+                    <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../img/exit-logout-2857.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </children>
+    </AnchorPane>
+    <Button fx:id="addStagiaire" layoutX="535.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Ajouter un stagiaire" textFill="#fcf8f8">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Button>
+    <TableView fx:id="table" layoutX="18.0" layoutY="216.0" prefHeight="578.0" prefWidth="1174.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
+        <columns>
+            <TableColumn fx:id="nom" prefWidth="266.0" text="Nom" />
+            <TableColumn fx:id="prenom" prefWidth="259.0" text="Prenom" />
+            <TableColumn fx:id="mail" prefWidth="368.0" text="Mail" />
+            <TableColumn fx:id="annee" prefWidth="260.0" text="Année" />
+        </columns>
+    </TableView>
+</children>
+</AnchorPane>
