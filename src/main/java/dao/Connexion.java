@@ -32,25 +32,23 @@ public class Connexion {
     public static ResultSet executeQuery(String requete) {
         Statement st = null;
         ResultSet rs = null;
-        System.out.println("requete = " + requete);
+
         try {
-            System.out.println("");
             st = getInstance().createStatement();
             rs = st.executeQuery(requete);
-            System.out.println("");
         } catch (SQLException e) {
-            System.out.println("Echec de la tentative d'exécution de requete : " + requete + " [" + e.getMessage() + "]");
+            System.out.println("Échec de la tentative d'exécution de requete : " + requete + " [" + e.getMessage() + "]");
         }
         return rs;
     }
 
-    public static void fermer() {
+    public static void close() {
         try {
             getInstance().close();
-            System.out.println("deconnexion ok");
+            System.out.println("déconnexion ok");
         } catch (SQLException e) {
             connect = null;
-            System.out.println("echec de la fermeture");
+            System.out.println("échec de la fermeture");
         }
     }
 }

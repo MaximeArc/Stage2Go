@@ -1,68 +1,80 @@
 package com.example.stage2go;
 
+import dao.FavoriDAO;
+import dao.UtilisateurDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import models.Utilisateur;
 
 import java.io.IOException;
 import java.util.Objects;
 
-public class ProfilStagiaireController {
+public class ProfilStagiaireController<Favori> extends Controller{
 
-    Stage stage;
-    Parent root;
-    Scene scene;
+    @FXML
+    private TextField nom;
+    @FXML private TextField prenom;
+    @FXML private TextField mail;
+    @FXML private TextField annee;
+    @FXML private TextField entreprise;
+    @FXML private TextArea comment;
+
+    @FXML private Button addStagiaire;
+    @FXML private Button listeStagiaire;
+
+    @FXML private TableView<Favori> table;
+    @FXML private TableColumn<Favori, String> nom_entreprise;
+
+    private String nomUtilisateur;
+    private String prenomUtilisateur;
+    private String mailUtilisateur;
+    private int anneeUtilisateur;
+    private String anneeToString;
+
+    private void viewData(){
+        Utilisateur utilisateur = UtilisateurDAO.getInstance().read(connectedUser.getId());
+        String lieu_stage = UtilisateurDAO.getInstance().getLieuStageByUtilisateurId(connectedUser.getId());
+        //String commentaire = UtilisateurDAO.getInstance().getCommentByUtilisateurId(connectedUser.getId());
+
+        nomUtilisateur=utilisateur.getNom();
+        prenomUtilisateur=utilisateur.getPrenom();
+        mailUtilisateur=utilisateur.getEmail();
+        anneeUtilisateur=utilisateur.getAnnee();
+
+        anneeToString=String.valueOf(anneeUtilisateur);
+
+        nom.setText(nomUtilisateur);
+        prenom.setText(prenomUtilisateur);
+        mail.setText(mailUtilisateur);
+        annee.setText(anneeToString);
+        entreprise.setText(lieu_stage);
+        //comment.setText(commentaire);
 
 
-    public void OnRessourcesClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeRessources.fxml")));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+
     }
 
-    public void OnAccueilClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeEntreprises.fxml")));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    private void viewTable(){
 
+        ObservableList<Favori> data = (ObservableList<Favori>) FXCollections.observableArrayList(FavoriDAO.getInstance().getFavoriByStagiaireId(connectedUser.getId()));
+        nom_entreprise.setCellValueFactory(new PropertyValueFactory<Favori, String>("nom_entreprise"));
+        table.setItems((ObservableList<Favori>) data);
     }
 
-    public void OnStagiaireClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profilStagiaire.fxml")));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    public void initialize(){
+        hideButton(listeStagiaire);
+        hideButton(addStagiaire);
+        viewData();
+        viewTable();
 
-    public void OnListeStagiaireClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeStagiaires.fxml")));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void OnAjouterStagiaireClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("inscriptionStagiaire.fxml")));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void OnExitClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 }

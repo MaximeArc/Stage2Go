@@ -5,35 +5,34 @@ public class Entreprise {
         private int id;
         private String nom;
         private String description;
-        private String activite;
+        private String activites;
         private String techno;
         private int nb_employes;
-        private String logo;
         private String nom_contact;
         private String email_contact;
         private boolean teletravail;
+        private String ville;
 
 
-        public Entreprise(int id,
-                          String nom,
+        public Entreprise(String nom,
                           String description,
-                          String activite,
+                          String activites,
                           String techno,
                           int nb_employes,
-                          String logo,
                           String nom_contact,
                           String email_contact,
-                          boolean teletravail ) {
-            this.id = id;
+                          boolean teletravail,
+                          String ville) {
+
             this.nom = nom;
             this.description = description;
-            this.activite = activite;
+            this.activites = activites;
             this.techno = techno;
             this.nb_employes = nb_employes;
-            this.logo = logo;
             this.nom_contact = nom_contact;
             this.email_contact = email_contact;
             this.teletravail = teletravail;
+            this.ville = ville;
         }
 
         public int getId() {
@@ -57,11 +56,11 @@ public class Entreprise {
         this.description = description;
     }
 
-        public String getActivite() {
-            return activite;
+        public String getActivites() {
+            return activites;
         }
-        public void setActivite(String activite) {
-            this.activite = activite;
+        public void setActivites(String activites) {
+            this.activites = activites;
         }
 
         public String getTechno() {
@@ -76,13 +75,6 @@ public class Entreprise {
         }
         public void setNb_employes(int nb_employes) {
             this.nb_employes = nb_employes;
-        }
-
-        public String getLogo() {
-            return logo;
-        }
-        public void setLogo(String logo) {
-            this.logo = logo;
         }
 
         public String getNom_contact() {
@@ -106,6 +98,13 @@ public class Entreprise {
             this.teletravail = teletravail;
         }
 
+        public String getVille() {
+            return ville;
+        }
+        public void setVille(String nom) {
+            this.ville = ville;
+        }
+
 
 
         @Override
@@ -114,13 +113,8 @@ public class Entreprise {
                     "id=" + id +
                     ", nom='" + nom + '\'' +
                     ", description='" + description + '\'' +
-                    ", activite='" + activite + '\'' +
-                    ", techno='" + techno + '\'' +
-                    ", nb_employes='" + nb_employes + '\'' +
-                    ", logo='" + logo + '\'' +
                     ", nom_contact='" + nom_contact + '\'' +
                     ", email_contact='" + email_contact + '\'' +
-                    ", teletravail='" + teletravail + '\'' +
                     '}';
         }
 

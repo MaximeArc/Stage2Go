@@ -6,8 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -29,16 +30,11 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Button>
-            <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprise" textFill="#fcf8f8">
+            <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprises" textFill="#fcf8f8">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Button>
-            <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="1108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../Desktop/icons/icons8-sortie-96.png" />
-               </image>
-            </ImageView>
             <Button layoutX="800.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnStagiaireClick" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#393e41">
                <font>
                   <Font name="System Bold" size="24.0" />
@@ -55,30 +51,74 @@
             </Button>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="159.0" fitWidth="144.0" layoutX="172.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/avatarGM.png" />
-         </image>
-      </ImageView>
-      <TextField layoutX="407.0" layoutY="329.0" prefHeight="44.0" prefWidth="240.0" promptText="Nom" />
-      <TextField layoutX="408.0" layoutY="392.0" prefHeight="44.0" prefWidth="240.0" promptText="Prenom" />
-      <TextField layoutX="408.0" layoutY="460.0" prefHeight="44.0" prefWidth="240.0" promptText="Email" />
-      <TextArea layoutX="407.0" layoutY="606.0" prefHeight="144.0" prefWidth="519.0" promptText="Commentaires" />
-      <Label layoutX="408.0" layoutY="522.0" prefHeight="17.0" prefWidth="91.0" text="Lieu de stage :" />
-      <TextField layoutX="408.0" layoutY="547.0" prefHeight="25.0" prefWidth="212.0" />
-      <TextField layoutX="683.0" layoutY="392.0" prefHeight="44.0" prefWidth="240.0" promptText="Année" />
-      <TextField layoutX="683.0" layoutY="331.0" prefHeight="44.0" prefWidth="240.0" promptText="Filière" />
-      <CheckBox layoutX="683.0" layoutY="551.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="91.0" text="Diplomé" />
-      <TextField layoutX="683.0" layoutY="460.0" prefHeight="44.0" prefWidth="240.0" promptText="Linkedin" />
-      <Button layoutX="426.0" layoutY="188.0" mnemonicParsing="false" onAction="#OnListeStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Liste des stagiaires" textFill="#393e41">
+      <TextField fx:id="nom" alignment="CENTER" editable="false" layoutX="152.0" layoutY="330.0" prefHeight="44.0" prefWidth="186.0" promptText="Nom">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextField fx:id="prenom" alignment="CENTER" editable="false" layoutX="152.0" layoutY="415.0" prefHeight="44.0" prefWidth="186.0" promptText="Prenom">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextField fx:id="mail" alignment="CENTER" editable="false" layoutX="586.0" layoutY="330.0" prefHeight="44.0" prefWidth="186.0" promptText="Email">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextArea fx:id="comment" editable="false" layoutX="344.0" layoutY="571.0" prefHeight="179.0" prefWidth="428.0" promptText="Commentaires">
+         <font>
+            <Font size="17.0" />
+         </font></TextArea>
+      <Label layoutX="202.0" layoutY="522.0" prefHeight="27.0" prefWidth="125.0" text="Lieu de stage ">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <TextField fx:id="entreprise" alignment="CENTER" editable="false" layoutX="341.0" layoutY="513.0" prefHeight="44.0" prefWidth="242.0" promptText="Entreprise">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextField fx:id="annee" alignment="CENTER" editable="false" layoutX="586.0" layoutY="415.0" prefHeight="44.0" prefWidth="186.0" promptText="Année">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Button fx:id="listeStagiaire" layoutX="397.0" layoutY="159" mnemonicParsing="false" onAction="#OnListeStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Liste des stagiaires" textFill="#fcf8f8">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="702.0" layoutY="188.0" mnemonicParsing="false" onAction="#OnAjouterStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Ajouter un stagiaire" textFill="#393e41">
+      <Button fx:id="addStagiaire" layoutX="678.0" layoutY="159" mnemonicParsing="false" onAction="#OnAjouterStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Ajouter un stagiaire" textFill="#fcf8f8">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <Label layoutX="65.0" layoutY="340.0" prefHeight="25.0" prefWidth="43.0" text="Nom">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="65.0" layoutY="424.0" prefHeight="25.0" prefWidth="67.0" text="Prenom">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="504.0" layoutY="339.0" prefHeight="25.0" prefWidth="58.0" text="Mail">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="504.0" layoutY="424.0" prefHeight="25.0" prefWidth="58.0" text="Année">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutX="842.0" layoutY="241.0" prefHeight="509.0" prefWidth="344.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
+         <columns>
+            <TableColumn fx:id="nom_entreprise" prefWidth="342.0" text="Favoris" />
+         </columns>
+      </TableView>
+      <Label layoutX="202.0" layoutY="571.0" prefHeight="27.0" prefWidth="125.0" text="Commentaire">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="186.0" layoutX="65.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

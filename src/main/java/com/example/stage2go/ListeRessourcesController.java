@@ -1,58 +1,26 @@
 package com.example.stage2go;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 
-public class ListeRessourcesController {
+public class ListeRessourcesController extends Controller{
 
-    Stage stage;
-    Parent root;
-    Scene scene;
+    @FXML private Button addDoc;
 
 
-    public void OnRessourcesClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("inscriptionEntreprise.fxml"));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void initialize(){
+
+        hideButton(addDoc);
     }
 
-    public void OnAccueilClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("listeEntreprises.fxml"));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void OnStagiaireClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("profilStagiaire.fxml"));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void OnAjouterRessourceClick(ActionEvent actionEvent) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
-        fileChooser.showOpenDialog(stage);
-    }
-
-    public void OnExitClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 }

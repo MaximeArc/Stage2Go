@@ -4,6 +4,7 @@ import models.Utilisateur;
 
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UtilisateurDAO extends DAO<Utilisateur> {
 
@@ -51,7 +52,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
             pst.setString(2, obj.getPrenom());
             pst.setString(3, obj.getEmail());
             pst.setString(4, obj.getMot_de_passe());
-            pst.setBoolean(5, obj.getAdmin());
+            pst.setBoolean(5, obj.getEst_admin());
             pst.executeUpdate();
 
             // Récupérer la clé qui a été générée et la pousser dans l'objet initial
@@ -98,7 +99,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
             pst.setString(3, obj.getEmail());
 
             pst.setString(4, obj.getMot_de_passe());
-            pst.setBoolean(5, obj.getAdmin());
+            pst.setBoolean(5, obj.getEst_admin());
 
             pst.setInt(6, id);
             pst.executeUpdate();
@@ -139,7 +140,29 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     }
 
 
-    private static Utilisateur getUser(ResultSet rs) throws SQLException {
+    public ArrayList<Utilisateur> readAll() {
+
+        Utilisateur utilisateur = null;
+        ArrayList<Utilisateur> listeUtilisateur =null;
+        try {
+            String requete = "SELECT * FROM " + TABLE +
+                    " JOIN ENTREPRISE E ON UTILISATEUR.lieu_stage= E.id WHERE admin=0";
+            ResultSet rs = Connexion.executeQuery(requete);
+            listeUtilisateur = new ArrayList<Utilisateur>();
+            boolean hasNext = rs.next();
+            while (hasNext) {
+                utilisateur = getUtilisateur(rs);
+                listeUtilisateur.add(utilisateur);
+                hasNext = rs.next();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listeUtilisateur;
+    }
+
+
+    private static Utilisateur getUtilisateur(ResultSet rs) throws SQLException {
         Utilisateur utilisateur;
 
         String nom = rs.getString(NOM);
@@ -153,12 +176,12 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         return utilisateur;
     }
 
-    public static Utilisateur getUserByMail(String mail){
+    public static Utilisateur getUtilisateurByMail(String mail){
         Utilisateur utilisateur = null;
 
         try {
             String request = "SELECT * FROM " + TABLE + " WHERE " + EMAIL + "='" + mail + "'";
-            //TODO preparedStatmt
+            //TODO preparedStmt
             ResultSet rs = Connexion.executeQuery(request);
             rs.next();
             System.out.println(rs);
@@ -179,5 +202,34 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         }
         return utilisateur;
     }
+
+    public String getLieuStageByUtilisateurId (int id) {
+        String nom_stage = null;
+        try {
+            String requete = "SELECT ENTREPRISE.nom FROM " + TABLE + " JOIN ENTREPRISE ON ENTREPRISE.id=" + TABLE + ".lieu_stage WHERE UTILISATEUR." + CLE_PRIMAIRE + " = " + id;
+            ResultSet rs = Connexion.executeQuery(requete);
+            rs.next();
+            nom_stage = rs.getString("nom");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return nom_stage;
+    }
+
+
+    /*
+    public String getCommentByUtilisateurId (int id) {
+        String comment = null;
+        try {
+            String requete = "SELECT COMMENTAIRE.contenu FROM " + TABLE + " JOIN COMMENTAIRE ON COMMENTAIRE.id_stagiaire=" + TABLE + ".id WHERE UTILISATEUR." + CLE_PRIMAIRE + " = " + id;
+            ResultSet rs = Connexion.executeQuery(requete);
+            rs.next();
+            comment = rs.getString("contenu");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return comment;
+    }
+     */
 
 }

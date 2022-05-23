@@ -8,7 +8,7 @@ public class Utilisateur {
     private String prenom;
     private String email;
     private String mot_de_passe;
-    private boolean admin;
+    private boolean est_admin;
     private int lieu_stage;
     private int annee;
 
@@ -22,14 +22,14 @@ public class Utilisateur {
     }
 
 
-    public Utilisateur(int id, String nom, String prenom,  String email,
-                       String mot_de_passe, boolean admin, int lieu_stage, int annee) {
+    public Utilisateur(int id, String nom, String prenom, String email,
+                       String mot_de_passe, boolean est_admin, int lieu_stage, int annee) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.mot_de_passe = mot_de_passe;
-        this.admin = admin;
+        this.est_admin = est_admin;
         this.lieu_stage = lieu_stage;
         this.annee = annee;
     }
@@ -69,8 +69,8 @@ public class Utilisateur {
         this.mot_de_passe = mot_de_passe;
     }
 
-    public boolean getAdmin() { return admin; }
-    public void setAdmin(boolean admin) { this.admin = admin; }
+    public boolean getEst_admin() { return est_admin; }
+    public void setEst_admin(boolean est_admin) { this.est_admin = est_admin; }
 
     public int getLieu_stage() { return lieu_stage; }
     public void setLieu_stage(int lieu_stage) { this.lieu_stage = lieu_stage; }
@@ -89,7 +89,7 @@ public class Utilisateur {
                 ", mot_de_passe='" + mot_de_passe + '\'' +
                 ", lieu_stage='" + lieu_stage + '\'' +
                 ", annee='" + annee + '\'' +
-                ", admin=" + admin +
+                ", admin=" + est_admin +
                 '}';
     }
 }
