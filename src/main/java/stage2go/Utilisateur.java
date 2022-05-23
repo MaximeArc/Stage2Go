@@ -1,32 +1,39 @@
 package stage2go;
 
 
+import javafx.scene.control.TextField;
+
 import java.sql.Date;
 
 public class Utilisateur {
 
     private int id;
-    private int promo;
     private String nom;
     private String prenom;
-    private Date date_naissance;
     private String email;
     private String num_tel;
-    private boolean admis_stage;
-    private String sexe;
     private String mot_de_passe;
     private boolean est_admin;
-    private String role;
 
+    public String getAnnee() {
+        return annee;
+    }
 
-    public Utilisateur(int id, String nom, String prenom,  String email,
-                       String mot_de_passe, boolean est_admin) {
-        this.id = id;
+    public void setAnnee(String annee) {
+        this.annee = annee;
+    }
+
+    private String annee;
+
+    public Utilisateur( String nom, String prenom,  String email,
+                       String mot_de_passe,String annee, boolean est_admin) {
+
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.mot_de_passe = mot_de_passe;
         this.est_admin = est_admin;
+        this.annee = annee;
     }
 
     public int getId() {
@@ -35,14 +42,6 @@ public class Utilisateur {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getPromo() {
-        return promo;
-    }
-
-    public void setPromo(int promo) {
-        this.promo = promo;
     }
 
     public String getNom() {
@@ -61,13 +60,6 @@ public class Utilisateur {
         this.prenom = prenom;
     }
 
-    public Date getDate_naissance() {
-        return date_naissance;
-    }
-
-    public void setDate_naissance(Date date_naissance) {
-        this.date_naissance = date_naissance;
-    }
 
     public String getEmail() {
         return email;
@@ -83,22 +75,6 @@ public class Utilisateur {
 
     public void setNum_tel(String num_tel) {
         this.num_tel = num_tel;
-    }
-
-    public boolean isAdmis_stage() {
-        return admis_stage;
-    }
-
-    public void setAdmis_stage(boolean admis_stage) {
-        this.admis_stage = admis_stage;
-    }
-
-    public String getSexe() {
-        return sexe;
-    }
-
-    public void setSexe(String sexe) {
-        this.sexe = sexe;
     }
 
     public String getMot_de_passe() {
@@ -117,29 +93,21 @@ public class Utilisateur {
         this.est_admin = est_admin;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     @Override
     public String toString() {
         return "Utilisateur{" +
                 "id=" + id +
-                ", promo=" + promo +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
-                ", date_naissance=" + date_naissance +
                 ", email='" + email + '\'' +
                 ", num_tel='" + num_tel + '\'' +
-                ", admis_stage=" + admis_stage +
-                ", sexe='" + sexe + '\'' +
                 ", mot_de_passe='" + mot_de_passe + '\'' +
                 ", est_admin=" + est_admin +
-                ", role='" + role + '\'' +
                 '}';
+    }
+
+    public String getAnneeDiplome() {
+        //TODO
+        return getAnneeDiplome();
     }
 }
