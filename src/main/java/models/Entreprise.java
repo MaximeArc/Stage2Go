@@ -15,12 +15,14 @@ public class Entreprise {
         private String techno;
         private String activites;
         private boolean teletravail;
+        private int id_adresse;
 
 
 
 
-    public Entreprise(String nom, String nom_contact, String email_contact, int nb_employes, String description, String techno, boolean teletravail, String activites, String ville) {
+    public Entreprise(String nom, String nom_contact, String email_contact, int nb_employes, String description, String techno, boolean teletravail, String activites, String ville, int id_adresse) {
 
+            this.id=id;
             this.nom = nom;
             this.nb_employes = nb_employes;
             this.nom_contact = nom_contact;
@@ -30,6 +32,7 @@ public class Entreprise {
             this.activites = activites;
             this.description = description;
             this.ville = ville;
+            this.id_adresse = id_adresse;
         }
 
         public int getId() {

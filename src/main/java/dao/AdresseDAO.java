@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class AdresseDAO extends DAO<Adresse> {
 
-    private static final String TABLE = "adresse";
+    private static final String TABLE = "ADRESSE";
     private static final String CLE_PRIMAIRE = "id";
 
     private static final String NUMERO = "numero";
@@ -133,5 +133,7 @@ public class AdresseDAO extends DAO<Adresse> {
         }
         return adresse;
     }
+
+
 
 }

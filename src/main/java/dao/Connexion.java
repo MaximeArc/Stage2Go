@@ -17,7 +17,6 @@ public class Connexion {
                             + "encrypt=true;"
                             + "trustServerCertificate=true;";
             try (Connection connection = DriverManager.getConnection(connectionUrl)) {
-                System.out.println("connecté");
                 connect = DriverManager.getConnection(connectionUrl);
             }
             // Handle any errors that may have occurred.

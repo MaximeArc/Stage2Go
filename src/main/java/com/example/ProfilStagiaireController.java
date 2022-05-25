@@ -31,8 +31,6 @@ public class ProfilStagiaireController extends Controller {
     static Utilisateur selectedIntern ;
 
 
-
-
     private String nomUtilisateur;
     private String prenomUtilisateur;
     private String mailUtilisateur;
@@ -85,6 +83,8 @@ public class ProfilStagiaireController extends Controller {
             annee.setText(anneeToString);
             entreprise.setText(lieu_stage);
             comment.setText(commentaire);
+
+            comment.setWrapText(true);
         }
 
 

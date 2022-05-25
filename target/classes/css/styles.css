@@ -35,6 +35,7 @@
     -fx-border-color: transparent;
     -fx-padding: 2 0 2 10px;
     -fx-font:20px "System";
+    -fx-text-wrap: true;
 }
 .table-row-cell: hover {
     -fx-background-color: #44BBA4;
@@ -80,6 +81,7 @@
 }
 
 .check-box:selected>.box>.mark{
+
   -fx-background-color: transparent;
   -fx-background-image: url("../img/company.png");
 }

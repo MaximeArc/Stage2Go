@@ -6,6 +6,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import models.Entreprise;
+
+import java.io.IOException;
+
 import static java.lang.Integer.parseInt;
 
 public class InscriptionEntrepriseController extends Controller {
@@ -42,7 +45,7 @@ public class InscriptionEntrepriseController extends Controller {
 Methode se déclanchant au moment du clic sur le bouton Valider de la fiche de creation d'entreprise
 */
 
-    public void onClickCreate(ActionEvent actionEvent) {
+    public void onClickCreate(ActionEvent actionEvent) throws IOException {
 
 /*
         Vérifie que les champs nom, mail et ville ne sont pas vide (minimum pour identifier une entreprise)
@@ -64,17 +67,19 @@ Methode se déclanchant au moment du clic sur le bouton Valider de la fiche de c
             villeEntreprise=ville.getText();
             teletravailEntreprise=teletravail.isSelected();
 
+
 /*
             Création d'un nouvel objet entreprise avec les variables en parametres
 */
 
-            Entreprise entreprise = new Entreprise(nomEntreprise,nomContactEntreprise,mailContactEntreprise,nbEmployesEntreprise,descriptionEntreprise,technoEntreprise,teletravailEntreprise,activiteEntreprise,villeEntreprise);
+            Entreprise entreprise = new Entreprise(nomEntreprise,nomContactEntreprise,mailContactEntreprise,nbEmployesEntreprise,descriptionEntreprise,technoEntreprise,teletravailEntreprise,activiteEntreprise,villeEntreprise,0);
 
 /*
             Insertion de cette nouvelle entreprise dans la base de données
 */
 
             EntrepriseDAO.getInstance().create(entreprise);
+            OnAccueilClick(actionEvent);
 
         }
     }

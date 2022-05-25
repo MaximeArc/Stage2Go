@@ -34,6 +34,7 @@ public class ListeEntreprisesController extends Controller {
     private void viewTable(){
 
         ObservableList<Entreprise> data = FXCollections.observableArrayList(EntrepriseDAO.getInstance().readAll());
+
         nom.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("nom"));
         technos.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("techno"));
         activites.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("activites"));
@@ -44,8 +45,7 @@ public class ListeEntreprisesController extends Controller {
 
     public void selectFromTable(MouseEvent event) throws IOException {
 
-         selectedEntreprise = table.getSelectionModel().getSelectedItem();
-         System.out.println(table.getSelectionModel().getSelectedItem());
+        selectedEntreprise = table.getSelectionModel().getSelectedItem();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("profil-entreprise.fxml"));
         scene = new Scene(root);

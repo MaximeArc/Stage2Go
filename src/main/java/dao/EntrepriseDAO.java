@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.AccessibleRole;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import models.Adresse;
+import models.Commentaire;
 import models.Entreprise;
 
 import java.sql.PreparedStatement;
@@ -29,6 +31,7 @@ public class EntrepriseDAO extends DAO<Entreprise> {
     private static final String TELETRAVAIL ="teletravail";
     private static final String ACTIVITES = "activites";
     private static final String VILLE = "ville";
+    private static final String ID_ADRESSE = "id_adresse";
 
     private static EntrepriseDAO instance = null;
 
@@ -88,10 +91,8 @@ public class EntrepriseDAO extends DAO<Entreprise> {
     public Entreprise read(int id) {
         Entreprise entreprise = null;
         if (donnees.containsKey(id)) {
-            System.out.println("récupéré");
             entreprise = donnees.get(id);
         } else {
-            System.out.println("Recherche dans la BD");
             try {
                 String requete = "SELECT * FROM " + TABLE + " WHERE " + CLE_PRIMAIRE + " = " + id;
                 ResultSet rs = Connexion.executeQuery(requete);
@@ -106,8 +107,9 @@ public class EntrepriseDAO extends DAO<Entreprise> {
                 boolean teletravail = rs.getBoolean(TELETRAVAIL);
                 String activites = rs.getString(ACTIVITES);
                 String ville = rs.getString(VILLE);
+                int id_adresse = rs.getInt(ID_ADRESSE);
 
-                entreprise = new Entreprise(nom, nom_contact, email_contact, nb_employes, description, techno, teletravail, activites, ville);
+                entreprise = new Entreprise(nom, nom_contact, email_contact, nb_employes, description, techno, teletravail, activites, ville, id_adresse);
                 donnees.put(id, entreprise);
 
             } catch (SQLException e) {
@@ -139,6 +141,7 @@ public class EntrepriseDAO extends DAO<Entreprise> {
 
     private Entreprise getEntreprise(ResultSet rs) throws SQLException {
         Entreprise entreprise;
+        int id = rs.getInt(CLE_PRIMAIRE);
         String nom = rs.getString(NOM);
         String nom_contact = rs.getString(NOM_CONTACT);
         String email_contact = rs.getString(EMAIL_CONTACT);
@@ -146,9 +149,11 @@ public class EntrepriseDAO extends DAO<Entreprise> {
         String description = rs.getString(DESCRIPTION);
         String activites = rs.getString(ACTIVITES);
         boolean teletravail = rs.getBoolean(TELETRAVAIL);
+        Integer adresse = rs.getInt(ID_ADRESSE);
         String techno = rs.getString(TECHNO);
         String ville = rs.getString(VILLE);
-        entreprise = new Entreprise(nom, nom_contact, email_contact, nb_employes, description, techno, teletravail, activites, ville);
+        entreprise = new Entreprise(nom, nom_contact, email_contact, nb_employes, description, techno, teletravail, activites, ville, adresse);
+        entreprise.setId(id);
         return entreprise;
     }
   /*  public ObservableList<Entreprise> data = FXCollections.observableArrayList();
@@ -168,5 +173,61 @@ public class EntrepriseDAO extends DAO<Entreprise> {
         return data;
     }*/
 
+    public String getCommentsByEntrepriseId (int id) {
+        String comment = null;
+        try {
+            String requete = "SELECT COMMENTAIRE.contenu FROM " + TABLE + " JOIN COMMENTAIRE ON COMMENTAIRE.id_entreprise=" + TABLE + ".id WHERE ENTREPRISE." + CLE_PRIMAIRE + " = " + id;
+            ResultSet rs = Connexion.executeQuery(requete);
+            rs.next();
+            comment = rs.getString("contenu");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return comment;
+    }
+
+    public Adresse getAdress(int id) {
+        Adresse adress = new Adresse();
+        try {
+            String requete = "SELECT * FROM " + TABLE + " JOIN ADRESSE ON ADRESSE.id=" + TABLE + ".id_adresse WHERE ENTREPRISE." + CLE_PRIMAIRE + " = " + id;
+            ResultSet rs = Connexion.executeQuery(requete);
+            rs.next();
+
+            adress.setAdresse(rs.getString("adresse"));
+            adress.setNumero(rs.getInt("numero"));
+            adress.setCode_postal(rs.getInt("code_postal"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return adress;
+    }
+
+    public ArrayList<Commentaire> getComments(int idEntreprise) {
+        Commentaire comment = null;
+        ArrayList<Commentaire> listComments =null;
+        try {
+            String requete = "SELECT * FROM " + TABLE + " JOIN COMMENTAIRE ON COMMENTAIRE.id_entreprise= " + TABLE +".id WHERE " + TABLE + ".id=" + idEntreprise;
+            ResultSet rs = Connexion.executeQuery(requete);
+            listComments = new ArrayList<Commentaire>();
+            boolean hasNext = rs.next();
+            while (hasNext) {
+                comment = getComment(rs);
+                listComments.add(comment);
+                hasNext = rs.next();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listComments;
+    }
+
+    private Commentaire getComment(ResultSet rs) throws SQLException {
+        Commentaire comment;
+        String contenu = rs.getString("contenu");
+
+        comment = new Commentaire();
+        comment.setContenu(contenu);
+        return comment;
+    }
 
 }

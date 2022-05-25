@@ -52,21 +52,66 @@
                 </Button>
             </children>
         </AnchorPane>
-        <TextField fx:id="nom" alignment="CENTER" layoutX="249.0" layoutY="170.0" prefHeight="51.0" prefWidth="222.0" promptText="Nom" />
-        <TextField fx:id="activite" layoutX="57.0" layoutY="302.0" prefHeight="51.0" prefWidth="222.0" promptText="Secteur Activité" />
-        <TextField fx:id="nomContact" layoutX="57.0" layoutY="444.0" prefHeight="44.0" prefWidth="222.0" promptText="Nom du contact" />
-        <TextField layoutX="392.0" layoutY="378.0" prefHeight="44.0" prefWidth="183.0" promptText="Code Postal" />
-        <TextField layoutX="393.0" layoutY="302.0" prefHeight="51.0" prefWidth="183.0" promptText="Adresse" />
-        <TextField fx:id="ville" layoutX="392.0" layoutY="444.0" prefHeight="44.0" prefWidth="183.0" promptText="Ville" />
-        <TextArea fx:id="description" layoutX="57.0" layoutY="638.0" prefHeight="109.0" prefWidth="595.0" promptText="Description" />
-        <CheckBox layoutX="392.0" layoutY="523.0" mnemonicParsing="false" text="Télétravail" />
-        <TextField fx:id="nbSalaries" layoutX="57.0" layoutY="575.0" prefHeight="44.0" prefWidth="222.0" promptText="Nombres Salariés" />
-      <TextField fx:id="techno" layoutX="57.0" layoutY="378.0" prefHeight="44.0" prefWidth="222.0" promptText="Techno" />
-      <TextField fx:id="mailContact" layoutX="57.0" layoutY="510.0" prefHeight="44.0" prefWidth="222.0" promptText="Mail du contact" />
-      <TableView layoutX="711.0" layoutY="303.0" prefHeight="446.0" prefWidth="437.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
+        <TextField fx:id="nom" alignment="CENTER" editable="false" layoutX="249.0" layoutY="170.0" prefHeight="51.0" prefWidth="222.0" promptText="Nom" />
+        <TextField fx:id="activite" editable="false" layoutX="57.0" layoutY="302.0" prefHeight="37.0" prefWidth="222.0" promptText="Secteur Activité" />
+        <TextField fx:id="nomContact" editable="false" layoutX="57.0" layoutY="444.0" prefHeight="37.0" prefWidth="222.0" promptText="Nom du contact" />
+        <TextField fx:id="codePostal" editable="false" layoutX="392.0" layoutY="378.0" prefHeight="37.0" prefWidth="183.0" promptText="Code Postal" />
+        <TextField fx:id="adresse" editable="false" layoutX="393.0" layoutY="302.0" prefHeight="37.0" prefWidth="183.0" promptText="Adresse" />
+        <TextField fx:id="ville" editable="false" layoutX="392.0" layoutY="444.0" prefHeight="37.0" prefWidth="183.0" promptText="Ville" />
+        <TextArea fx:id="description" editable="false" layoutX="57.0" layoutY="656.0" prefHeight="91.0" prefWidth="595.0" promptText="Description" />
+        <CheckBox fx:id="teletravail" disable="true" layoutX="392.0" layoutY="523.0" mnemonicParsing="false" text="Télétravail" />
+        <TextField fx:id="nbSalaries" editable="false" layoutX="57.0" layoutY="582.0" prefHeight="37.0" prefWidth="222.0" promptText="Nombres Salariés" />
+      <TextField fx:id="techno" editable="false" layoutX="57.0" layoutY="378.0" prefHeight="37.0" prefWidth="222.0" promptText="Techno" />
+      <TextField fx:id="mailContact" editable="false" layoutX="57.0" layoutY="510.0" prefHeight="37.0" prefWidth="222.0" promptText="Mail du contact" />
+      <TableView fx:id="table" layoutX="711.0" layoutY="260.0" prefHeight="489.0" prefWidth="437.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
         <columns>
-          <TableColumn prefWidth="436.0" text="Commentaires" />
+          <TableColumn fx:id="comment" editable="false" prefWidth="436.0" text="Commentaires" />
         </columns>
       </TableView>
+      <Text layoutX="57.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activite" wrappingWidth="93.578125">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="57.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Techno(s)" wrappingWidth="93.578125">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="57.0" layoutY="436.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom contact" wrappingWidth="93.578125">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="57.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail contact" wrappingWidth="93.578125">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="57.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de salariés" wrappingWidth="112.578125">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="57.0" layoutY="643.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="93.578125">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="392.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse" wrappingWidth="93.578125">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="393.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code postal" wrappingWidth="93.578125">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="392.0" layoutY="436.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ville" wrappingWidth="93.578125">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

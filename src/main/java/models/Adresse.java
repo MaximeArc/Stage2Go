@@ -22,6 +22,11 @@ public class Adresse {
         this.code_postal = code_postal;
     }
 
+    public Adresse()
+    {
+
+    }
+
     public int getId() {
         return id;
     }
