@@ -14,7 +14,7 @@ public class FavoriDAO extends DAO<Favori>{
     private static final String TABLE = "FAVORI";
     private static final String CLE_PRIMAIRE = "id";
 
-    private static final String IDSTAGIAIRE = "id_stagiaire";
+    private static final String IDSTAGIAIRE = "id_utilisateur";
     private static final String IDENTREPRISE = "id_entreprise";
 
 

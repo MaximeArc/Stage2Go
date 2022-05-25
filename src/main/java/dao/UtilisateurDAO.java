@@ -85,17 +85,11 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         try {
             String requete = "UPDATE " + TABLE + " SET "  + " = ?, " + NOM + " = ?, " + PRENOM + " = ? , "  + EMAIL + " = ?, "  + MOT_DE_PASSE + " = ?, " + EST_ADMIN + " = ? WHERE " + CLE_PRIMAIRE + " = ?";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
-            // pst.setInt(1, obj.getPromo());
             pst.setString(2, obj.getNom());
             pst.setString(3, obj.getPrenom());
-            // pst.setDate(4, obj.getDate_naissance());
             pst.setString(5, obj.getEmail());
-            // pst.setString(6, obj.getNum_tel());
-            // pst.setBoolean(7, obj.isAdmis_stage());
-            // pst.setString(8, obj.getSexe());
             pst.setString(9, obj.getMot_de_passe());
             pst.setBoolean(10, obj.isEst_admin());
-            // pst.setString(11, obj.getRole());
             pst.setInt(12, id);
             pst.executeUpdate();
             donnees.put(id, obj);
@@ -206,7 +200,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     public String getCommentByUtilisateurId (int id) {
         String comment = null;
         try {
-            String requete = "SELECT COMMENTAIRE.contenu FROM " + TABLE + " JOIN COMMENTAIRE ON COMMENTAIRE.id_stagiaire=" + TABLE + ".id WHERE UTILISATEUR." + CLE_PRIMAIRE + " = " + id;
+            String requete = "SELECT COMMENTAIRE.contenu FROM " + TABLE + " JOIN COMMENTAIRE ON COMMENTAIRE.id_utilisateur=" + TABLE + ".id WHERE UTILISATEUR." + CLE_PRIMAIRE + " = " + id;
             ResultSet rs = Connexion.executeQuery(requete);
             rs.next();
             comment = rs.getString("contenu");

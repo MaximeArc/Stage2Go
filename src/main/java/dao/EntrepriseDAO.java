@@ -84,7 +84,30 @@ public class EntrepriseDAO extends DAO<Entreprise> {
 
     @Override
     public boolean update(Entreprise obj) {
-        return false;
+        boolean success = true;
+        int id = obj.getId();
+        try {
+            String requete = "UPDATE " + TABLE + " SET "  + " = ?, " + NOM + " = ?, " + DESCRIPTION + " = ? , "  + ACTIVITES + " = ?, "  + TECHNO + " = ?, " + NB_EMPLOYES + " = ?, " + NOM_CONTACT + " = ?, " + EMAIL_CONTACT + " =?, " + TELETRAVAIL + " =?, WHERE " + CLE_PRIMAIRE + " = ?";
+            PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
+
+            pst.setString(2, obj.getNom());
+            pst.setString(3, obj.getDescription());
+            pst.setString(4, obj.getActivites());
+            pst.setString(5, obj.getTechno());
+            pst.setInt(6, obj.getNb_employes());
+            pst.setString(7,obj.getNomContact());
+            pst.setString(8,obj.getEmail_contact());
+            pst.setBoolean(9,obj.isTeletravail());
+
+
+            pst.setInt(10, id);
+            pst.executeUpdate();
+            donnees.put(id, obj);
+        } catch (SQLException e) {
+            success = false;
+            e.printStackTrace();
+        }
+        return success;
     }
 
     @Override
