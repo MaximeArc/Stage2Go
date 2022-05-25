@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="#tableEntreprises" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stage2go.ListeEntrepriseController">
+<AnchorPane id="#tableEntreprises" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../../css/styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stage2go.ListeEntrepriseController">
     <children>
         <AnchorPane layoutY="-4.0" prefHeight="144.0" prefWidth="1200.0" style="-fx-background-color: #44BBA4;">
             <children>
@@ -53,19 +53,8 @@
                 <Font name="System Bold" size="18.0" />
             </font>
         </Button>
-        <Button layoutX="1118.0" layoutY="160.0" mnemonicParsing="false" onAction="#OnFicheEntrepriseClick" prefHeight="21.0" prefWidth="35.0" style="-fx-background-color: #44BBA4;" textFill="#393e41">
-            <font>
-                <Font name="System Bold" size="18.0" />
-            </font>
-            <graphic>
-                <ImageView fitHeight="30.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../../images/eye.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-        </Button>
-        <TableView fx:id="table" layoutX="18.0" layoutY="216.0" prefHeight="578.0" prefWidth="1174.0" styleClass=".table-view">
+
+        <TableView fx:id="table" layoutX="18.0" layoutY="216.0" onMouseClicked="#selectFromTable" prefHeight="578.0" prefWidth="1174.0" stylesheets="@../../../css/styles.css">
             <columns>
                 <TableColumn fx:id="nom" prefWidth="266.0" text="Nom" />
                 <TableColumn fx:id="activites" prefWidth="368.0" text="Activité" />

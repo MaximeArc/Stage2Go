@@ -20,8 +20,7 @@ import java.util.Objects;
 
 public class ProfilStagiaireController<Favori> extends Controller{
 
-    @FXML
-    private TextField nom;
+    @FXML private TextField nom;
     @FXML private TextField prenom;
     @FXML private TextField mail;
     @FXML private TextField annee;
@@ -45,10 +44,10 @@ public class ProfilStagiaireController<Favori> extends Controller{
         String lieu_stage = UtilisateurDAO.getInstance().getLieuStageByUtilisateurId(connectedUser.getId());
         String commentaire = UtilisateurDAO.getInstance().getCommentByUtilisateurId(connectedUser.getId());
 
-        nomUtilisateur=utilisateur.getNom();
-        prenomUtilisateur=utilisateur.getPrenom();
-        mailUtilisateur=utilisateur.getEmail();
-        anneeUtilisateur=utilisateur.getAnnee();
+        nomUtilisateur = utilisateur.getNom();
+        prenomUtilisateur = utilisateur.getPrenom();
+        mailUtilisateur = utilisateur.getEmail();
+        anneeUtilisateur = utilisateur.getAnnee();
 
         anneeToString=String.valueOf(anneeUtilisateur);
 

@@ -89,7 +89,7 @@ public class Utilisateur {
                 ", mot_de_passe='" + mot_de_passe + '\'' +
                 ", lieu_stage='" + lieu_stage + '\'' +
                 ", annee='" + annee + '\'' +
-                ", admin=" + est_admin +
+                ", est_admin=" + est_admin +
                 '}';
     }
 }

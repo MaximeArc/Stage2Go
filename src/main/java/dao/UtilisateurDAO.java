@@ -14,7 +14,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     private static final String PRENOM = "prenom";
     private static final String EMAIL = "email";
     private static final String MOT_DE_PASSE = "mdp";
-    private static final String EST_ADMIN = "admin";
+    private static final String EST_ADMIN = "est_admin";
     private static final String LIEU_STAGE = "lieu_stage";
     private static final String ANNEE = "annee";
 
@@ -146,7 +146,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         ArrayList<Utilisateur> listeUtilisateur =null;
         try {
             String requete = "SELECT * FROM " + TABLE +
-                    " JOIN ENTREPRISE E ON UTILISATEUR.lieu_stage= E.id WHERE admin=0";
+                    " JOIN ENTREPRISE E ON UTILISATEUR.lieu_stage= E.id WHERE est_admin=0";
             ResultSet rs = Connexion.executeQuery(requete);
             listeUtilisateur = new ArrayList<Utilisateur>();
             boolean hasNext = rs.next();
