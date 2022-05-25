@@ -1,6 +1,6 @@
 package dao;
 
-import stage2go.Adresse;
+import models.Adresse;
 
 import java.sql.*;
 
@@ -14,8 +14,7 @@ public class AdresseDAO extends DAO<Adresse> {
     private static final String ADRESSE = "adresse";
     private static final String VILLE = "ville";
     private static final String CODE_POSTAL = "code_postal";
-    //private static final String ID_UTILISATEUR = "id_utilisateur";
-    //private static final String ID_ENTREPRISE = "id_entreprise";
+
 
     private static AdresseDAO instance = null;
 
