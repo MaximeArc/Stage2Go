@@ -1,30 +1,31 @@
 package dao;
 
-import stage2go.Utilisateur;
+import models.Utilisateur;
 
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UtilisateurDAO extends DAO<Utilisateur> {
 
-
     private static final String TABLE = "UTILISATEUR";
     private static final String CLE_PRIMAIRE = "id";
-
-    private static final String PROMO = "promo";
     private static final String NOM = "nom";
     private static final String PRENOM = "prenom";
-    private static final String DATE_NAISSANCE = "date_naissance";
     private static final String EMAIL = "email";
-    private static final String NUM_TEL = "num_tel";
-    private static final String ADMIS_STAGE = "admis_stage";
-    private static final String SEXE = "sexe";
     private static final String MOT_DE_PASSE = "mdp";
-    private static final String EST_ADMIN = "admin";
-    private static final String ROLE = "role";
+    private static final String EST_ADMIN = "est_admin";
+    private static final String LIEU_STAGE = "lieu_stage";
+    private static final String ANNEE = "annee";
 
+    // -------------------------------------------------------------------
+    // --------- Patron de conception Singleton (en 3 étapes) ---------- //
+    // -------------------------------------------------------------------
+
+    // 1- Instance privée unique à null
     private static UtilisateurDAO instance = null;
 
+    // 2- Méthode statique get pour récupérer cette instance unique
     public static UtilisateurDAO getInstance() {
         if (instance == null) {
             instance = new UtilisateurDAO();
@@ -32,6 +33,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         return instance;
     }
 
+    // 3- Constructeur passé en privé
     private UtilisateurDAO() {
         super();
     }
@@ -41,25 +43,19 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     public boolean create(Utilisateur obj) {
         boolean success = true;
         try {
-            String requete = "INSERT INTO " + TABLE + " (" + PROMO + "," + NOM + "," + PRENOM + "," + DATE_NAISSANCE + "," + EMAIL + "," + NUM_TEL + "," +
-                    "" + ADMIS_STAGE + "," + SEXE + "," + MOT_DE_PASSE + "," + EST_ADMIN + "," + ROLE + ") " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String requete = "INSERT INTO " + TABLE + "(" + NOM + "," + PRENOM + "," + EMAIL +
+                    ","  + MOT_DE_PASSE + "," + EST_ADMIN +")" +
+                    "VALUES (?, ?, ?, ?, ?)";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
-            // on pose un String en paramètre 1 -1er '?'- et ce String est le nom de l'avion
-            pst.setInt(1, obj.getPromo());
-            pst.setString(2, obj.getNom());
-            pst.setString(3, obj.getPrenom());
-            pst.setDate(4, obj.getDate_naissance());
-            pst.setString(5, obj.getEmail());
-            pst.setString(6, obj.getNum_tel());
-            pst.setBoolean(7, obj.isAdmis_stage());
-            pst.setString(8, obj.getSexe());
-            pst.setString(9, obj.getMot_de_passe());
-            pst.setBoolean(10, obj.isEst_admin());
-            pst.setString(11, obj.getRole());
-            // on exécute la mise à jour
+
+            pst.setString(1, obj.getNom());
+            pst.setString(2, obj.getPrenom());
+            pst.setString(3, obj.getEmail());
+            pst.setString(4, obj.getMot_de_passe());
+            pst.setBoolean(5, obj.getEst_admin());
             pst.executeUpdate();
-            //Récupérer la clé qui a été générée et la pousser dans l'objet initial
+
+            // Récupérer la clé qui a été générée et la pousser dans l'objet initial
             ResultSet rs = pst.getGeneratedKeys();
             if (rs.next()) {
                 obj.setId(rs.getInt(1));
@@ -94,20 +90,18 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         boolean success = true;
         int id = obj.getId();
         try {
-            String requete = "UPDATE " + TABLE + " SET " + PROMO + " = ?, " + NOM + " = ?, " + PRENOM + " = ? , " + DATE_NAISSANCE + " = ?, " + EMAIL + " = ?, " + NUM_TEL + " = ?, " + ADMIS_STAGE + " = ?, " + SEXE + " = ?,  " + MOT_DE_PASSE + " = ?, " + EST_ADMIN + " = ?, " + ROLE + " = ? WHERE " + CLE_PRIMAIRE + " = ?";
+            String requete = "UPDATE " + TABLE + " SET " + NOM + " = ?, " + PRENOM + " = ? , "  + EMAIL + " = ?, "  + MOT_DE_PASSE + " = ?, " + EST_ADMIN + " = ? WHERE " + CLE_PRIMAIRE + " = ?";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
-            pst.setInt(1, obj.getPromo());
-            pst.setString(2, obj.getNom());
-            pst.setString(3, obj.getPrenom());
-            pst.setDate(4, obj.getDate_naissance());
-            pst.setString(5, obj.getEmail());
-            pst.setString(6, obj.getNum_tel());
-            pst.setBoolean(7, obj.isAdmis_stage());
-            pst.setString(8, obj.getSexe());
-            pst.setString(9, obj.getMot_de_passe());
-            pst.setBoolean(10, obj.isEst_admin());
-            pst.setString(11, obj.getRole());
-            pst.setInt(12, id);
+
+            pst.setString(1, obj.getNom());
+            pst.setString(2, obj.getPrenom());
+
+            pst.setString(3, obj.getEmail());
+
+            pst.setString(4, obj.getMot_de_passe());
+            pst.setBoolean(5, obj.getEst_admin());
+
+            pst.setInt(6, id);
             pst.executeUpdate();
             donnees.put(id, obj);
         } catch (SQLException e) {
@@ -121,7 +115,6 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     public Utilisateur read(int id) {
         Utilisateur utilisateur = null;
         if (donnees.containsKey(id)) {
-            System.out.println("récupéré");
             utilisateur = donnees.get(id);
         } else {
             System.out.println("Recherche dans la BD");
@@ -129,18 +122,14 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
                 String requete = "SELECT * FROM " + TABLE + " WHERE " + CLE_PRIMAIRE + " = " + id;
                 ResultSet rs = Connexion.executeQuery(requete);
                 rs.next();
-                //int promo = rs.getInt(PROMO);
                 String nom = rs.getString(NOM);
                 String prenom = rs.getString(PRENOM);
-               // Date date_naissance = rs.getDate(DATE_NAISSANCE);
                 String email = rs.getString(EMAIL);
-               // String num_tel = rs.getString(NUM_TEL);
-                //boolean admis_stage = rs.getBoolean(ADMIS_STAGE);
-                //String sexe = rs.getString(SEXE);
                 String mot_de_passe = rs.getString(MOT_DE_PASSE);
                 boolean est_admin = rs.getBoolean(EST_ADMIN);
-                //String role = rs.getString(ROLE);
-                utilisateur = new Utilisateur(id, nom, prenom, email, mot_de_passe, est_admin);
+                Integer annee = rs.getInt(ANNEE);
+                int lieu_stage=rs.getInt(LIEU_STAGE);
+                utilisateur = new Utilisateur(id, nom, prenom, email, mot_de_passe, est_admin, annee, lieu_stage);
                 donnees.put(id, utilisateur);
 
             } catch (SQLException e) {
@@ -148,6 +137,98 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
             }
         }
         return utilisateur;
+    }
+
+
+    public ArrayList<Utilisateur> readAll() {
+
+        Utilisateur utilisateur = null;
+        ArrayList<Utilisateur> listeUtilisateur =null;
+        try {
+            String requete = "SELECT * FROM " + TABLE +
+                    " JOIN ENTREPRISE E ON UTILISATEUR.lieu_stage= E.id WHERE est_admin=0";
+            ResultSet rs = Connexion.executeQuery(requete);
+            listeUtilisateur = new ArrayList<Utilisateur>();
+            boolean hasNext = rs.next();
+            while (hasNext) {
+                utilisateur = getUtilisateur(rs);
+                listeUtilisateur.add(utilisateur);
+                hasNext = rs.next();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listeUtilisateur;
+    }
+
+
+    private static Utilisateur getUtilisateur(ResultSet rs) throws SQLException {
+        Utilisateur utilisateur;
+
+        String nom = rs.getString(NOM);
+        String prenom = rs.getString(PRENOM);
+        String email = rs.getString(EMAIL);
+        int lieu_stage = rs.getInt(LIEU_STAGE);
+        int annee = rs.getInt(ANNEE);
+
+        utilisateur = new Utilisateur(nom, prenom, email, lieu_stage, annee);
+
+        return utilisateur;
+    }
+
+    public static Utilisateur getUtilisateurByMail(String mail){
+        Utilisateur utilisateur = null;
+
+        try {
+            String request = "SELECT * FROM " + TABLE + " WHERE " + EMAIL + "='" + mail + "'";
+            //TODO preparedStmt
+            ResultSet rs = Connexion.executeQuery(request);
+            rs.next();
+            System.out.println(rs);
+
+            String nom = rs.getString(NOM);
+            String prenom = rs.getString(PRENOM);
+            String email = rs.getString(EMAIL);
+            String mot_de_passe = rs.getString(MOT_DE_PASSE);
+            boolean est_admin = rs.getBoolean(EST_ADMIN);
+            int lieu_stage = rs.getInt(LIEU_STAGE);
+            int annee = rs.getInt(ANNEE);
+            int id = rs.getInt(CLE_PRIMAIRE);
+
+            utilisateur = new Utilisateur(id, nom, prenom, email, mot_de_passe, est_admin,  annee, lieu_stage);
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return utilisateur;
+    }
+
+    public String getLieuStageByUtilisateurId (int id) {
+        String nom_stage = null;
+        try {
+            String requete = "SELECT ENTREPRISE.nom FROM " + TABLE + " JOIN ENTREPRISE ON ENTREPRISE.id=" + TABLE + ".lieu_stage WHERE UTILISATEUR." + CLE_PRIMAIRE + " = " + id;
+            ResultSet rs = Connexion.executeQuery(requete);
+            rs.next();
+            nom_stage = rs.getString("nom");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return nom_stage;
+    }
+
+
+
+    public String getCommentByUtilisateurId (int id) {
+        String comment = null;
+        try {
+            String requete = "SELECT COMMENTAIRE.contenu FROM " + TABLE + " JOIN COMMENTAIRE ON COMMENTAIRE.id_utilisateur=" + TABLE + ".id WHERE UTILISATEUR." + CLE_PRIMAIRE + " = " + id;
+            ResultSet rs = Connexion.executeQuery(requete);
+            rs.next();
+            comment = rs.getString("contenu");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return comment;
     }
 
 

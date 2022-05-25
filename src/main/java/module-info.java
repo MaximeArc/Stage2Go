@@ -1,9 +1,12 @@
-module com.example.staggers {
-    requires javafx.controls;
-    requires javafx.fxml;
-    requires java.sql;
+module com.example.stage2go{
 
+    requires transitive javafx.controls;
+    requires transitive javafx.fxml;
+    requires transitive java.sql;
+    requires transitive javafx.base;
 
-    opens com.example.staggers to javafx.fxml;
-    exports com.example.staggers;
+    opens models to javafx.fxml;
+    opens com.example.stage2go to javafx.fxml;
+    exports com.example.stage2go;
+    exports models;
 }

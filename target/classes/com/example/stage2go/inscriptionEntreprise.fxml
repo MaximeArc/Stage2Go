@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stage2go.InscriptionEntrepriseController">
+    <children>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+            <children>
+                <AnchorPane layoutY="-4.0" prefHeight="144.0" prefWidth="1200.0" style="-fx-background-color: #44BBA4;">
+                    <children>
+                        <ImageView fitHeight="144.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/LOGO_OK.jpg" />
+                            </image>
+                        </ImageView>
+                        <Button layoutX="600.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnRessourcesClick" style="-fx-background-color: #44BBA4;" text="Ressources" textFill="#fcf8f8">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Button>
+                        <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprises" textFill="#393e41">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Button>
+                        <Button layoutX="800.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnStagiaireClick" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#fcf8f8">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Button>
+                        <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" onAction="#OnExitClick" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #44BBA4;">
+                            <graphic>
+                                <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/exit-logout-2857.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                <Text layoutX="367.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activité ">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+                <TextField alignment="TOP_CENTER" layoutX="364.0" layoutY="363.0" prefHeight="25.0" prefWidth="215.0" promptText="Activité" />
+                <Text layoutX="856.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre d'employés">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+                <TextField alignment="TOP_CENTER" layoutX="853.0" layoutY="276.0" prefHeight="25.0" prefWidth="149.0" promptText="Nombre d'employés" />
+                <TextField alignment="TOP_CENTER" layoutX="363.0" layoutY="278.0" prefHeight="25.0" prefWidth="215.0" promptText="Nom" />
+                <Text layoutX="363.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+                <Text layoutX="364.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+                <TextField alignment="CENTER" layoutX="364.0" layoutY="528.0" prefHeight="79.0" prefWidth="215.0" promptText="Description" />
+                <Text layoutX="366.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Techno(s) :">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+                <TextField alignment="TOP_CENTER" layoutX="366.0" layoutY="449.0" prefHeight="25.0" prefWidth="215.0" promptText="Techno(s)" />
+                <Button layoutX="612.0" layoutY="676.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: #ffae00;" text="Valider" />
+                <Text layoutX="856.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du contact">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+                <TextField alignment="TOP_CENTER" layoutX="853.0" layoutY="361.0" prefHeight="25.0" prefWidth="149.0" promptText="Nom du contact" />
+                <Text layoutX="856.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email du contact">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+                <TextField alignment="TOP_CENTER" layoutX="853.0" layoutY="447.0" prefHeight="25.0" prefWidth="149.0" promptText="Email du contact" />
+                <Text layoutX="854.0" layoutY="533.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Télétravail">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+                <CheckBox layoutX="939.0" layoutY="520.0" mnemonicParsing="false" />
+                <ImageView fitHeight="127.0" fitWidth="133.0" layoutX="78.0" layoutY="220.0">
+                    <image>
+                        <Image url="@../../img/company.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <Button layoutX="544.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterEntrepriseClick" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #44BBA4;" text="Ajouter une entreprise" textFill="#393e41">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

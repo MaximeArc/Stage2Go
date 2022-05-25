@@ -3,16 +3,14 @@ package dao;
 import java.sql.*;
 
 public class Connexion {
-    private static Connection connect = null;
-    // Connect to your database.
-    // Replace server name, username, and password with your credentials
 
+    private static Connection connect = null;
 
     public static Connection getInstance() {
         if (connect == null) {
             String connectionUrl =
-                    "jdbc:sqlserver://localhost\\SQLEXPRESS01;database=BDstage2;"
-                            + "user=bastien;"
+                    "jdbc:sqlserver://localhost\\SQLEXPRESS;database=BDstage2;"
+                            + "user=aurelia;"
                             + "password=sio;"
                             + "encrypt=true;"
                             + "trustServerCertificate=true;";
@@ -20,7 +18,6 @@ public class Connexion {
                 System.out.println("connecté");
                 connect = DriverManager.getConnection(connectionUrl);
             }
-            // Handle any errors that may have occurred.
             catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -35,26 +32,23 @@ public class Connexion {
     public static ResultSet executeQuery(String requete) {
         Statement st = null;
         ResultSet rs = null;
-        System.out.println("requete = " + requete);
+
         try {
-            System.out.println("je passe st rs");
             st = getInstance().createStatement();
             rs = st.executeQuery(requete);
-            System.out.println("je passe apres st rs");
         } catch (SQLException e) {
-            System.out.println("Echec de la tentative d'exécution de requete : " + requete + " [" + e.getMessage() + "]");
+            System.out.println("Échec de la tentative d'exécution de requete : " + requete + " [" + e.getMessage() + "]");
         }
         return rs;
     }
 
-    public static void fermer() {
+    public static void close() {
         try {
             getInstance().close();
-            System.out.println("deconnexion ok");
+            System.out.println("déconnexion ok");
         } catch (SQLException e) {
             connect = null;
-            System.out.println("echec de la fermeture");
+            System.out.println("échec de la fermeture");
         }
     }
-
 }
