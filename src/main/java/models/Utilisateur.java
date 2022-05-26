@@ -1,6 +1,9 @@
 package models;
 
 
+import dao.CommentaireDAO;
+import dao.EntrepriseDAO;
+
 import java.sql.Date;
 
 public class Utilisateur {
@@ -14,17 +17,26 @@ public class Utilisateur {
     private boolean est_admin;
     private int lieu_stage;
     private int annee;
+    private Entreprise entreprise;
+    private Commentaire commentaire;
 
+    public Commentaire getCommentaire() {
+        return CommentaireDAO.getCommentByUtilisateur(id);
+    }
 
+    public Entreprise getEntreprise() {
+        return EntrepriseDAO.getInstance().read(getLieu_stage());
+    }
 
-
-
-    public Utilisateur(String nom, String prenom, String email, int lieu_stage, int annee) {
+    public Utilisateur(int id, String nom, String prenom, String email, String mdp, int lieu_stage, int annee, boolean isAdmin) {
+        this.mot_de_passe=mdp;
+        this.id=id;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.lieu_stage = lieu_stage;
         this.annee = annee;
+        this.est_admin=isAdmin;
     }
 
     public Utilisateur(int id, String nom, String prenom, String email, String mot_de_passe, boolean est_admin, int annee, int lieu_stage) {
@@ -44,13 +56,6 @@ public class Utilisateur {
     }
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getPromo() {
-        return promo;
-    }
-    public void setPromo(int promo) {
-        this.promo = promo;
     }
 
     public String getNom() {

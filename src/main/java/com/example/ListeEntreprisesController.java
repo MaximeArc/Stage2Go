@@ -3,17 +3,15 @@ package com.example;
 import dao.EntrepriseDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import models.Adresse;
 import models.Entreprise;
 
 import java.io.IOException;
@@ -31,14 +29,15 @@ public class ListeEntreprisesController extends Controller {
     @FXML private Button addBtn;
 
 
-    private void viewTable(){
+    private void viewTable() {
 
         ObservableList<Entreprise> data = FXCollections.observableArrayList(EntrepriseDAO.getInstance().readAll());
 
         nom.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("nom"));
         technos.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("techno"));
         activites.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("activites"));
-        ville.setCellValueFactory(new PropertyValueFactory<Entreprise,String>("ville"));
+        ville.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("ville"));
+
 
         table.setItems((ObservableList<Entreprise>) data);
     }

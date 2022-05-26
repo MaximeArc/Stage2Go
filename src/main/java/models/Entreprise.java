@@ -1,6 +1,10 @@
 package models;
 
+import dao.CommentaireDAO;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
+
+import java.util.ArrayList;
 
 public class Entreprise {
 
@@ -10,17 +14,17 @@ public class Entreprise {
         private String nom_contact;
         private String email_contact;
         private String description;
-        private String ville;
         private int nb_employes;
         private String techno;
         private String activites;
         private boolean teletravail;
-        private int id_adresse;
+        private Adresse adresse;
+        private String ville;
 
 
 
 
-    public Entreprise(String nom, String nom_contact, String email_contact, int nb_employes, String description, String techno, boolean teletravail, String activites, String ville, int id_adresse) {
+    public Entreprise(String nom, String nom_contact, String email_contact, int nb_employes, String description, String techno, boolean teletravail, String activites, Adresse adresse) {
 
             this.id=id;
             this.nom = nom;
@@ -31,8 +35,8 @@ public class Entreprise {
             this.techno = techno;
             this.activites = activites;
             this.description = description;
-            this.ville = ville;
-            this.id_adresse = id_adresse;
+            this.adresse=adresse;
+            this.ville= adresse.getVille();
         }
 
         public int getId() {
@@ -93,8 +97,15 @@ public class Entreprise {
         public int getNb_employes() {return nb_employes;}
         public void setNb_employes(int nb_employes) {this.nb_employes = nb_employes;}
 
-        public String getVille() {return ville;}
-        public void setVille(String ville) {this.ville = ville;}
+        public Adresse getAdresse() { return adresse; }
+        public void setAdresse(Adresse adresse) { this.adresse = adresse;  }
+
+
+
+
+
+        public String getVille() { return adresse.getVille(); }
+
 
 
     @Override

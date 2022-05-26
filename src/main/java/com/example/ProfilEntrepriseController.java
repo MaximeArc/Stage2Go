@@ -1,5 +1,6 @@
 package com.example;
 
+import dao.CommentaireDAO;
 import dao.EntrepriseDAO;
 import dao.FavoriDAO;
 import dao.UtilisateurDAO;
@@ -13,36 +14,28 @@ import javafx.scene.text.Text;
 import models.*;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class ProfilEntrepriseController extends Controller {
 
-    @FXML
-    private TextField nom;
-    @FXML
-    private TextField activite;
-    @FXML
-    private TextField nomContact;
-    @FXML
-    private TextField mailContact;
-    @FXML
-    private TextField nbSalaries;
-    @FXML
-    private TextField ville;
-    @FXML
-    private CheckBox teletravail;
-    @FXML
-    private TextArea description;
-    @FXML
-    private TextField techno;
-    @FXML
-    private TextField adresse;
-    @FXML
-    private TextField codePostal;
+    @FXML private TextField nom;
+    @FXML private TextField activite;
+    @FXML private TextField nomContact;
+    @FXML private TextField mailContact;
+    @FXML private TextField nbSalaries;
+    @FXML private TextField ville;
+    @FXML private CheckBox teletravail;
+    @FXML private TextArea description;
+    @FXML private TextField techno;
+    @FXML private TextField adresse;
+    @FXML private TextField codePostal;
 
     @FXML private TableView<Commentaire> table;
     @FXML private TableColumn<Commentaire, String> comment;
 
     @FXML private Button modify;
+    @FXML private Button delete;
+
 
     private String nomEntreprise;
     private String activiteEntreprise;
@@ -60,7 +53,6 @@ public class ProfilEntrepriseController extends Controller {
     private void viewData() {
 
         Entreprise entreprise = ListeEntreprisesController.selectedEntreprise;
-        Adresse adresseE = EntrepriseDAO.getInstance().getAdress(entreprise.getId());
 
 
         nomEntreprise = entreprise.getNom();
@@ -68,12 +60,12 @@ public class ProfilEntrepriseController extends Controller {
         nomContactEntreprise = entreprise.getNomContact();
         mailContactEntreprise = entreprise.getEmail_contact();
         nbSalariesEntreprise = String.valueOf(entreprise.getNb_employes());
-        villeEntreprise = entreprise.getVille();
+        villeEntreprise = entreprise.getAdresse().getVille();
         descritpionEntreprise = entreprise.getDescription();
         teletravailEntreprise = entreprise.isTeletravail();
         technoEntreprise = entreprise.getTechno();
-        adresseEntreprise = adresseE.getNumero() + " " + adresseE.getAdresse();
-        codePostalEntreprise = String.valueOf(adresseE.getCode_postal());
+        adresseEntreprise = entreprise.getAdresse().getNumero() + " " + entreprise.getAdresse().getAdresse();
+        codePostalEntreprise = String.valueOf(entreprise.getAdresse().getCode_postal());
 
 
         nom.setText(nomEntreprise);
@@ -105,8 +97,10 @@ public class ProfilEntrepriseController extends Controller {
             teletravail.setDisable(false);
 
         }
-        else{
+        else
+        {
             hideButton(modify);
+            hideButton(delete);
         }
 
 
@@ -115,18 +109,16 @@ public class ProfilEntrepriseController extends Controller {
 
     private void viewTable() {
 
-        ObservableList<Commentaire> data = FXCollections.observableArrayList(EntrepriseDAO.getInstance().getComments(ListeEntreprisesController.selectedEntreprise.getId()));
+        ObservableList<Commentaire> data = FXCollections.observableArrayList(CommentaireDAO.getComments(ListeEntreprisesController.selectedEntreprise.getId()));
         comment.setCellValueFactory(new PropertyValueFactory<Commentaire, String>("contenu"));
         table.setItems((ObservableList<Commentaire>) data);
         table.setSelectionModel(null);
-
     }
 
 
     public void initialize() {
         viewData();
         viewTable();
-
     }
 
 
@@ -134,6 +126,7 @@ public class ProfilEntrepriseController extends Controller {
         Entreprise entreprise = ListeEntreprisesController.selectedEntreprise;
         entreprise.setNom(nom.getText());
         entreprise.setTechno(techno.getText());
+        entreprise.setActivites(activite.getText());
         entreprise.setNomContact(nomContact.getText());
         entreprise.setEmail_contact(mailContact.getText());
         entreprise.setNb_employes(Integer.parseInt(nbSalaries.getText()));
@@ -141,7 +134,21 @@ public class ProfilEntrepriseController extends Controller {
         entreprise.setTeletravail(teletravail.isSelected());
 
         EntrepriseDAO.getInstance().update(entreprise);
+        OnAccueilClick(actionEvent);
     }
 
 
+    public void onClickDelete(ActionEvent actionEvent) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Supprimer");
+        alert.setHeaderText("Etes vous sur de vouloir supprimer cette fiche entreprise ?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            Entreprise entreprise = ListeEntreprisesController.selectedEntreprise;
+            EntrepriseDAO.getInstance().delete(entreprise);
+            OnAccueilClick(actionEvent);
+        }
+
+    }
 }

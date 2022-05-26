@@ -37,7 +37,6 @@ public class AdresseDAO extends DAO<Adresse> {
             String requete = "INSERT INTO " + TABLE + " (" + NUMERO + "," + ADRESSE + "," + VILLE + "," + CODE_POSTAL + ") " +
                     "VALUES (?, ?, ?, ?)";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
-            // on pose un String en paramètre 1 -1er '?'- et ce String est le nom de l'avion
             pst.setInt(1, obj.getNumero());
             //pst.setString(2, obj.getType_de_voie());
             pst.setString(3, obj.getAdresse());
@@ -111,10 +110,8 @@ public class AdresseDAO extends DAO<Adresse> {
     public Adresse read(int id) {
         Adresse adresse = null;
         if (donnees.containsKey(id)) {
-            System.out.println("récupéré");
             adresse = donnees.get(id);
         } else {
-            System.out.println("Recherche dans la BD");
             try {
                 String requete = "SELECT * FROM " + TABLE + " WHERE " + CLE_PRIMAIRE + " = " + id;
                 ResultSet rs = Connexion.executeQuery(requete);
@@ -133,7 +130,5 @@ public class AdresseDAO extends DAO<Adresse> {
         }
         return adresse;
     }
-
-
 
 }

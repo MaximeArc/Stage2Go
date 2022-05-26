@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import models.Adresse;
 import models.Entreprise;
 
 import java.io.IOException;
@@ -64,15 +65,15 @@ Methode se déclanchant au moment du clic sur le bouton Valider de la fiche de c
             nbEmployesEntreprise=parseInt(nbEmployes.getText());
             nomContactEntreprise=nomContact.getText();
             mailContactEntreprise=mailContact.getText();
-            villeEntreprise=ville.getText();
             teletravailEntreprise=teletravail.isSelected();
+            Adresse adresse = new Adresse();
 
 
 /*
             Création d'un nouvel objet entreprise avec les variables en parametres
 */
 
-            Entreprise entreprise = new Entreprise(nomEntreprise,nomContactEntreprise,mailContactEntreprise,nbEmployesEntreprise,descriptionEntreprise,technoEntreprise,teletravailEntreprise,activiteEntreprise,villeEntreprise,0);
+            Entreprise entreprise = new Entreprise(nomEntreprise,nomContactEntreprise,mailContactEntreprise,nbEmployesEntreprise,descriptionEntreprise,technoEntreprise,teletravailEntreprise,activiteEntreprise,adresse);
 
 /*
             Insertion de cette nouvelle entreprise dans la base de données

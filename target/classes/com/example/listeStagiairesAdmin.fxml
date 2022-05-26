@@ -43,12 +43,12 @@
             </Button>
         </children>
     </AnchorPane>
-    <Button fx:id="addStagiaire" layoutX="535.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Ajouter un stagiaire" textFill="#fcf8f8">
+    <Button fx:id="addStagiaire" layoutX="544.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterStagiaireClick" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #44BBA4;" text="Ajouter un stagiaire" textFill="#fcf8f8">
         <font>
             <Font name="System Bold" size="18.0" />
         </font>
     </Button>
-    <TableView fx:id="table" layoutX="18.0" layoutY="216.0" prefHeight="578.0" prefWidth="1174.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
+    <TableView fx:id="table" layoutX="18.0" layoutY="216.0" onMouseClicked="#selectFromTable" prefHeight="578.0" prefWidth="1174.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
         <columns>
             <TableColumn fx:id="nom" prefWidth="266.0" text="Nom" />
             <TableColumn fx:id="prenom" prefWidth="259.0" text="Prenom" />

@@ -46,65 +46,74 @@
                 </Button>
             </children>
         </AnchorPane>
-        <TextField fx:id="nom" alignment="CENTER" editable="false" layoutX="152.0" layoutY="330.0" prefHeight="44.0" prefWidth="186.0" promptText="Nom">
+        <TextField fx:id="nom" alignment="CENTER" editable="false" layoutX="159.0" layoutY="245.0" prefHeight="44.0" prefWidth="186.0" promptText="Nom">
          <font>
-            <Font size="15.0" />
+            <Font size="16.0" />
          </font></TextField>
-        <TextField fx:id="prenom" alignment="CENTER" editable="false" layoutX="152.0" layoutY="415.0" prefHeight="44.0" prefWidth="186.0" promptText="Prenom">
+        <TextField fx:id="prenom" alignment="CENTER" editable="false" layoutX="159.0" layoutY="330.0" prefHeight="44.0" prefWidth="186.0" promptText="Prenom">
          <font>
-            <Font size="15.0" />
+            <Font size="16.0" />
          </font></TextField>
-        <TextField fx:id="mail" alignment="CENTER" editable="false" layoutX="586.0" layoutY="330.0" prefHeight="44.0" prefWidth="186.0" promptText="Email">
+        <TextField fx:id="mail" alignment="CENTER" editable="false" layoutX="593.0" layoutY="245.0" prefHeight="44.0" prefWidth="186.0" promptText="Email">
          <font>
-            <Font size="15.0" />
+            <Font size="16.0" />
          </font></TextField>
-        <TextArea fx:id="comment" editable="false" layoutX="344.0" layoutY="571.0" prefHeight="179.0" prefWidth="428.0" promptText="Commentaires">
+        <TextArea fx:id="comment" editable="false" layoutX="158.0" layoutY="495.0" prefHeight="179.0" prefWidth="428.0" promptText="Commentaire">
          <font>
-            <Font size="17.0" />
+            <Font size="16.0" />
          </font></TextArea>
-        <Label layoutX="202.0" layoutY="522.0" prefHeight="27.0" prefWidth="125.0" text="Lieu de stage ">
+        <Label layoutX="71.0" layoutY="419.0" prefHeight="27.0" prefWidth="67.0" text="Stage ">
          <font>
-            <Font size="18.0" />
+            <Font size="16.0" />
          </font></Label>
-        <TextField fx:id="entreprise" alignment="CENTER" editable="false" layoutX="341.0" layoutY="513.0" prefHeight="44.0" prefWidth="242.0" promptText="Entreprise">
+        <TextField fx:id="entreprise" alignment="CENTER" editable="false" layoutX="157.0" layoutY="411.0" prefHeight="44.0" prefWidth="242.0" promptText="Entreprise">
          <font>
-            <Font size="15.0" />
+            <Font size="16.0" />
          </font></TextField>
-        <TextField fx:id="annee" alignment="CENTER" editable="false" layoutX="586.0" layoutY="415.0" prefHeight="44.0" prefWidth="186.0" promptText="Année">
+        <TextField fx:id="annee" alignment="CENTER" editable="false" layoutX="593.0" layoutY="330.0" prefHeight="44.0" prefWidth="186.0" promptText="Année">
          <font>
-            <Font size="15.0" />
+            <Font size="16.0" />
          </font></TextField>
 
-      <Label layoutX="65.0" layoutY="340.0" prefHeight="25.0" prefWidth="43.0" text="Nom">
+      <Label layoutX="72.0" layoutY="255.0" prefHeight="25.0" prefWidth="43.0" text="Nom">
          <font>
-            <Font size="18.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="65.0" layoutY="424.0" prefHeight="25.0" prefWidth="67.0" text="Prenom">
+      <Label layoutX="72.0" layoutY="339.0" prefHeight="25.0" prefWidth="67.0" text="Prenom">
          <font>
-            <Font size="18.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="504.0" layoutY="339.0" prefHeight="25.0" prefWidth="58.0" text="Mail">
+      <Label layoutX="504.0" layoutY="254.0" prefHeight="25.0" prefWidth="58.0" text="Mail">
          <font>
-            <Font size="18.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="504.0" layoutY="424.0" prefHeight="25.0" prefWidth="58.0" text="Année">
+      <Label layoutX="504.0" layoutY="339.0" prefHeight="25.0" prefWidth="58.0" text="Année">
          <font>
-            <Font size="18.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-        <TableView fx:id="table" layoutX="842.0" layoutY="241.0" prefHeight="509.0" prefWidth="344.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
+        <TableView fx:id="table" layoutX="842.0" layoutY="241.0" onSort="#selectFromTable" prefHeight="509.0" prefWidth="344.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
             <columns>
                 <TableColumn fx:id="nom_entreprise" prefWidth="342.0" text="Favoris" />
             </columns>
         </TableView>
-      <Label layoutX="202.0" layoutY="571.0" prefHeight="27.0" prefWidth="125.0" text="Commentaire">
+      <Label layoutX="39.0" layoutY="495.0" prefHeight="27.0" prefWidth="108.0" text="Commentaire">
          <font>
-            <Font size="18.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="186.0" layoutX="65.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="modify" layoutX="379.0" layoutY="713.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: #44BBA4;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="delete" layoutX="495.0" layoutY="713.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: #44BBA4;" text="Supprimer" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

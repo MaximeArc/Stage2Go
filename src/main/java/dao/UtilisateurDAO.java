@@ -40,13 +40,14 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     public boolean create(Utilisateur obj) {
         boolean success = true;
         try {
-            String requete = "INSERT INTO " + TABLE + " (" + NOM + "," + PRENOM + "," + EMAIL + "," +
-                    ","  + MOT_DE_PASSE + "," + EST_ADMIN +  ") " +
-                    "VALUES (?, ?, ?, ?, ?, ?)";
+            String requete = "INSERT INTO " + TABLE + " (" + NOM + "," + PRENOM + "," + EMAIL + "," + MOT_DE_PASSE + "," + EST_ADMIN +  ") " +
+                    "VALUES (?, ?, ?, ?, ?)";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
             pst.setString(1, obj.getNom());
             pst.setString(2, obj.getPrenom());
             pst.setString(3, obj.getEmail());
+            pst.setString(4, obj.getMot_de_passe());
+            pst.setBoolean(5,obj.isEst_admin());
 
             pst.executeUpdate();
             ResultSet rs = pst.getGeneratedKeys();
@@ -155,9 +156,12 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         String nom = rs.getString(NOM);
         String prenom = rs.getString(PRENOM);
         String email = rs.getString(EMAIL);
-        Integer lieu_stage = rs.getInt(LIEU_STAGE);
+        int lieu_stage = rs.getInt(LIEU_STAGE);
         int annee = rs.getInt(ANNEE);
-        utilisateur = new Utilisateur(nom, prenom, email, lieu_stage, annee);
+        String mdp = rs.getString(MOT_DE_PASSE);
+        Boolean isAdmin = rs.getBoolean(EST_ADMIN);
+        int id = rs.getInt(CLE_PRIMAIRE);
+        utilisateur = new Utilisateur(id, nom, prenom, email,mdp, lieu_stage, annee, isAdmin);
         return utilisateur;
     }
 

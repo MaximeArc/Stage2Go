@@ -46,55 +46,56 @@
                         </Button>
                     </children>
                 </AnchorPane>
-              <Text layoutX="367.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activité ">
+              <Text layoutX="370.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activité ">
                <font>
-                  <Font size="15.0" />
+                  <Font size="16.0" />
                </font>
             </Text>
               <TextField fx:id="activite" alignment="CENTER" layoutX="364.0" layoutY="363.0" prefHeight="38.0" prefWidth="215.0" promptText="Activité" />
               <Text layoutX="856.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre d'employés">
                <font>
-                  <Font size="15.0" />
+                  <Font size="16.0" />
                </font>
             </Text>
               <TextField fx:id="nbEmployes" alignment="CENTER" layoutX="853.0" layoutY="276.0" prefHeight="38.0" prefWidth="215.0" promptText="Nombre d'employés" />
               <TextField fx:id="nom" alignment="CENTER" layoutX="363.0" layoutY="278.0" prefHeight="38.0" prefWidth="215.0" promptText="Nom" />
-              <Text layoutX="363.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom">
+              <Text layoutX="370.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom">
                <font>
-                  <Font size="15.0" />
+                  <Font size="16.0" />
                </font>
             </Text>
               <Text layoutX="364.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
                <font>
-                  <Font size="15.0" />
+                  <Font size="16.0" />
                </font>
             </Text>
               <TextField fx:id="description" alignment="TOP_CENTER" layoutX="364.0" layoutY="528.0" prefHeight="79.0" prefWidth="215.0" promptText="Description" />
               <Text layoutX="366.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Techno(s) :">
                <font>
-                  <Font size="15.0" />
+                  <Font size="16.0" />
                </font>
             </Text>
               <TextField fx:id="techno" alignment="CENTER" layoutX="366.0" layoutY="449.0" prefHeight="38.0" prefWidth="215.0" promptText="Techno(s)" />
-              <Button layoutX="612.0" layoutY="676.0" mnemonicParsing="false" onAction="#onClickCreate" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: #ffae00;" text="Valider" />
-            <Text layoutX="856.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du contact">
+              <Button layoutX="642.0" layoutY="703.0" mnemonicParsing="false" onAction="#onClickCreate" prefHeight="51.0" prefWidth="172.0" style="-fx-background-color: #44BBA4;" text="Valider" textFill="WHITE">
                <font>
                   <Font size="15.0" />
+               </font></Button>
+            <Text layoutX="856.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du contact">
+               <font>
+                  <Font size="16.0" />
                </font>
             </Text>
             <TextField fx:id="nomContact" alignment="CENTER" layoutX="853.0" layoutY="361.0" prefHeight="38.0" prefWidth="215.0" promptText="Nom du contact" />
             <Text layoutX="856.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email du contact">
                <font>
-                  <Font size="15.0" />
+                  <Font size="16.0" />
                </font>
             </Text>
             <TextField fx:id="mailContact" alignment="CENTER" layoutX="853.0" layoutY="447.0" prefHeight="38.0" prefWidth="215.0" promptText="Email du contact" />
-            <Text layoutX="844.0" layoutY="613.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Télétravail">
+            <CheckBox fx:id="teletravail" layoutX="853.0" layoutY="595.0" mnemonicParsing="false" text="Télétravail">
                <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <CheckBox fx:id="teletravail" layoutX="929.0" layoutY="600.0" mnemonicParsing="false" />
+                  <Font size="16.0" />
+               </font></CheckBox>
               <ImageView fitHeight="127.0" fitWidth="133.0" layoutX="78.0" layoutY="220.0">
                   <image>
                       <Image url="@../../img/company.png" />
@@ -102,16 +103,11 @@
               </ImageView>
             <Text layoutX="856.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ville">
                <font>
-                  <Font size="15.0" />
+                  <Font size="16.0" />
                </font>
             </Text>
             <TextField fx:id="ville" alignment="CENTER" layoutX="853.0" layoutY="528.0" prefHeight="38.0" prefWidth="215.0" promptText="Ville" />
             </children>
         </AnchorPane>
-      <Button layoutX="544.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterEntrepriseClick" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #44BBA4;" text="Ajouter une entreprise" textFill="#393e41">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
     </children>
 </AnchorPane>

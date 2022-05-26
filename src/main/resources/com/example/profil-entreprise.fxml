@@ -68,7 +68,7 @@
           <TableColumn fx:id="comment" editable="false" prefWidth="436.0" text="Commentaires" />
         </columns>
       </TableView>
-      <Text layoutX="57.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activite" wrappingWidth="93.578125">
+      <Text layoutX="57.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activite" wrappingWidth="93.578125">
          <font>
             <Font size="13.0" />
          </font>
@@ -88,7 +88,7 @@
             <Font size="13.0" />
          </font>
       </Text>
-      <Text layoutX="57.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de salariés" wrappingWidth="112.578125">
+      <Text layoutX="57.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de salariés" wrappingWidth="112.578125">
          <font>
             <Font size="13.0" />
          </font>
@@ -98,21 +98,22 @@
             <Font size="13.0" />
          </font>
       </Text>
-      <Text layoutX="392.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse" wrappingWidth="93.578125">
+      <Text layoutX="393.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse" wrappingWidth="93.578125">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <Text layoutX="393.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code postal" wrappingWidth="93.578125">
+      <Text layoutX="393.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code postal" wrappingWidth="93.578125">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <Text layoutX="392.0" layoutY="436.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ville" wrappingWidth="93.578125">
+      <Text layoutX="393.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ville" wrappingWidth="93.578125">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <Button fx:id="modify" layoutX="392.0" layoutY="712.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="37.0" prefWidth="67.0" text="Modifier" />
+      <Button fx:id="modify" layoutX="392.0" layoutY="712.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="37.0" prefWidth="86.0" style="-fx-background-color: #44BBA4;" text="Modifier" textFill="WHITE" />
+      <Button fx:id="delete" layoutX="509.0" layoutY="712.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="37.0" prefWidth="75.0" style="-fx-background-color: #44BBA4;" text="Supprimer" textFill="WHITE" />
     </children>
 </AnchorPane>
