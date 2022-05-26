@@ -1,6 +1,6 @@
 <br/>
 <div align="center">
-    <img src="../src/main/resources/images/logo.jpg" alt="Logo" width="80" height="80">
+    <img src="src/main/resources/images/logo.jpg" alt="Logo" width="80" height="80">
     <h1 align="center"><strong>Stage2Go</strong> - Readme</h1>
 </div>
   <p align="center">
@@ -46,8 +46,8 @@
 
 
 ## Illustrations <a id="illustrations"></a>
-![illustration](../src/main/resources/images/screenshot1.png)
-![illustration](../src/main/resources/images/screenshot2.png)
+![illustration](src/main/resources/images/screenshot1.png)
+![illustration](src/main/resources/images/screenshot2.png)
 
 ## Description <a id="description"></a>
 Nous cherchons à développer une application permettant de recenser les différentes entreprises ayant déjà accepté d’anciens stagiaires du GRETA afin de faciliter les recherches des stagiaires de l’année en cours.
@@ -116,7 +116,7 @@ elle pourra être également utilisée par l’ensemble du personnel administrat
 #### 2. Lancement de l'application (clic droit)
     👉 Run 'Main.main()' ou Ctrl+Maj+F10
 
-![illustration](../src/main/resources/images/run.png)
+![illustration](src/main/resources/images/run.png)
 
 
 ## Comment se connecter
