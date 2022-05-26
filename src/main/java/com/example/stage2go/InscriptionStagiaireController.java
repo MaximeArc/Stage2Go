@@ -15,13 +15,17 @@ import javafx.stage.Stage;
 import models.Utilisateur;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 public class InscriptionStagiaireController extends Controller{
     @FXML private TextField nom;
     @FXML private TextField prenom;
     @FXML private TextField mail;
-    @FXML private TextField annee;
     @FXML private PasswordField password;
+    @FXML private CheckBox estAdmin;
+    @FXML private TextField annee;
+
 
 
 
@@ -30,8 +34,9 @@ public class InscriptionStagiaireController extends Controller{
     private String nomStagiaire;
     private String prenomStagiaire;
     private String mailStagiaire;
-    private int anneeStagiaire;
     private String passwordStagiaire;
+    private boolean estAdminStagiaire;
+    private int anneeStagiaire;
 
 
 
@@ -39,7 +44,7 @@ public class InscriptionStagiaireController extends Controller{
     Methode se déclenchant au moment du clic sur le bouton "Inscrire un nouveau stagiaire" de la fiche inscriptionStagiaire
     */
 
-    public void onClickCreate(ActionEvent actionEvent){
+    public void onClickCreate(ActionEvent actionEvent) throws IOException {
 
         //Vérifie que les champs nom, prenom et mail ne sont pas vides
         if(!nom.getText().isEmpty() && !prenom.getText().isEmpty() &&!mail.getText().isEmpty()){
@@ -48,19 +53,22 @@ public class InscriptionStagiaireController extends Controller{
             nomStagiaire = nom.getText();
             prenomStagiaire = prenom.getText();
             mailStagiaire = mail.getText();
-            anneeStagiaire = Integer.parseInt(annee.getText());
             passwordStagiaire = password.getText();
+            estAdminStagiaire = estAdmin.isSelected();
+            anneeStagiaire = Integer.parseInt(annee.getText());
 
 
-            //Création d'un nouvel objet entreprise avec les variables en paramètres
+
+            //Création d'un nouvel objet utilisateur avec les variables en paramètres
             Utilisateur stagiaire = new Utilisateur(nomStagiaire,
                     prenomStagiaire,
                     mailStagiaire,
                     anneeStagiaire,
                     passwordStagiaire);
 
-            //Insertion de cette nouvelle entreprise dans la base de données
+            //Insertion de ce nouveau stagiaire dans la base de données
             UtilisateurDAO.getInstance().create(stagiaire);
+            OnAccueilClick(actionEvent);
         }
     }
 }

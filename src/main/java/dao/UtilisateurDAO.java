@@ -39,6 +39,10 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
     }
 
 
+    // -------------------------------------------------------------------
+    // ----------------------- CRUD UTILISATEUR --------------------------
+    // -------------------------------------------------------------------
+
     @Override
     public boolean create(Utilisateur obj) {
         boolean success = true;
@@ -51,6 +55,8 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
             pst.setString(1, obj.getNom());
             pst.setString(2, obj.getPrenom());
             pst.setString(3, obj.getEmail());
+            pst.setString(4, obj.getMot_de_passe());
+            pst.setBoolean(5, obj.isEst_admin());
 
             pst.executeUpdate();
 
@@ -113,7 +119,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         if (donnees.containsKey(id)) {
             utilisateur = donnees.get(id);
         } else {
-            System.out.println("Recherche dans la BD");
+            System.out.println("Recherche de l'utilisateur connecté dans la BD");
             try {
                 String requete = "SELECT * FROM " + TABLE + " WHERE " + CLE_PRIMAIRE + " = " + id;
                 ResultSet rs = Connexion.executeQuery(requete);

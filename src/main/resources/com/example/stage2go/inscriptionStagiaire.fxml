@@ -93,11 +93,11 @@
                 <font>
                     <Font size="20.0" />
                 </font></TextField>
-            <Button fx:id="registerStagiaire" layoutX="438.0" layoutY="587.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="325.0" style="-fx-background-color: #ffae00;" text="Inscrire un nouveau stagiaire">
+            <Button fx:id="registerStagiaire" layoutX="438.0" layoutY="663.0" mnemonicParsing="false" onAction="#onClickCreate" prefHeight="51.0" prefWidth="325.0" style="-fx-background-color: #ffae00;" text="Inscrire un nouveau stagiaire">
                 <font>
                     <Font name="System Bold" size="20.0" />
                 </font></Button>
-            <Text layoutX="450.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe :">
+            <Text layoutX="450.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe :">
                 <font>
                     <Font size="20.0" />
                 </font></Text>
@@ -106,6 +106,7 @@
                     <Image url="@../../../images/avatarGM.png" />
                 </image>
             </ImageView>
-      <PasswordField fx:id="password" layoutX="450.0" layoutY="479.0" prefHeight="44.0" prefWidth="300.0" promptText="Votre mot de passe" />
+      <PasswordField fx:id="password" layoutX="450.0" layoutY="533.0" prefHeight="44.0" prefWidth="300.0" promptText="Votre mot de passe" />
+      <CheckBox fx:id="estAdmin" layoutX="564.0" layoutY="431.0" mnemonicParsing="false" text="Admin" />
         </children>
     </AnchorPane>

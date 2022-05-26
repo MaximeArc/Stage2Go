@@ -23,14 +23,22 @@ public class LoginController extends Controller {
 
     @Override
     public void OnLoginClick(ActionEvent actionEvent) throws IOException {
+
         if (!identifiant.getText().isEmpty() && !mdp.getText().isEmpty()){
             Utilisateur utilisateur = UtilisateurDAO.getUtilisateurByMail(identifiant.getText());
-            connectedUser = utilisateur;
-            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeEntreprises.fxml")));
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            String password = String.valueOf(mdp.getText());
+            System.out.println(password);
+
+            if (utilisateur.getMot_de_passe().equals(password)){
+                connectedUser = utilisateur;
+                stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeEntreprises.fxml")));
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
+
+
         }
     }
 
