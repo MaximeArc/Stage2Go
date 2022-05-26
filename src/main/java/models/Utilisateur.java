@@ -34,6 +34,14 @@ public class Utilisateur {
         this.annee = annee;
     }
 
+    public Utilisateur(String nom, String prenom, String email, int annee, String mot_de_passe){
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.annee = annee;
+        this.mot_de_passe = mot_de_passe;
+    }
+
     public int getId() {
         return id;
     }
@@ -69,7 +77,7 @@ public class Utilisateur {
         this.mot_de_passe = mot_de_passe;
     }
 
-    public boolean getEst_admin() { return est_admin; }
+    public boolean isEst_admin() { return est_admin; }
     public void setEst_admin(boolean est_admin) { this.est_admin = est_admin; }
 
     public int getLieu_stage() { return lieu_stage; }

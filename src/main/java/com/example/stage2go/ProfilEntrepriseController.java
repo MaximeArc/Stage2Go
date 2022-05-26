@@ -1,69 +1,140 @@
 package com.example.stage2go;
 
-
+import com.example.stage2go.Controller;
+import com.example.stage2go.ListeEntrepriseController;
 import dao.EntrepriseDAO;
+import dao.FavoriDAO;
+import dao.UtilisateurDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import models.Entreprise;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
+import models.*;
 
 import java.io.IOException;
 
 
-public class ProfilEntrepriseController extends Controller{
-/*
+public class ProfilEntrepriseController extends Controller {
+
     @FXML private TextField nom;
-    @FXML private TextArea description;
     @FXML private TextField activites;
-    @FXML private TextField techno;
-    @FXML private TextField nb_employes;
-    @FXML private TextField nom_contact;
-    @FXML private TextField email_contact;
-    @FXML private CheckBox teletravail;
+    @FXML private TextField nomContact;
+    @FXML private TextField mailContact;
+    @FXML private TextField nbSalaries;
     @FXML private TextField ville;
+    @FXML private CheckBox teletravail;
+    @FXML private TextArea description;
+    @FXML private TextField techno;
+    @FXML private TextField adresse;
+    @FXML private TextField codePostal;
+
+    @FXML private TableView<Commentaire> table;
+    @FXML private TableColumn<Commentaire, String> comment;
+
+    @FXML private Button modify;
 
     private String nomEntreprise;
-    private String descriptionEntreprise;
-    private String activitesEntreprise;
-    private String technoEntreprise;
-    private int nbEmployesEntreprise;
+    private String activiteEntreprise;
     private String nomContactEntreprise;
-    private String emailContactEntreprise;
-    private boolean teletravailEntreprise;
+    private String mailContactEntreprise;
+    private String nbSalariesEntreprise;
     private String villeEntreprise;
+    private String descritpionEntreprise;
+    private Boolean teletravailEntreprise;
+    private String technoEntreprise;
+    private String adresseEntreprise;
+    private String codePostalEntreprise;
 
-    private void viewData(){
-        Entreprise entreprise = EntrepriseDAO.getInstance().read(selectedEntreprise.getId());
+
+    private void viewData() {
+
+        Entreprise entreprise = ListeEntrepriseController.selectedEntreprise;
+        Adresse adresseE = EntrepriseDAO.getInstance().getAdress(entreprise.getId());
+
 
         nomEntreprise = entreprise.getNom();
-        descriptionEntreprise = entreprise.getDescription();
-        activitesEntreprise = entreprise.getActivites();
-        technoEntreprise = entreprise.getTechno();
-        nbEmployesEntreprise = entreprise.getNb_employes();
-        nomContactEntreprise = entreprise.getNom_contact();
-        emailContactEntreprise = entreprise.getEmail_contact();
-        teletravailEntreprise = entreprise.getTeletravail();
+        activiteEntreprise = entreprise.getActivites();
+        nomContactEntreprise = entreprise.getNomContact();
+        mailContactEntreprise = entreprise.getEmailContact();
+        nbSalariesEntreprise = String.valueOf(entreprise.getNb_employes());
         villeEntreprise = entreprise.getVille();
+        descritpionEntreprise = entreprise.getDescription();
+        teletravailEntreprise = entreprise.isTeletravail();
+        technoEntreprise = entreprise.getTechno();
+        adresseEntreprise = adresseE.getNumero() + " " + adresseE.getAdresse();
+        codePostalEntreprise = String.valueOf(adresseE.getCode_postal());
+
 
         nom.setText(nomEntreprise);
-        description.setText(descriptionEntreprise);
-        activites.setText(activitesEntreprise);
-        techno.setText(technoEntreprise);
-        nb_employes.setText(String.valueOf(nbEmployesEntreprise));
-        nom_contact.setText(nomContactEntreprise);
-        email_contact.setText(emailContactEntreprise);
-        teletravail.setText(String.valueOf(teletravailEntreprise));
+        activites.setText(activiteEntreprise);
+        mailContact.setText(mailContactEntreprise);
+        nomContact.setText(nomContactEntreprise);
+        nbSalaries.setText(nbSalariesEntreprise);
         ville.setText(villeEntreprise);
+        description.setText(descritpionEntreprise);
+        teletravail.setSelected(teletravailEntreprise);
+        techno.setText(technoEntreprise);
+        adresse.setText(adresseEntreprise);
+        codePostal.setText(codePostalEntreprise);
+
+        teletravail.setStyle("-fx-opacity: 1");
+
+
+        if (connectedUser.isEst_admin()) {
+            nom.setEditable(true);
+            activites.setEditable(true);
+            mailContact.setEditable(true);
+            nomContact.setEditable(true);
+            nbSalaries.setEditable(true);
+            ville.setEditable(true);
+            description.setEditable(true);
+            techno.setEditable(true);
+            adresse.setEditable(true);
+            codePostal.setEditable(true);
+
+            teletravail.setDisable(false);
+
+        }
+        else{
+            hideButton(modify);
+        }
 
 
     }
 
- */
+
+    private void viewTable() {
+
+        ObservableList<Commentaire> data = FXCollections.observableArrayList(EntrepriseDAO.getInstance().getComments(ListeEntrepriseController.selectedEntreprise.getId()));
+        comment.setCellValueFactory(new PropertyValueFactory<Commentaire, String>("contenu"));
+        table.setItems((ObservableList<Commentaire>) data);
+        table.setSelectionModel(null);
+
+    }
+
+
+    public void initialize() {
+        viewData();
+        viewTable();
+
+    }
+
+
+    public void onClickUpdate(ActionEvent actionEvent) throws IOException {
+        Entreprise entreprise = ListeEntrepriseController.selectedEntreprise;
+        entreprise.setNom(nom.getText());
+        entreprise.setTechno(techno.getText());
+        entreprise.setNomContact(nomContact.getText());
+        entreprise.setEmailContact(mailContact.getText());
+        entreprise.setNb_employes(Integer.parseInt(nbSalaries.getText()));
+        entreprise.setDescription(description.getText());
+        entreprise.setTeletravail(teletravail.isSelected());
+
+        EntrepriseDAO.getInstance().update(entreprise);
+    }
+
+
 }

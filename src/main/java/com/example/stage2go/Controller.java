@@ -22,7 +22,7 @@ public class Controller {
     Parent root;
     Scene scene;
 
-    static Utilisateur connectedUser;
+    public static Utilisateur connectedUser;
 
 
     /**
@@ -169,7 +169,7 @@ public class Controller {
      * @param button
      */
     void hideButton(Button button){
-        if (!connectedUser.getEst_admin()){
+        if (!connectedUser.isEst_admin()){
             button.setVisible(false);
         }
     }

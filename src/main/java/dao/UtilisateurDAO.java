@@ -51,8 +51,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
             pst.setString(1, obj.getNom());
             pst.setString(2, obj.getPrenom());
             pst.setString(3, obj.getEmail());
-            pst.setString(4, obj.getMot_de_passe());
-            pst.setBoolean(5, obj.getEst_admin());
+
             pst.executeUpdate();
 
             // Récupérer la clé qui a été générée et la pousser dans l'objet initial
@@ -95,12 +94,9 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
 
             pst.setString(1, obj.getNom());
             pst.setString(2, obj.getPrenom());
-
             pst.setString(3, obj.getEmail());
-
             pst.setString(4, obj.getMot_de_passe());
-            pst.setBoolean(5, obj.getEst_admin());
-
+            pst.setBoolean(5, obj.isEst_admin());
             pst.setInt(6, id);
             pst.executeUpdate();
             donnees.put(id, obj);
@@ -176,13 +172,14 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         return utilisateur;
     }
 
+
     public static Utilisateur getUtilisateurByMail(String mail){
         Utilisateur utilisateur = null;
 
         try {
             String request = "SELECT * FROM " + TABLE + " WHERE " + EMAIL + "='" + mail + "'";
             //TODO preparedStmt
-            ResultSet rs = Connexion.executeQuery(request);
+            ResultSet rs = Connexion. executeQuery(request);
             rs.next();
             System.out.println(rs);
 
@@ -203,6 +200,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         return utilisateur;
     }
 
+
     public String getLieuStageByUtilisateurId (int id) {
         String nom_stage = null;
         try {
@@ -215,7 +213,6 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         }
         return nom_stage;
     }
-
 
 
     public String getCommentByUtilisateurId (int id) {

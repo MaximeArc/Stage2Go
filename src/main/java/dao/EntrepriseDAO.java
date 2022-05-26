@@ -1,5 +1,7 @@
 package dao;
 
+import models.Adresse;
+import models.Commentaire;
 import models.Entreprise;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +22,7 @@ public class EntrepriseDAO extends DAO<Entreprise> {
     private static final String EMAIL_CONTACT = "email_contact";
     private static final String TELETRAVAIL = "teletravail";
     private static final String VILLE = "ville";
+    private static final String ID_ADRESSE = "id_adresse";
 
     private static EntrepriseDAO instance = null;
 
@@ -70,9 +73,10 @@ public class EntrepriseDAO extends DAO<Entreprise> {
                 String email_contact = rs.getString(EMAIL_CONTACT);
                 boolean teletravail = rs.getBoolean(String.valueOf(TELETRAVAIL));
                 String ville = rs.getString(VILLE);
+                int id_adresse = rs.getInt(ID_ADRESSE);
 
 
-                entreprise = new Entreprise(nom, description, activites, techno,nb_employes, nom_contact, email_contact, teletravail, ville);
+                entreprise = new Entreprise(nom, description, activites, techno,nb_employes, nom_contact, email_contact, teletravail, ville, id_adresse );
                 donnees.put(id, entreprise);
 
             } catch (SQLException e) {
@@ -112,7 +116,65 @@ public class EntrepriseDAO extends DAO<Entreprise> {
         boolean teletravail = rs.getBoolean(String.valueOf(TELETRAVAIL));
         String techno = rs.getString(TECHNO);
         String ville = rs.getString(VILLE);
-        entreprise = new Entreprise(nom, description, activites, techno, nb_employes, nom_contact, email_contact,teletravail,ville);
+        int id_adresse = rs.getInt(ID_ADRESSE);
+        entreprise = new Entreprise(nom, description, activites, techno, nb_employes, nom_contact, email_contact,teletravail,ville, id_adresse);
         return entreprise;
     }
+    public String getCommentsByEntrepriseId (int id) {
+        String comment = null;
+        try {
+            String requete = "SELECT COMMENTAIRE.contenu FROM " + TABLE + " JOIN COMMENTAIRE ON COMMENTAIRE.id_entreprise=" + TABLE + ".id WHERE ENTREPRISE." + CLE_PRIMAIRE + " = " + id;
+            ResultSet rs = Connexion.executeQuery(requete);
+            rs.next();
+            comment = rs.getString("contenu");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return comment;
+    }
+
+    public Adresse getAdress(int id) {
+        Adresse adress = new Adresse();
+        try {
+            String requete = "SELECT * FROM " + TABLE + " JOIN ADRESSE ON ADRESSE.id=" + TABLE + ".id_adresse WHERE ENTREPRISE." + CLE_PRIMAIRE + " = " + id;
+            ResultSet rs = Connexion.executeQuery(requete);
+            rs.next();
+
+            adress.setAdresse(rs.getString("adresse"));
+            adress.setNumero(rs.getInt("numero"));
+            adress.setCode_postal(rs.getInt("code_postal"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return adress;
+    }
+
+    public ArrayList<Commentaire> getComments(int idEntreprise) {
+        Commentaire comment = null;
+        ArrayList<Commentaire> listComments =null;
+        try {
+            String requete = "SELECT * FROM " + TABLE + " JOIN COMMENTAIRE ON COMMENTAIRE.id_entreprise= " + TABLE +".id WHERE " + TABLE + ".id=" + idEntreprise;
+            ResultSet rs = Connexion.executeQuery(requete);
+            listComments = new ArrayList<Commentaire>();
+            boolean hasNext = rs.next();
+            while (hasNext) {
+                comment = getComment(rs);
+                listComments.add(comment);
+                hasNext = rs.next();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listComments;
+    }
+
+    private Commentaire getComment(ResultSet rs) throws SQLException {
+        Commentaire comment;
+        String contenu = rs.getString("contenu");
+
+        comment = new Commentaire();
+        comment.setContenu(contenu);
+        return comment;
+    }
+
 }

@@ -12,6 +12,7 @@ public class Entreprise {
         private String email_contact;
         private boolean teletravail;
         private String ville;
+        private int id_adresse;
 
 
         public Entreprise(String nom,
@@ -22,7 +23,8 @@ public class Entreprise {
                           String nom_contact,
                           String email_contact,
                           boolean teletravail,
-                          String ville) {
+                          String ville,
+                          int id_adresse) {
 
             this.nom = nom;
             this.description = description;
@@ -33,6 +35,7 @@ public class Entreprise {
             this.email_contact = email_contact;
             this.teletravail = teletravail;
             this.ville = ville;
+            this.id_adresse = id_adresse;
         }
 
         public int getId() {
@@ -77,21 +80,21 @@ public class Entreprise {
             this.nb_employes = nb_employes;
         }
 
-        public String getNom_contact() {
+        public String getNomContact() {
             return nom_contact;
         }
-        public void setNom_contact(String nom_contact) {
+        public void setNomContact(String nom_contact) {
             this.nom_contact = nom_contact;
         }
 
-        public String getEmail_contact() {
+        public String getEmailContact() {
             return email_contact;
         }
-        public void setEmail_contact(String email_contact) {
+        public void setEmailContact(String email_contact) {
             this.email_contact = email_contact;
         }
 
-        public boolean getTeletravail() {
+        public boolean isTeletravail() {
             return teletravail;
         }
         public void setTeletravail(boolean teletravail) {

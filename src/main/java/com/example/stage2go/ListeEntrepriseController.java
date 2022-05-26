@@ -22,7 +22,7 @@ import java.util.Objects;
 
 public class ListeEntrepriseController extends Controller{
 
-    static Entreprise selectedEntreprise;
+    public static Entreprise selectedEntreprise;
 
     @FXML private TableView<Entreprise> table;
     @FXML private TableColumn<Entreprise, String> nom;
@@ -40,7 +40,7 @@ public class ListeEntrepriseController extends Controller{
         activites.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("activites"));
         ville.setCellValueFactory(new PropertyValueFactory<Entreprise,String>("ville"));
 
-        table.setItems(data);
+        table.setItems((ObservableList<Entreprise>) data);
 
     }
 

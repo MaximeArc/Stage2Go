@@ -23,7 +23,7 @@ public class InscriptionEntrepriseController extends Controller {
 */
 
     @FXML private TextField nom;
-    @FXML private TextField activite;
+    @FXML private TextField activites;
     @FXML private TextField techno;
     @FXML private TextField description;
     @FXML private TextField nbEmployes;
@@ -46,6 +46,7 @@ public class InscriptionEntrepriseController extends Controller {
     private String villeEntreprise;
     private boolean teletravailEntreprise;
 
+
     /*
     Methode se déclenchant au moment du clic sur le bouton Valider de la fiche de creation d'entreprise
     */
@@ -59,7 +60,7 @@ public class InscriptionEntrepriseController extends Controller {
 
             //Attribue le contenu des champs de texte aux variables déclarées plus haut
             nomEntreprise=nom.getText();
-            activiteEntreprise=activite.getText();
+            activiteEntreprise=activites.getText();
             technoEntreprise=techno.getText();
             descriptionEntreprise=description.getText();
             nbEmployesEntreprise=parseInt(nbEmployes.getText());
@@ -78,7 +79,8 @@ public class InscriptionEntrepriseController extends Controller {
                     nomContactEntreprise,
                     mailContactEntreprise,
                     teletravailEntreprise,
-                    villeEntreprise);
+                    villeEntreprise,
+                    0);
 
 
             //Insertion de cette nouvelle entreprise dans la base de données
