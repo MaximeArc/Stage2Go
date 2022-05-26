@@ -1,6 +1,5 @@
 package com.example.stage2go;
 
-
 import dao.UtilisateurDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,9 +13,15 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import models.Utilisateur;
 
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
+
+import static utils.Utils.hashPass;
 
 public class InscriptionStagiaireController extends Controller{
     @FXML private TextField nom;
@@ -40,11 +45,12 @@ public class InscriptionStagiaireController extends Controller{
 
 
 
+
     /*
     Methode se déclenchant au moment du clic sur le bouton "Inscrire un nouveau stagiaire" de la fiche inscriptionStagiaire
     */
 
-    public void onClickCreate(ActionEvent actionEvent) throws IOException {
+    public void onClickCreate(ActionEvent actionEvent) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
 
         //Vérifie que les champs nom, prenom et mail ne sont pas vides
         if(!nom.getText().isEmpty() && !prenom.getText().isEmpty() &&!mail.getText().isEmpty()){
@@ -53,9 +59,11 @@ public class InscriptionStagiaireController extends Controller{
             nomStagiaire = nom.getText();
             prenomStagiaire = prenom.getText();
             mailStagiaire = mail.getText();
-            passwordStagiaire = password.getText();
+            // Hash du mot de passe
+            passwordStagiaire = hashPass(password.getText());
             estAdminStagiaire = estAdmin.isSelected();
             anneeStagiaire = Integer.parseInt(annee.getText());
+
 
 
 
