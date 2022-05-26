@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>Staggers</artifactId>
+    <artifactId>Stage2Go</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Staggers</name>
+    <name>Stage2Go</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -61,7 +61,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>Stage2Go/com.example.Main</mainClass>
+                            <mainClass>Stage2Go/com.example.stage2go.Main</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

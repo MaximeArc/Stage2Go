@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stage2go.ListeStagiaireController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stage2go.ListeStagiairesAdminController">
     <children>
         <AnchorPane layoutY="-4.0" prefHeight="144.0" prefWidth="1200.0" style="-fx-background-color: #44BBA4;">
             <children>
@@ -48,17 +48,12 @@
                 </Button>
             </children>
         </AnchorPane>
-        <Button layoutX="397.0" layoutY="189.0" mnemonicParsing="false" onAction="#OnListeStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Liste des stagiaires" textFill="#393e41">
+        <Button fx:id="addStagiaire" layoutX="535.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Ajouter un stagiaire" textFill="#fcf8f8">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Button>
-        <Button layoutX="679.0" layoutY="189.0" mnemonicParsing="false" onAction="#OnAjouterStagiaireClick" prefHeight="44.0" prefWidth="203.0" style="-fx-background-color: #44BBA4;" text="Ajouter un stagiaire" textFill="#393e41">
-            <font>
-                <Font name="System Bold" size="18.0" />
-            </font>
-        </Button>
-        <TableView fx:id="table" layoutX="18.0" layoutY="304.0" prefHeight="470.0" prefWidth="1162.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
+        <TableView fx:id="table" layoutX="18.0" layoutY="216.0" prefHeight="578.0" prefWidth="1174.0" styleClass=".table-view" stylesheets="@../../css/styles.css">
             <columns>
                 <TableColumn fx:id="nom" prefWidth="266.0" text="Nom" />
                 <TableColumn fx:id="prenom" prefWidth="259.0" text="Prenom" />

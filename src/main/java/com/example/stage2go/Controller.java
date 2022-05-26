@@ -71,11 +71,22 @@ public class Controller {
      * @throws IOException
      */
     public void OnStagiaireClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profilStagiaire.fxml")));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+
+        if(connectedUser.isEst_admin()){
+            stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeStagiairesAdmin.fxml")));
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else{
+            stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profilStagiaire.fxml")));
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+
     }
 
 
@@ -107,7 +118,7 @@ public class Controller {
      */
     public void OnListeStagiaireClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeStagiaires.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeStagiairesAdmin.fxml")));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
