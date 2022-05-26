@@ -13,7 +13,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Objects;
+
+import static utils.Utils.isPasswordCorrect;
 
 
 public class LoginController extends Controller {
@@ -22,14 +26,14 @@ public class LoginController extends Controller {
    @FXML private PasswordField mdp;
 
     @Override
-    public void OnLoginClick(ActionEvent actionEvent) throws IOException {
+    public void OnLoginClick(ActionEvent actionEvent) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
 
         if (!identifiant.getText().isEmpty() && !mdp.getText().isEmpty()){
             Utilisateur utilisateur = UtilisateurDAO.getUtilisateurByMail(identifiant.getText());
             String password = String.valueOf(mdp.getText());
             System.out.println(password);
 
-            if (utilisateur.getMot_de_passe().equals(password)){
+            if (isPasswordCorrect(password, utilisateur.getMot_de_passe())){
                 connectedUser = utilisateur;
                 stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeEntreprises.fxml")));

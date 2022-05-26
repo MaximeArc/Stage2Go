@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 import models.Utilisateur;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -30,7 +32,7 @@ public class Controller {
      * @param actionEvent
      * @throws IOException
      */
-    public void OnLoginClick(ActionEvent actionEvent) throws IOException {
+    public void OnLoginClick(ActionEvent actionEvent) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeEntreprises.fxml")));
         scene = new Scene(root);
