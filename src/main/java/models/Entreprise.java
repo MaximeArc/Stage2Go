@@ -12,7 +12,8 @@ public class Entreprise {
         private String email_contact;
         private boolean teletravail;
         private String ville;
-        private int id_adresse;
+        private int id_entreprise;
+
 
 
         public Entreprise(String nom,
@@ -23,8 +24,7 @@ public class Entreprise {
                           String nom_contact,
                           String email_contact,
                           boolean teletravail,
-                          String ville,
-                          int id_adresse) {
+                          String ville) {
 
             this.nom = nom;
             this.description = description;
@@ -35,7 +35,7 @@ public class Entreprise {
             this.email_contact = email_contact;
             this.teletravail = teletravail;
             this.ville = ville;
-            this.id_adresse = id_adresse;
+
         }
 
         public int getId() {
@@ -101,12 +101,8 @@ public class Entreprise {
             this.teletravail = teletravail;
         }
 
-        public String getVille() {
-            return ville;
-        }
-        public void setVille(String nom) {
-            this.ville = ville;
-        }
+        public String getVille() { return ville; }
+        public void setVille(String nom) { this.ville = ville; }
 
 
 

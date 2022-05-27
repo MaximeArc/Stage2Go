@@ -2,6 +2,7 @@ package com.example.stage2go;
 
 import com.example.stage2go.Controller;
 import com.example.stage2go.ListeEntrepriseController;
+import dao.CommentaireDAO;
 import dao.EntrepriseDAO;
 import dao.FavoriDAO;
 import dao.UtilisateurDAO;
@@ -15,6 +16,7 @@ import javafx.scene.text.Text;
 import models.*;
 
 import java.io.IOException;
+import java.util.Optional;
 
 
 public class ProfilEntrepriseController extends Controller {
@@ -35,6 +37,7 @@ public class ProfilEntrepriseController extends Controller {
     @FXML private TableColumn<Commentaire, String> comment;
 
     @FXML private Button modify;
+    @FXML private Button delete;
 
     private String nomEntreprise;
     private String activiteEntreprise;
@@ -52,7 +55,6 @@ public class ProfilEntrepriseController extends Controller {
     private void viewData() {
 
         Entreprise entreprise = ListeEntrepriseController.selectedEntreprise;
-        Adresse adresseE = EntrepriseDAO.getInstance().getAdress(entreprise.getId());
 
 
         nomEntreprise = entreprise.getNom();
@@ -64,8 +66,7 @@ public class ProfilEntrepriseController extends Controller {
         descritpionEntreprise = entreprise.getDescription();
         teletravailEntreprise = entreprise.isTeletravail();
         technoEntreprise = entreprise.getTechno();
-        adresseEntreprise = adresseE.getNumero() + " " + adresseE.getAdresse();
-        codePostalEntreprise = String.valueOf(adresseE.getCode_postal());
+        villeEntreprise = entreprise.getVille();
 
 
         nom.setText(nomEntreprise);
@@ -77,8 +78,8 @@ public class ProfilEntrepriseController extends Controller {
         description.setText(descritpionEntreprise);
         teletravail.setSelected(teletravailEntreprise);
         techno.setText(technoEntreprise);
-        adresse.setText(adresseEntreprise);
-        codePostal.setText(codePostalEntreprise);
+        ville.setText(villeEntreprise);
+
 
         teletravail.setStyle("-fx-opacity: 1");
 
@@ -100,6 +101,7 @@ public class ProfilEntrepriseController extends Controller {
         }
         else{
             hideButton(modify);
+            hideButton(delete);
         }
 
 
@@ -108,7 +110,7 @@ public class ProfilEntrepriseController extends Controller {
 
     private void viewTable() {
 
-        ObservableList<Commentaire> data = FXCollections.observableArrayList(EntrepriseDAO.getInstance().getComments(ListeEntrepriseController.selectedEntreprise.getId()));
+        ObservableList<Commentaire> data = FXCollections.observableArrayList(CommentaireDAO.getComments(ListeEntrepriseController.selectedEntreprise.getId()));
         comment.setCellValueFactory(new PropertyValueFactory<Commentaire, String>("contenu"));
         table.setItems((ObservableList<Commentaire>) data);
         table.setSelectionModel(null);
@@ -134,7 +136,21 @@ public class ProfilEntrepriseController extends Controller {
         entreprise.setTeletravail(teletravail.isSelected());
 
         EntrepriseDAO.getInstance().update(entreprise);
+        OnAccueilClick(actionEvent);
     }
 
+    public void onClickDelete(ActionEvent actionEvent) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Supprimer");
+        alert.setHeaderText("Etes vous sur de vouloir supprimer cette fiche entreprise ?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            Entreprise entreprise = ListeEntrepriseController.selectedEntreprise;
+            EntrepriseDAO.getInstance().delete(entreprise);
+            OnAccueilClick(actionEvent);
+        }
+
+    }
 
 }

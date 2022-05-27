@@ -3,8 +3,11 @@ package dao;
 import models.Adresse;
 import models.Commentaire;
 import models.Entreprise;
+
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 
@@ -22,7 +25,8 @@ public class EntrepriseDAO extends DAO<Entreprise> {
     private static final String EMAIL_CONTACT = "email_contact";
     private static final String TELETRAVAIL = "teletravail";
     private static final String VILLE = "ville";
-    private static final String ID_ADRESSE = "id_adresse";
+
+
 
     private static EntrepriseDAO instance = null;
 
@@ -39,17 +43,77 @@ public class EntrepriseDAO extends DAO<Entreprise> {
 
     @Override
     public boolean create(Entreprise obj) {
-        return false;
+        boolean success = true;
+        try {
+            String requete = "INSERT INTO " + TABLE + " (" + NOM + "," + NOM_CONTACT + "," + EMAIL_CONTACT + ","
+                    + NB_EMPLOYES + "," + DESCRIPTION + "," + TECHNO + "," + TELETRAVAIL + "," + ACTIVITES + ")" + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+            PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
+            pst.setString(1, obj.getNom());
+            pst.setString(2, obj.getNomContact());
+            pst.setString(3, obj.getEmailContact());
+            pst.setInt(4, obj.getNb_employes());
+            pst.setString(5, obj.getDescription());
+            pst.setString(6, obj.getTechno());
+            pst.setBoolean(7, obj.isTeletravail());
+            pst.setString(8, obj.getActivites());
+            //pst.setInt(9, obj.getAdresse().getId());
+            pst.executeUpdate();
+            ResultSet rs = pst.getGeneratedKeys();
+            if (rs.next()) {
+                obj.setId(rs.getInt(1));
+            }
+            donnees.put(obj.getId(), obj);
+        } catch (SQLException e) {
+            success = false;
+            e.printStackTrace();
+        }
+        return success;
     }
 
     @Override
     public boolean delete(Entreprise obj) {
-        return false;
+        boolean success = true;
+        try {
+            int id = obj.getId();
+            String requete = "DELETE FROM " + TABLE + " WHERE " + CLE_PRIMAIRE + " = ?";
+            PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
+            pst.setInt(1, id);
+            pst.executeUpdate();
+            donnees.remove(id);
+        } catch (SQLException e) {
+            success = false;
+            e.printStackTrace();
+        }
+        return success;
     }
 
     @Override
     public boolean update(Entreprise obj) {
-        return false;
+        boolean success = true;
+        int id = obj.getId();
+        try {
+            String requete = "UPDATE " + TABLE + " SET " + NOM + " = ?, " + DESCRIPTION + " = ? , " + ACTIVITES + " = ?, " + TECHNO + " = ?, " + NB_EMPLOYES + " = ?, " + NOM_CONTACT + " = ?, " + EMAIL_CONTACT + " =?, " + TELETRAVAIL + " =? WHERE " + CLE_PRIMAIRE + " = ?";
+            PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
+
+            pst.setString(1, obj.getNom());
+            pst.setString(2, obj.getDescription());
+            pst.setString(3, obj.getActivites());
+            pst.setString(4, obj.getTechno());
+            pst.setInt(5, obj.getNb_employes());
+            pst.setString(6, obj.getNomContact());
+            pst.setString(7, obj.getEmailContact());
+            pst.setBoolean(8, obj.isTeletravail());
+
+
+            pst.setInt(9, id);
+            pst.executeUpdate();
+            donnees.put(id, obj);
+        } catch (SQLException e) {
+            success = false;
+            e.printStackTrace();
+        }
+        return success;
     }
 
     @Override
@@ -73,10 +137,11 @@ public class EntrepriseDAO extends DAO<Entreprise> {
                 String email_contact = rs.getString(EMAIL_CONTACT);
                 boolean teletravail = rs.getBoolean(String.valueOf(TELETRAVAIL));
                 String ville = rs.getString(VILLE);
-                int id_adresse = rs.getInt(ID_ADRESSE);
 
 
-                entreprise = new Entreprise(nom, description, activites, techno,nb_employes, nom_contact, email_contact, teletravail, ville, id_adresse );
+
+
+                entreprise = new Entreprise(nom, description, activites, techno, nb_employes, nom_contact, email_contact, teletravail, ville );
                 donnees.put(id, entreprise);
 
             } catch (SQLException e) {
@@ -107,6 +172,7 @@ public class EntrepriseDAO extends DAO<Entreprise> {
 
     private Entreprise getEntreprise(ResultSet rs) throws SQLException {
         Entreprise entreprise;
+
         String nom = rs.getString(NOM);
         String nom_contact = rs.getString(NOM_CONTACT);
         String email_contact = rs.getString(EMAIL_CONTACT);
@@ -116,65 +182,11 @@ public class EntrepriseDAO extends DAO<Entreprise> {
         boolean teletravail = rs.getBoolean(String.valueOf(TELETRAVAIL));
         String techno = rs.getString(TECHNO);
         String ville = rs.getString(VILLE);
-        int id_adresse = rs.getInt(ID_ADRESSE);
-        entreprise = new Entreprise(nom, description, activites, techno, nb_employes, nom_contact, email_contact,teletravail,ville, id_adresse);
+
+
+
+        entreprise = new Entreprise(nom, description, activites, techno, nb_employes, nom_contact, email_contact,teletravail,ville);
         return entreprise;
-    }
-    public String getCommentsByEntrepriseId (int id) {
-        String comment = null;
-        try {
-            String requete = "SELECT COMMENTAIRE.contenu FROM " + TABLE + " JOIN COMMENTAIRE ON COMMENTAIRE.id_entreprise=" + TABLE + ".id WHERE ENTREPRISE." + CLE_PRIMAIRE + " = " + id;
-            ResultSet rs = Connexion.executeQuery(requete);
-            rs.next();
-            comment = rs.getString("contenu");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return comment;
-    }
-
-    public Adresse getAdress(int id) {
-        Adresse adress = new Adresse();
-        try {
-            String requete = "SELECT * FROM " + TABLE + " JOIN ADRESSE ON ADRESSE.id=" + TABLE + ".id_adresse WHERE ENTREPRISE." + CLE_PRIMAIRE + " = " + id;
-            ResultSet rs = Connexion.executeQuery(requete);
-            rs.next();
-
-            adress.setAdresse(rs.getString("adresse"));
-            adress.setNumero(rs.getInt("numero"));
-            adress.setCode_postal(rs.getInt("code_postal"));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return adress;
-    }
-
-    public ArrayList<Commentaire> getComments(int idEntreprise) {
-        Commentaire comment = null;
-        ArrayList<Commentaire> listComments =null;
-        try {
-            String requete = "SELECT * FROM " + TABLE + " JOIN COMMENTAIRE ON COMMENTAIRE.id_entreprise= " + TABLE +".id WHERE " + TABLE + ".id=" + idEntreprise;
-            ResultSet rs = Connexion.executeQuery(requete);
-            listComments = new ArrayList<Commentaire>();
-            boolean hasNext = rs.next();
-            while (hasNext) {
-                comment = getComment(rs);
-                listComments.add(comment);
-                hasNext = rs.next();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return listComments;
-    }
-
-    private Commentaire getComment(ResultSet rs) throws SQLException {
-        Commentaire comment;
-        String contenu = rs.getString("contenu");
-
-        comment = new Commentaire();
-        comment.setContenu(contenu);
-        return comment;
     }
 
 }

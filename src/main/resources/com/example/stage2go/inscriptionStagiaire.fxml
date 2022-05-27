@@ -6,6 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,100 +15,90 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stage2go.InscriptionStagiaireController">
-        <children>
-            <AnchorPane layoutY="-4.0" prefHeight="144.0" prefWidth="1200.0" style="-fx-background-color: #44BBA4;">
-                <children>
-
-                    <ImageView fitHeight="144.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../../../images/logo.jpg" />
-                        </image>
-                    </ImageView>
-                    <Button layoutX="600.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnRessourcesClick" style="-fx-background-color: #44BBA4;" text="Ressources" textFill="#fcf8f8">
-                        <font>
-                            <Font name="System Bold" size="24.0" />
-                        </font>
-                    </Button>
-                    <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprise" textFill="#fcf8f8">
-                        <font>
-                            <Font name="System Bold" size="24.0" />
-                        </font>
-                    </Button>
-                    <ImageView fitHeight="44.0" fitWidth="43.0" layoutX="1108.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                            <Image url="@../../../../../../../../Desktop/icons/icons8-sortie-96.png" />
-                        </image>
-                    </ImageView>
-                    <Button layoutX="800.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnStagiaireClick" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#fcf8f8">
-                        <font>
-                            <Font name="System Bold" size="24.0" />
-                        </font>
-                    </Button>
-                    <Text layoutX="819.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter" textAlignment="CENTER" wrappingWidth="93.578125">
-                        <font>
-
-                            <Font size="20.0" />
-                        </font>
-                    </Text>
-
-                    <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" onAction="#OnExitClick" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #44BBA4;">
-                        <graphic>
-                            <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                                <image>
-                                    <Image url="@../../../images/icons8-sortie-96.png" />
-                                </image>
-                            </ImageView>
-                        </graphic>
-                    </Button>
-                </children>
-            </AnchorPane>
-            <TextField fx:id="nom" alignment="TOP_CENTER" layoutX="332.0" layoutY="247.0" prefHeight="27.0" prefWidth="249.0" promptText="Nom">
-                <font>
-                    <Font size="20.0" />
-                </font></TextField>
-            <Text layoutX="332.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom :" wrappingWidth="100.0">
-                <font>
-                    <Font size="20.0" />
-                </font></Text>
-            <Text layoutX="331.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prenom :">
-                <font>
-                    <Font size="20.0" />
-                </font></Text>
-            <TextField fx:id="prenom" alignment="TOP_CENTER" layoutX="332.0" layoutY="336.0" prefHeight="27.0" prefWidth="249.0" promptText="Prenom">
-                <font>
-                    <Font size="20.0" />
-                </font></TextField>
-            <Text layoutX="652.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail :">
-                <font>
-                    <Font size="20.0" />
-                </font></Text>
-            <TextField fx:id="mail" alignment="TOP_CENTER" layoutX="649.0" layoutY="336.0" prefHeight="27.0" prefWidth="249.0" promptText="Mail">
-                <font>
-                    <Font size="20.0" />
-                </font></TextField>
-            <Text layoutX="652.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Année du diplome :">
-                <font>
-                    <Font size="20.0" />
-                </font></Text>
-            <TextField fx:id="annee" alignment="TOP_CENTER" layoutX="652.0" layoutY="247.0" prefHeight="44.0" prefWidth="243.0" promptText="Année de diplome">
-                <font>
-                    <Font size="20.0" />
-                </font></TextField>
-            <Button fx:id="registerStagiaire" layoutX="438.0" layoutY="663.0" mnemonicParsing="false" onAction="#onClickCreate" prefHeight="51.0" prefWidth="325.0" style="-fx-background-color: #ffae00;" text="Inscrire un nouveau stagiaire">
-                <font>
-                    <Font name="System Bold" size="20.0" />
-                </font></Button>
-            <Text layoutX="450.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe :">
-                <font>
-                    <Font size="20.0" />
-                </font></Text>
-            <ImageView layoutX="113.0" layoutY="208.0">
-                <image>
-                    <Image url="@../../../images/avatarGM.png" />
-                </image>
-            </ImageView>
-      <PasswordField fx:id="password" layoutX="450.0" layoutY="533.0" prefHeight="44.0" prefWidth="300.0" promptText="Votre mot de passe" />
-      <CheckBox fx:id="estAdmin" layoutX="564.0" layoutY="431.0" mnemonicParsing="false" text="Admin" />
-        </children>
-    </AnchorPane>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../../css/styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stage2go.InscriptionStagiaireController">
+    <children>
+        <AnchorPane layoutY="-4.0" prefHeight="144.0" prefWidth="1200.0" style="-fx-background-color: #44BBA4;">
+            <children>
+                <ImageView fitHeight="144.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../images/logo.jpg" />
+                    </image>
+                </ImageView>
+                <Button layoutX="600.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnRessourcesClick" style="-fx-background-color: #44BBA4;" text="Ressources" textFill="#fcf8f8">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Button>
+                <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprises" textFill="#fcf8f8">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Button>
+                <Button layoutX="800.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnStagiaireClick" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#393e41">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Button>
+                <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" onAction="#OnExitClick" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #44BBA4;">
+                    <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../images/icons8-sortie-96.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </AnchorPane>
+        <TextField fx:id="nom" layoutX="356.0" layoutY="231.0" prefHeight="51.0" prefWidth="249.0" promptText="Nom">
+            <font>
+                <Font size="16.0" />
+            </font></TextField>
+        <Text layoutX="358.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" wrappingWidth="100.0">
+            <font>
+                <Font size="16.0" />
+            </font></Text>
+        <Text layoutX="688.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prenom">
+            <font>
+                <Font size="16.0" />
+            </font></Text>
+        <TextField fx:id="prenom" layoutX="688.0" layoutY="231.0" prefHeight="51.0" prefWidth="249.0" promptText="Prenom">
+            <font>
+                <Font size="16.0" />
+            </font></TextField>
+        <Text layoutX="358.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail ">
+            <font>
+                <Font size="16.0" />
+            </font></Text>
+        <TextField fx:id="mail" layoutX="358.0" layoutY="357.0" prefHeight="51.0" prefWidth="249.0" promptText="Mail">
+            <font>
+                <Font size="16.0" />
+            </font></TextField>
+        <Text layoutX="688.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Année du diplome">
+            <font>
+                <Font size="16.0" />
+            </font></Text>
+        <TextField fx:id="annee" layoutX="688.0" layoutY="357.0" prefHeight="51.0" prefWidth="243.0" promptText="Année de diplome">
+            <font>
+                <Font size="16.0" />
+            </font></TextField>
+        <Button layoutX="533.0" layoutY="717.0" mnemonicParsing="false" onAction="#onClickCreate" prefHeight="51.0" prefWidth="243.0" style="-fx-background-color: #44BBA4;" text="Valider" textFill="WHITE">
+            <font>
+                <Font size="16.0" />
+            </font></Button>
+        <Text layoutX="530.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe">
+            <font>
+                <Font size="16.0" />
+            </font></Text>
+        <CheckBox fx:id="estAdmin" layoutX="607.0" layoutY="592.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="95.0" text="Admin">
+            <font>
+                <Font size="16.0" />
+            </font></CheckBox>
+        <PasswordField fx:id="password" layoutX="530.0" layoutY="490.0" prefHeight="51.0" prefWidth="249.0" promptText="Mot de passe">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </PasswordField>
+       
+    </children>
+</AnchorPane>

@@ -35,6 +35,7 @@ public class ListeEntrepriseController extends Controller{
     private void viewTable(){
 
         ObservableList<Entreprise> data = FXCollections.observableArrayList(EntrepriseDAO.getInstance().readAll());
+
         nom.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("nom"));
         techno.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("techno"));
         activites.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("activites"));

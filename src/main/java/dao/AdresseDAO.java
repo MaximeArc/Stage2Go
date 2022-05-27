@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class AdresseDAO extends DAO<Adresse> {
 
-    private static final String TABLE = "adresse";
+    private static final String TABLE = "ADRESSE";
     private static final String CLE_PRIMAIRE = "id";
     private static final String NUMERO = "numero";
     private static final String ADRESSE = "adresse";
@@ -35,9 +35,9 @@ public class AdresseDAO extends DAO<Adresse> {
                     "VALUES (?, ?, ?, ?)";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
             pst.setInt(1, obj.getNumero());
-            pst.setString(3, obj.getAdresse());
-            pst.setString(4, obj.getVille());
-            pst.setInt(2, obj.getCode_postal());
+            pst.setString(2, obj.getAdresse());
+            pst.setString(3, obj.getVille());
+            pst.setInt(4, obj.getCode_postal());
 
             // on exécute la mise à jour
             pst.executeUpdate();
@@ -80,10 +80,10 @@ public class AdresseDAO extends DAO<Adresse> {
                     "WHERE " + CLE_PRIMAIRE + " = ?";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
             pst.setInt(1, obj.getNumero());
-            pst.setString(3, obj.getAdresse());
-            pst.setString(4, obj.getVille());
-            pst.setInt(5, obj.getCode_postal());
-            pst.setInt(2, id);
+            pst.setString(2, obj.getAdresse());
+            pst.setString(3, obj.getVille());
+            pst.setInt(4, obj.getCode_postal());
+            pst.setInt(5, id);
             pst.executeUpdate();
             donnees.put(id, obj);
         } catch (SQLException e) {
@@ -100,7 +100,6 @@ public class AdresseDAO extends DAO<Adresse> {
             System.out.println("récupéré");
             adresse = donnees.get(id);
         } else {
-            System.out.println("Recherche dans la BD");
             try {
                 String requete = "SELECT * FROM " + TABLE + " WHERE " + CLE_PRIMAIRE + " = " + id;
                 ResultSet rs = Connexion.executeQuery(requete);

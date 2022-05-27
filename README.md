@@ -1,3 +1,10 @@
+[![OS - Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://)
+[![Language - Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)](https://)
+[![DB - SQL](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white)](https://)
+[![IDE](https://img.shields.io/badge/IntelliJ_IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)](https://)
+[![Front](https://img.shields.io/badge/JavaFX-34D873?style=for-the-badge&logo=java&logoColor=white)](https://)
+
+
 <br/>
 <div align="center">
     <img src="src/main/resources/images/logo.jpg" alt="Logo" width="80" height="80">

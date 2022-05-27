@@ -7,6 +7,7 @@ public class Adresse {
     private String adresse;
     private String ville;
     private int code_postal;
+    private int id_utilisateur;
     private int id_entreprise;
 
     public Adresse(int id, int numero, String adresse, String ville, int code_postal)
@@ -69,6 +70,8 @@ public class Adresse {
         this.id_entreprise = id_entreprise;
     }
 
+    public int getId_utilisateur() { return id_utilisateur; }
+    public void setId_utilisateur(int id_utilisateur) { this.id_utilisateur = id_utilisateur; }
 
     @Override
     public String toString() {
@@ -78,6 +81,7 @@ public class Adresse {
                 ", adresse='" + adresse + '\'' +
                 ", ville='" + ville + '\'' +
                 ", code_postal=" + code_postal + '\'' +
+                ", id_utilisateur=" + id_utilisateur +
                 ", id_entreprise=" + id_entreprise +
                 '}';
     }

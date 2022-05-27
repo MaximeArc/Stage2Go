@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import models.Adresse;
 import models.Entreprise;
 
 import java.io.IOException;
@@ -29,8 +30,9 @@ public class InscriptionEntrepriseController extends Controller {
     @FXML private TextField nbEmployes;
     @FXML private TextField nomContact;
     @FXML private TextField mailContact;
-    @FXML private TextField ville;
     @FXML private CheckBox teletravail;
+    @FXML private TextField ville;
+
 
 /*
    Declaration des variables utiles à la creation d'une entreprise
@@ -43,15 +45,16 @@ public class InscriptionEntrepriseController extends Controller {
     private int nbEmployesEntreprise;
     private String nomContactEntreprise;
     private String mailContactEntreprise;
-    private String villeEntreprise;
     private boolean teletravailEntreprise;
+    private String villeEntreprise;
+
 
 
     /*
     Methode se déclenchant au moment du clic sur le bouton Valider de la fiche de creation d'entreprise
     */
 
-    public void onClickCreate(ActionEvent actionEvent) {
+    public void onClickCreate(ActionEvent actionEvent) throws IOException {
 
 
         //Vérifie que les champs nom, mail et ville ne sont pas vide (minimum pour identifier une entreprise)
@@ -66,8 +69,8 @@ public class InscriptionEntrepriseController extends Controller {
             nbEmployesEntreprise=parseInt(nbEmployes.getText());
             nomContactEntreprise=nomContact.getText();
             mailContactEntreprise=mailContact.getText();
-            villeEntreprise=ville.getText();
             teletravailEntreprise=teletravail.isSelected();
+            villeEntreprise=ville.getText();
 
 
             //Création d'un nouvel objet entreprise avec les variables en paramètres
@@ -79,14 +82,14 @@ public class InscriptionEntrepriseController extends Controller {
                     nomContactEntreprise,
                     mailContactEntreprise,
                     teletravailEntreprise,
-                    villeEntreprise,
-                    0);
+                    villeEntreprise);
 
 
             //Insertion de cette nouvelle entreprise dans la base de données
 
 
             EntrepriseDAO.getInstance().create(entreprise);
+            OnAccueilClick(actionEvent);
 
         }
     }

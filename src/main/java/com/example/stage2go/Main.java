@@ -41,7 +41,7 @@ public class Main extends Application {
     // Lancement de l'application
     public static void main(String[] args) {
         launch();
-        // av.segarra@gmail.com
+        // de@gmail.com
         // bp@gmail.com
     }
 }
