@@ -112,6 +112,7 @@ public class FavoriDAO extends DAO<Favori>{
         Entreprise entreprise = EntrepriseDAO.getInstance().read(id_entreprise);
 
         favori = new Favori(stagiaire,entreprise);
+        favori.setId(id);
         return favori;
     }
 }
