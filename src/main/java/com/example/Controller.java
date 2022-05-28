@@ -58,7 +58,7 @@ public class Controller {
      */
     public void OnAccueilClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeEntreprises.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeEntreprise.fxml")));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

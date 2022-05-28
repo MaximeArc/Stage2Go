@@ -94,7 +94,7 @@
          <font>
             <Font size="20.0" />
          </font></Text>
-      <TextField alignment="TOP_CENTER" layoutX="667.0" layoutY="456.0" prefHeight="51.0" prefWidth="243.0" promptText="Année de diplome">
+      <TextField fx:id="anneeDiplome" alignment="TOP_CENTER" layoutX="667.0" layoutY="456.0" prefHeight="51.0" prefWidth="243.0" promptText="Année de diplome">
          <font>
             <Font size="20.0" />
          </font></TextField>

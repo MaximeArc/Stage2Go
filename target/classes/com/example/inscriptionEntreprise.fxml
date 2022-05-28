@@ -78,7 +78,7 @@
                     </font>
                 </Text>
                 <TextField fx:id="techno" alignment="TOP_CENTER" layoutX="366.0" layoutY="449.0" prefHeight="25.0" prefWidth="215.0" promptText="Techno(s)" />
-                <Button fx:id="buttonValidate" layoutX="612.0" layoutY="676.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: #ffae00;" text="Valider" />
+                <Button fx:id="buttonValidate" layoutX="612.0" layoutY="676.0" mnemonicParsing="false" onAction="#OnClickCreate" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: #ffae00;" text="Valider" />
                 <Text layoutX="856.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du contact">
                     <font>
                         <Font size="15.0" />
@@ -90,7 +90,7 @@
                         <Font size="15.0" />
                     </font>
                 </Text>
-                <TextField fx:id="emailContact" alignment="TOP_CENTER" layoutX="853.0" layoutY="447.0" prefHeight="25.0" prefWidth="149.0" promptText="Email du contact" />
+                <TextField fx:id="mailContact" alignment="TOP_CENTER" layoutX="853.0" layoutY="447.0" prefHeight="25.0" prefWidth="149.0" promptText="Email du contact" />
                 <Text layoutX="854.0" layoutY="533.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Télétravail">
                     <font>
                         <Font size="15.0" />
@@ -104,7 +104,7 @@
             </ImageView>
             </children>
         </AnchorPane>
-        <Button layoutX="544.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterEntrepriseClick" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #44BBA4;" text="Ajouter une entreprise" textFill="#393e41">
+        <Button layoutX="544.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnClickCreate" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #44BBA4;" text="Ajouter une entreprise" textFill="#393e41">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>

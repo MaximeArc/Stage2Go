@@ -33,16 +33,16 @@
                     </font>
                 </Button>
                 <Button layoutX="1086.0" layoutY="34.0" mnemonicParsing="false" onAction="#OnExitClick" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #44BBA4;" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../images/LOGOOK.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="logout" fitHeight="97.0" fitWidth="82.0" layoutX="1079.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../images/icons8-sortie-96.png" />
-               </image>
-            </ImageView>
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/LOGOOK.jpg" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="logout" fitHeight="97.0" fitWidth="82.0" layoutX="1079.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/icons8-sortie-96.png" />
+                    </image>
+                </ImageView>
             </children>
         </AnchorPane>
         <Button fx:id="addBtn" layoutX="544.0" layoutY="159.0" mnemonicParsing="false" onAction="#OnAjouterEntrepriseClick" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #44BBA4;" text="Ajouter une entreprise" textFill="#fcf8f8">
@@ -62,7 +62,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <TableView fx:id="table" layoutX="18.0" layoutY="216.0" prefHeight="578.0" prefWidth="1174.0" styleClass=".table-view">
+        <TableView fx:id="table" layoutX="18.0" layoutY="216.0" onMouseClicked="#selectFromTable" prefHeight="578.0" prefWidth="1174.0" styleClass=".table-view">
             <columns>
                 <TableColumn fx:id="nom" prefWidth="266.0" text="Nom" />
                 <TableColumn fx:id="activites" prefWidth="368.0" text="Activité" />
