@@ -1,5 +1,6 @@
 package com.example;
 
+import dao.AdresseDAO;
 import dao.EntrepriseDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,6 +27,9 @@ public class InscriptionEntrepriseController extends Controller {
     @FXML private TextField nomContact;
     @FXML private TextField mailContact;
     @FXML private TextField ville;
+    @FXML private TextField numero;
+    @FXML private TextField codePostal;
+    @FXML private TextField voie;
     @FXML private CheckBox teletravail;
 
 /*
@@ -39,7 +43,6 @@ public class InscriptionEntrepriseController extends Controller {
     private int nbEmployesEntreprise;
     private String nomContactEntreprise;
     private String mailContactEntreprise;
-    private String villeEntreprise;
     private boolean teletravailEntreprise;
 
 /*
@@ -66,15 +69,23 @@ Methode se déclanchant au moment du clic sur le bouton Valider de la fiche de c
             nomContactEntreprise=nomContact.getText();
             mailContactEntreprise=mailContact.getText();
             teletravailEntreprise=teletravail.isSelected();
+
             Adresse adresse = new Adresse();
 
+            adresse.setNumero(Integer.parseInt(numero.getText()));
+            adresse.setAdresse(voie.getText());
+            adresse.setCode_postal(Integer.parseInt(codePostal.getText()));
+            adresse.setVille(ville.getText());
 
-/*
+            AdresseDAO.getInstance().create(adresse);
+
+            /*
+
             Création d'un nouvel objet entreprise avec les variables en parametres
 */
 
             Entreprise entreprise = new Entreprise(nomEntreprise,nomContactEntreprise,mailContactEntreprise,nbEmployesEntreprise,descriptionEntreprise,technoEntreprise,teletravailEntreprise,activiteEntreprise,adresse);
-
+            entreprise.getAdresse().setId(adresse.getId());
 /*
             Insertion de cette nouvelle entreprise dans la base de données
 */

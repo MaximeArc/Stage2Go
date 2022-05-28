@@ -35,7 +35,8 @@ public class Entreprise {
             this.activites = activites;
             this.description = description;
             this.adresse=adresse;
-            this.ville= adresse.getVille();
+            if(this.adresse!=null){
+            this.ville= adresse.getVille();}
         }
 
         public int getId() {

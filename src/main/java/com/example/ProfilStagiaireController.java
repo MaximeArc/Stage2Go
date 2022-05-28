@@ -1,5 +1,6 @@
 package com.example;
 
+import dao.EntrepriseDAO;
 import dao.FavoriDAO;
 import dao.UtilisateurDAO;
 import javafx.collections.FXCollections;
@@ -13,10 +14,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import models.Entreprise;
 import models.Favori;
 import models.Utilisateur;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ProfilStagiaireController extends Controller {
 
@@ -28,6 +31,7 @@ public class ProfilStagiaireController extends Controller {
     @FXML private TextField annee;
     @FXML private TextField entreprise;
     @FXML private TextArea comment;
+    @FXML private ChoiceBox listDeroulante;
 
     @FXML private Button modify;
     @FXML private Button delete;
@@ -69,6 +73,7 @@ public class ProfilStagiaireController extends Controller {
 
             hideButton(modify);
             hideButton(delete);
+            listDeroulante.setVisible(false);
         }
 
         else{
@@ -94,6 +99,8 @@ public class ProfilStagiaireController extends Controller {
             comment.setText(commentaire);
 
             comment.setWrapText(true);
+
+            entreprise.setVisible(false);
         }
 
     }
@@ -118,6 +125,7 @@ public class ProfilStagiaireController extends Controller {
     public void initialize(){
         viewData();
         viewTable();
+        liste();
 
     }
 
@@ -140,4 +148,29 @@ public class ProfilStagiaireController extends Controller {
 
     }
 
-}
+
+    public void selectFromTableFavori(MouseEvent event) throws IOException {
+
+        Favori favori = table.getSelectionModel().getSelectedItem();
+        ListeEntreprisesController.selectedEntreprise=favori.getEntreprise();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("profil-entreprise.fxml"));
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void liste(){
+        ObservableList<Entreprise> entreprises = FXCollections.observableArrayList(EntrepriseDAO.getInstance().readAll());
+        ArrayList<String> nomEntreprise = new ArrayList<>();
+
+        for (Entreprise entreprise:entreprises) {
+            String name=entreprise.getNom();
+            nomEntreprise.add(name);
+            listDeroulante.setItems(FXCollections.observableArrayList(nomEntreprise));
+
+        }
+        }
+
+
+    }

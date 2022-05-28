@@ -1,9 +1,6 @@
 package com.example;
 
-import dao.CommentaireDAO;
-import dao.EntrepriseDAO;
-import dao.FavoriDAO;
-import dao.UtilisateurDAO;
+import dao.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,6 +26,7 @@ public class ProfilEntrepriseController extends Controller {
     @FXML private CheckBox teletravail;
     @FXML private TextArea description;
     @FXML private TextField techno;
+    @FXML private TextField numero;
     @FXML private TextField adresse;
     @FXML private TextField codePostal;
     @FXML private CheckBox favori;
@@ -49,6 +47,7 @@ public class ProfilEntrepriseController extends Controller {
     private String descritpionEntreprise;
     private Boolean teletravailEntreprise;
     private String technoEntreprise;
+    private int numeroEntreprise;
     private String adresseEntreprise;
     private String codePostalEntreprise;
 
@@ -67,7 +66,8 @@ public class ProfilEntrepriseController extends Controller {
         descritpionEntreprise = entreprise.getDescription();
         teletravailEntreprise = entreprise.isTeletravail();
         technoEntreprise = entreprise.getTechno();
-        adresseEntreprise = entreprise.getAdresse().getNumero() + " " + entreprise.getAdresse().getAdresse();
+        numeroEntreprise= entreprise.getAdresse().getNumero();
+        adresseEntreprise = entreprise.getAdresse().getAdresse();
         codePostalEntreprise = String.valueOf(entreprise.getAdresse().getCode_postal());
 
 
@@ -80,6 +80,7 @@ public class ProfilEntrepriseController extends Controller {
         description.setText(descritpionEntreprise);
         teletravail.setSelected(teletravailEntreprise);
         techno.setText(technoEntreprise);
+        numero.setText(String.valueOf(numeroEntreprise));
         adresse.setText(adresseEntreprise);
         codePostal.setText(codePostalEntreprise);
 
@@ -96,6 +97,7 @@ public class ProfilEntrepriseController extends Controller {
             techno.setEditable(true);
             adresse.setEditable(true);
             codePostal.setEditable(true);
+            numero.setEditable(true);
 
             teletravail.setDisable(false);
             favori.setVisible(false);
@@ -134,6 +136,7 @@ public class ProfilEntrepriseController extends Controller {
     public void initialize() {
         viewData();
         viewTable();
+
     }
 
 
@@ -147,8 +150,21 @@ public class ProfilEntrepriseController extends Controller {
         entreprise.setNb_employes(Integer.parseInt(nbSalaries.getText()));
         entreprise.setDescription(description.getText());
         entreprise.setTeletravail(teletravail.isSelected());
+        entreprise.getAdresse().setCode_postal(Integer.parseInt(codePostal.getText()));
+        entreprise.getAdresse().setAdresse(adresse.getText());
+        entreprise.getAdresse().setVille(ville.getText());
+        entreprise.getAdresse().setNumero(Integer.parseInt(numero.getText()));
+
+        Adresse adresseNew = entreprise.getAdresse();
+
+        adresseNew.setVille(ville.getText());
+        adresseNew.setCode_postal(Integer.parseInt(codePostal.getText()));
+        adresseNew.setAdresse(adresse.getText());
+        adresseNew.setNumero(Integer.parseInt(numero.getText()));
 
         EntrepriseDAO.getInstance().update(entreprise);
+        AdresseDAO.getInstance().update(adresseNew);
+
         OnAccueilClick(actionEvent);
     }
 
@@ -184,7 +200,6 @@ public class ProfilEntrepriseController extends Controller {
                     connectedUser.setFavoris(listFavoris);
                     FavoriDAO.getInstance().delete(fav);
                 }
-
             }
         }
     }

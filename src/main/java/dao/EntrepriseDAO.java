@@ -50,7 +50,7 @@ public class EntrepriseDAO extends DAO<Entreprise> {
         boolean success = true;
         try {
             String requete = "INSERT INTO " + TABLE + " (" + NOM + "," + NOM_CONTACT + "," + EMAIL_CONTACT + ","
-                    + NB_EMPLOYES + "," + DESCRIPTION + "," + TECHNO + "," + TELETRAVAIL + "," + ACTIVITES + ")" + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                    + NB_EMPLOYES + "," + DESCRIPTION + "," + TECHNO + "," + TELETRAVAIL + "," + ACTIVITES + "," + ID_ADRESSE + ")" + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
             pst.setString(1, obj.getNom());
@@ -61,7 +61,7 @@ public class EntrepriseDAO extends DAO<Entreprise> {
             pst.setString(6, obj.getTechno());
             pst.setBoolean(7, obj.isTeletravail());
             pst.setString(8, obj.getActivites());
-            //pst.setInt(9, obj.getAdresse().getId());
+            pst.setInt(9, obj.getAdresse().getId());
             pst.executeUpdate();
             ResultSet rs = pst.getGeneratedKeys();
             if (rs.next()) {

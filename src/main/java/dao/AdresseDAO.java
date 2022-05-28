@@ -38,18 +38,11 @@ public class AdresseDAO extends DAO<Adresse> {
                     "VALUES (?, ?, ?, ?)";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
             pst.setInt(1, obj.getNumero());
-            //pst.setString(2, obj.getType_de_voie());
-            pst.setString(3, obj.getAdresse());
-            pst.setString(4, obj.getVille());
-            pst.setInt(5, obj.getCode_postal());
-            //pst.setString(6, obj.getDepartement());
-            // pst.setString(7, obj.getPays());
-            //pst.setInt(8, obj.getId_utilisateur());
-            //pst.setInt(9, obj.getId_entreprise());
+            pst.setString(2, obj.getAdresse());
+            pst.setString(3, obj.getVille());
+            pst.setInt(4, obj.getCode_postal());
 
-            // on exécute la mise à jour
             pst.executeUpdate();
-            //Récupérer la clé qui a été générée et la pousser dans l'objet initial
             ResultSet rs = pst.getGeneratedKeys();
             if (rs.next()) {
                 obj.setId(rs.getInt(1));
@@ -88,15 +81,11 @@ public class AdresseDAO extends DAO<Adresse> {
                     "WHERE " + CLE_PRIMAIRE + " = ?";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
             pst.setInt(1, obj.getNumero());
-            //pst.setString(2, obj.getType_de_voie());
-            pst.setString(3, obj.getAdresse());
-            pst.setString(4, obj.getVille());
-            pst.setInt(5, obj.getCode_postal());
-            //pst.setString(6, obj.getDepartement());
-            //pst.setString(7, obj.getPays());
-            //pst.setInt(8, obj.getId_utilisateur());
-            //pst.setInt(9, obj.getId_entreprise());
-            pst.setInt(10, id);
+            pst.setString(2, obj.getAdresse());
+            pst.setString(3, obj.getVille());
+            pst.setInt(4, obj.getCode_postal());
+
+            pst.setInt(5, id);
             pst.executeUpdate();
             donnees.put(id, obj);
         } catch (SQLException e) {
