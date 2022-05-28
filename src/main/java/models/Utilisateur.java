@@ -3,13 +3,14 @@ package models;
 
 import dao.CommentaireDAO;
 import dao.EntrepriseDAO;
+import dao.FavoriDAO;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Utilisateur {
 
     private int id;
-    private int promo;
     private String nom;
     private String prenom;
     private String email;
@@ -20,13 +21,8 @@ public class Utilisateur {
     private Entreprise entreprise;
     private Commentaire commentaire;
 
-    public Commentaire getCommentaire() {
-        return CommentaireDAO.getCommentByUtilisateur(id);
-    }
+    private ArrayList<Favori> favoris;
 
-    public Entreprise getEntreprise() {
-        return EntrepriseDAO.getInstance().read(getLieu_stage());
-    }
 
     public Utilisateur(int id, String nom, String prenom, String email, String mdp, int lieu_stage, int annee, boolean isAdmin) {
         this.mot_de_passe=mdp;
@@ -48,6 +44,7 @@ public class Utilisateur {
         this.mot_de_passe = mot_de_passe;
         this.est_admin=est_admin;
         this.id=id;
+
     }
 
 
@@ -90,6 +87,26 @@ public class Utilisateur {
 
     public int getLieu_stage() {return lieu_stage;}
     public void setLieu_stage(int lieu_stage) {this.lieu_stage = lieu_stage;}
+
+    public void setEntreprise(Entreprise entreprise) {
+        this.entreprise = entreprise;
+    }
+
+    public void setCommentaire(Commentaire commentaire) {
+        this.commentaire = commentaire;
+    }
+
+    public Commentaire getCommentaire() {
+        return CommentaireDAO.getCommentByUtilisateur(id);
+    }
+
+    public Entreprise getEntreprise() {
+        return EntrepriseDAO.getInstance().read(getLieu_stage());
+    }
+
+
+    public ArrayList<Favori> getFavoris() {return FavoriDAO.getInstance().getFavoriByStagiaireId(id);}
+    public void setFavoris(ArrayList<Favori> favoris) {this.favoris = favoris;    }
 
     @Override
     public String toString() {

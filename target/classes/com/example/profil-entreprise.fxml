@@ -115,5 +115,10 @@
       </Text>
       <Button fx:id="modify" layoutX="392.0" layoutY="712.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="37.0" prefWidth="86.0" style="-fx-background-color: #44BBA4;" text="Modifier" textFill="WHITE" />
       <Button fx:id="delete" layoutX="509.0" layoutY="712.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="37.0" prefWidth="75.0" style="-fx-background-color: #44BBA4;" text="Supprimer" textFill="WHITE" />
+      <CheckBox fx:id="favori" layoutX="72.0" layoutY="179.0" mnemonicParsing="false" onAction="#onClickFavori" style="-fx-border-color: orange; -fx-background-color: white;">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </CheckBox>
     </children>
 </AnchorPane>

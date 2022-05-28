@@ -1,6 +1,5 @@
 package com.example;
 
-import dao.EntrepriseDAO;
 import dao.FavoriDAO;
 import dao.UtilisateurDAO;
 import javafx.collections.FXCollections;
@@ -14,12 +13,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import models.Entreprise;
 import models.Favori;
 import models.Utilisateur;
 
 import java.io.IOException;
-import java.util.Optional;
 
 public class ProfilStagiaireController extends Controller {
 
@@ -104,14 +101,18 @@ public class ProfilStagiaireController extends Controller {
     private void viewTable(){
 
         if(!connectedUser.isEst_admin()){
-            ObservableList<Favori> data = FXCollections.observableArrayList(FavoriDAO.getInstance().getFavoriByStagiaireId(connectedUser.getId()));
-            table.setItems(data);
+            ObservableList<Favori> favoris = FXCollections.observableArrayList(connectedUser.getFavoris());
+            table.setItems(favoris);
         }
         else{
             ObservableList<Favori> data = FXCollections.observableArrayList(FavoriDAO.getInstance().getFavoriByStagiaireId(ListeStagiairesAdminController.selectedIntern.getId()));
             table.setItems(data);
         }
-        nom_entreprise.setCellValueFactory(new PropertyValueFactory<Favori, String>("nom_entreprise"));
+
+
+        nom_entreprise.setCellValueFactory(new PropertyValueFactory<Favori, String>("entrepriseNom"));
+
+
     }
 
     public void initialize(){

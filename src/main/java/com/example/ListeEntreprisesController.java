@@ -53,8 +53,6 @@ public class ListeEntreprisesController extends Controller {
     }
 
 
-
-
     public void initialize(){
         viewTable();
         hideButton(addBtn);

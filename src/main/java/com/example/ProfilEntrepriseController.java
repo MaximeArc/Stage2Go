@@ -14,6 +14,8 @@ import javafx.scene.text.Text;
 import models.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class ProfilEntrepriseController extends Controller {
@@ -29,6 +31,7 @@ public class ProfilEntrepriseController extends Controller {
     @FXML private TextField techno;
     @FXML private TextField adresse;
     @FXML private TextField codePostal;
+    @FXML private CheckBox favori;
 
     @FXML private TableView<Commentaire> table;
     @FXML private TableColumn<Commentaire, String> comment;
@@ -95,16 +98,28 @@ public class ProfilEntrepriseController extends Controller {
             codePostal.setEditable(true);
 
             teletravail.setDisable(false);
+            favori.setVisible(false);
 
         }
         else
         {
             hideButton(modify);
             hideButton(delete);
+
+
+            for (Favori fav:connectedUser.getFavoris()) {
+                if(fav.getEntreprise().getId()==ListeEntreprisesController.selectedEntreprise.getId())
+                {
+                    favori.setSelected(true);
+                }
+            }
+            }
+
+
         }
 
 
-    }
+
 
 
     private void viewTable() {
@@ -150,5 +165,27 @@ public class ProfilEntrepriseController extends Controller {
             OnAccueilClick(actionEvent);
         }
 
+    }
+
+    public void onClickFavori(ActionEvent actionEvent) {
+
+
+        if (favori.isSelected()) {
+            ArrayList<Favori> listFavoris = connectedUser.getFavoris();
+            Favori favori = new Favori(connectedUser, ListeEntreprisesController.selectedEntreprise);
+            listFavoris.add(favori);
+            connectedUser.setFavoris(listFavoris);
+            FavoriDAO.getInstance().create(favori);
+        } else {
+            ArrayList<Favori> listFavoris = connectedUser.getFavoris();
+            for (Favori fav : listFavoris) {
+                if (fav.getEntreprise().getId() == ListeEntreprisesController.selectedEntreprise.getId() && fav.getStagiaire().getId() == connectedUser.getId()) {
+                    listFavoris.remove(fav);
+                    connectedUser.setFavoris(listFavoris);
+                    FavoriDAO.getInstance().delete(fav);
+                }
+
+            }
+        }
     }
 }

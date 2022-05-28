@@ -26,7 +26,6 @@ public class Entreprise {
 
     public Entreprise(String nom, String nom_contact, String email_contact, int nb_employes, String description, String techno, boolean teletravail, String activites, Adresse adresse) {
 
-            this.id=id;
             this.nom = nom;
             this.nb_employes = nb_employes;
             this.nom_contact = nom_contact;

@@ -143,6 +143,7 @@ public class EntrepriseDAO extends DAO<Entreprise> {
                 Adresse adresse = AdresseDAO.getInstance().read(id_adresse);
 
                 entreprise = new Entreprise(nom, nom_contact, email_contact, nb_employes, description, techno, teletravail, activites, adresse);
+                entreprise.setId(id);
                 donnees.put(id, entreprise);
 
             } catch (SQLException e) {
