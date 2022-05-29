@@ -107,7 +107,7 @@ public class Controller {
      */
     public void OnListeStagiaireClick(ActionEvent actionEvent) throws IOException {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeStagiaires.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeStagiaire.fxml")));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

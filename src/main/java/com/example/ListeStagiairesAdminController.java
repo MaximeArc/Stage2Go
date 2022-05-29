@@ -4,19 +4,30 @@ import dao.UtilisateurDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import models.Entreprise;
 import models.Utilisateur;
 
+import java.io.IOException;
 
-public class ListeStagiaireController extends Controller {
+public class ListeStagiairesAdminController extends Controller{
 
-    @FXML private TableView<Utilisateur> table;
+    @FXML
+    private TableView<Utilisateur> table;
     @FXML private TableColumn<Utilisateur, String> nom;
     @FXML private TableColumn<Utilisateur, String> prenom;
     @FXML private TableColumn<Utilisateur, String> mail;
     @FXML private TableColumn<Utilisateur, Integer> annee;
+
+    static Utilisateur selectedIntern;
+
 
     private void viewTable(){
 
@@ -30,8 +41,19 @@ public class ListeStagiaireController extends Controller {
 
     }
 
+    public void selectFromTable(MouseEvent event) throws IOException {
+
+        selectedIntern = table.getSelectionModel().getSelectedItem();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("profil-stagiaire.fxml"));
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void initialize(){
         viewTable();
 
     }
+
 }

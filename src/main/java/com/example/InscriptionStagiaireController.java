@@ -1,54 +1,112 @@
 package com.example;
 
-import dao.Connexion;
 import dao.UtilisateurDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import models.Utilisateur;
-;import java.io.IOException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 
 public class InscriptionStagiaireController {
-    @FXML private TextField nom;
-    @FXML private  TextField prenom;
-    @FXML private TextField mail;
-    @FXML private TextField filliere;
-    @FXML private  TextField MotDePasse;
-    @FXML private TextField ConfirmationMotDePasse;
-    @FXML private TextField AnneeDuDiplome;
-    @FXML private CheckBox isAdmin;
 
-   /* Déclaration des variables utiles à la création d'un utilisateur
-    */
-    private String nom1;
-    private String prenom1;
-    private String mail1;
-    private String MotdePasse1;
-    private int Annee1;
-    private Boolean isAdmin1;
+    @FXML
+    private TextField MotDePasse;
 
+    @FXML
+    private ImageView logout;
 
-    public void onClickCreate(ActionEvent actionEvent){
-        /* Vérifie que les champs indiqués ne sont pas vides
-         */
-        if(!nom.getText().isEmpty() && !mail.getText().isEmpty() &&!mail.getText().isEmpty()){
-            nom1=nom.getText();
-            prenom1=prenom.getText();
-            mail1=mail.getText();
-            MotdePasse1=MotDePasse.getText();
+    @FXML
+    private Button CreerCompte;
 
-            Annee1= Integer.parseInt(AnneeDuDiplome.getText());
+    @FXML
+    private TextField mail;
 
-            isAdmin1=isAdmin.isSelected();
-            Utilisateur stagiaire = new Utilisateur(nom1,prenom1,mail1,MotdePasse1,isAdmin1,Annee1);
+    @FXML
+    private TextField ConfirmationMotDePasse;
 
-            UtilisateurDAO.getInstance().create(stagiaire);
+    @FXML
+    private TextField annee;
+
+    @FXML
+    void OnClickCreate2(ActionEvent event) {
+        String nomSent = nom.getText();
+        String prenomSent = prenom.getText();
+        String mailSent = mail.getText();
+        int anneeSent = Integer.parseInt(annee.getText());
+        String motDePasseSent = MotDePasse.getText();
+        String confirmationMotDePasseSent = ConfirmationMotDePasse.getText();
+        if (isNotEmpty()) {
+            if (motDePasseSent.equals(confirmationMotDePasseSent)) {
+                Utilisateur newUtilisateur = new Utilisateur(nomSent, prenomSent, mailSent, motDePasseSent, false, anneeSent);
+                if (UtilisateurDAO.getInstance().create(newUtilisateur)) {
+                    nom.setText("");
+                    prenom.setText("");
+                    mail.setText("");
+                    annee.setText("");
+                    MotDePasse.setText("");
+                    ConfirmationMotDePasse.setText("");
+                }
+            }
         }
     }
+
+    private boolean isNotEmpty() {
+        boolean isNotEmpty = true;
+        if (nom.getText().isEmpty() || prenom.getText().isEmpty() || mail.getText().isEmpty() || annee.getText().isEmpty()
+                || MotDePasse.getText().isEmpty() || ConfirmationMotDePasse.getText().isEmpty() ) {
+            isNotEmpty = false;
+        }
+        return isNotEmpty;
+    }
+
+//    public Utilisateur(String nom, String prenom, String email, String mot_de_passe, boolean est_admin, int annee) {
+//
+//        this.nom = nom;
+//        this.prenom = prenom;
+//        this.email = email;
+//        this.mot_de_passe = mot_de_passe;
+//        this.est_admin = est_admin;
+//        this.annee = annee;
+//    }
+
+    @FXML
+    private TextField nom;
+
+    @FXML
+    private TextField prenom;
+
+    @FXML
+    private TextField anneeDiplome;
+
+    @FXML
+    private Text LABELANNEE;
+
+    @FXML
+    void OnRessourcesClick(ActionEvent event) {
+
+    }
+
+    @FXML
+    void fcf8f8(ActionEvent event) {
+
+    }
+
+    @FXML
+    void OnAccueilClick(ActionEvent event) {
+
+    }
+
+    @FXML
+    void OnStagiaireClick(ActionEvent event) {
+
+    }
+
+    @FXML
+    void OnExitClick(ActionEvent event) {
+
+    }
+
+
 }

@@ -4,10 +4,18 @@ import dao.FavoriDAO;
 import dao.UtilisateurDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import models.Utilisateur;
+
+import java.io.IOException;
+import java.util.Objects;
 
 public class ProfilStagiaireController<Favori> extends Controller {
 
@@ -67,5 +75,23 @@ public class ProfilStagiaireController<Favori> extends Controller {
         viewData();
         viewTable();
 
+    }
+    @FXML
+    public void OnAjouterStagiaireClick(ActionEvent actionEvent) throws IOException {
+//
+//        String nomSent = nom.getText();
+//        String prenomSent = prenom.getText();
+//        String emailSent = mail.getText();
+//        String motDePasseSent = MotDePasse.getText();
+//        boolean estAdmin = false;
+//        int anneeSent = Integer.parseInt(AnneeDuDiplome.getText());
+//        Utilisateur newUtilisateur = new Utilisateur(nomSent, prenomSent, emailSent, motDePasseSent, estAdmin, anneeSent);
+//        System.out.println(newUtilisateur);
+//
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("InscriptionStagiaire.fxml")));
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 };
