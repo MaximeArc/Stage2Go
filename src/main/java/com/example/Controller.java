@@ -71,11 +71,20 @@ public class Controller {
      * @throws IOException
      */
     public void OnStagiaireClick(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profilStagiaire.fxml")));
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+       if (!connectedUser.getEst_admin()) {
+           stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+           root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profilStagiaire.fxml")));
+           scene = new Scene(root);
+           stage.setScene(scene);
+           stage.show();
+       }
+       else {
+           stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+           root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("listeStagiaire.fxml")));
+           scene = new Scene(root);
+           stage.setScene(scene);
+           stage.show();
+       }
     }
 
 

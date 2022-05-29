@@ -16,6 +16,7 @@ import models.Entreprise;
 import models.Utilisateur;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ListeStagiairesAdminController extends Controller{
 
@@ -45,7 +46,7 @@ public class ListeStagiairesAdminController extends Controller{
 
         selectedIntern = table.getSelectionModel().getSelectedItem();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("profil-stagiaire.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("profilStagiaire.fxml")));
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

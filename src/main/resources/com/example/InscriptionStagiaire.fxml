@@ -23,12 +23,12 @@
                   <Image url="@../../images/LOGOOK.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="600.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnRessourcesClick" style="-fx-background-color: #44BBA4;" text="Ressources" textFill="#fcf8f8">
+            <Button fx:id="ressources" layoutX="600.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnRessourcesClick" style="-fx-background-color: #44BBA4;" text="Ressources" textFill="#fcf8f8">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Button>
-            <Button layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprise" textFill="#fcf8f8">
+            <Button fx:id="accueil" layoutX="400.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnAccueilClick" style="-fx-background-color: #44BBA4;" text="Entreprise" textFill="#fcf8f8">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -38,7 +38,7 @@
                   <Image url="@../../../../../../../../Desktop/icons/icons8-sortie-96.png" />
                </image>
             </ImageView>
-            <Button layoutX="800.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnStagiaireClick" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#fcf8f8">
+            <Button fx:id="stagiaire" layoutX="800.0" layoutY="47.0" mnemonicParsing="false" onAction="#OnStagiaireClick" style="-fx-background-color: #44BBA4;" text="Stagiaire" textFill="#fcf8f8">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

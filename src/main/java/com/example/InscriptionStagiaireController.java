@@ -3,13 +3,20 @@ package com.example;
 import dao.UtilisateurDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import models.Utilisateur;
+import java.io.IOException;
+import java.util.Objects;
 
-public class InscriptionStagiaireController {
+
+public class InscriptionStagiaireController extends Controller {
 
     @FXML
     private TextField MotDePasse;
@@ -82,31 +89,6 @@ public class InscriptionStagiaireController {
 
     @FXML
     private Text LABELANNEE;
-
-    @FXML
-    void OnRessourcesClick(ActionEvent event) {
-
-    }
-
-    @FXML
-    void fcf8f8(ActionEvent event) {
-
-    }
-
-    @FXML
-    void OnAccueilClick(ActionEvent event) {
-
-    }
-
-    @FXML
-    void OnStagiaireClick(ActionEvent event) {
-
-    }
-
-    @FXML
-    void OnExitClick(ActionEvent event) {
-
-    }
 
 
 }

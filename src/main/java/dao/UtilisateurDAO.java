@@ -44,8 +44,8 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         boolean success = true;
         try {
             String requete = "INSERT INTO " + TABLE + "(" + NOM + "," + PRENOM + "," + EMAIL +
-                    ","  + MOT_DE_PASSE + "," + EST_ADMIN +")" +
-                    "VALUES (?, ?, ?, ?, ?)";
+                    ","  + MOT_DE_PASSE + "," + EST_ADMIN +"," + ANNEE + ")" +
+                    "VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
 
             pst.setString(1, obj.getNom());
@@ -53,6 +53,7 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
             pst.setString(3, obj.getEmail());
             pst.setString(4, obj.getMot_de_passe());
             pst.setBoolean(5, obj.getEst_admin());
+            pst.setInt(6, obj.getAnnee());
             pst.executeUpdate();
 
             // Récupérer la clé qui a été générée et la pousser dans l'objet initial
@@ -147,9 +148,10 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
         ArrayList<Utilisateur> listeUtilisateur =null;
         try {
             String requete = "SELECT * FROM " + TABLE +
-                    " JOIN ENTREPRISE E ON UTILISATEUR.lieu_stage= E.id WHERE admin=0";
+                    "  WHERE admin=0";
             ResultSet rs = Connexion.executeQuery(requete);
             listeUtilisateur = new ArrayList<Utilisateur>();
+            System.out.println(rs);
             boolean hasNext = rs.next();
             while (hasNext) {
                 utilisateur = getUtilisateur(rs);

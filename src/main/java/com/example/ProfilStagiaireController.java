@@ -40,25 +40,38 @@ public class ProfilStagiaireController<Favori> extends Controller {
     private String anneeToString;
 
     private void viewData(){
-        Utilisateur utilisateur = UtilisateurDAO.getInstance().read(connectedUser.getId());
-        String lieu_stage = UtilisateurDAO.getInstance().getLieuStageByUtilisateurId(connectedUser.getId());
-        String commentaire = UtilisateurDAO.getInstance().getCommentByUtilisateurId(connectedUser.getId());
+        if (!connectedUser.getEst_admin()) {
+            Utilisateur utilisateur = UtilisateurDAO.getInstance().read(connectedUser.getId());
+            String lieu_stage = UtilisateurDAO.getInstance().getLieuStageByUtilisateurId(connectedUser.getId());
+            String commentaire = UtilisateurDAO.getInstance().getCommentByUtilisateurId(connectedUser.getId());
 
-        nomUtilisateur=utilisateur.getNom();
-        prenomUtilisateur=utilisateur.getPrenom();
-        mailUtilisateur=utilisateur.getEmail();
-        anneeUtilisateur=utilisateur.getAnnee();
+            nomUtilisateur = utilisateur.getNom();
+            prenomUtilisateur = utilisateur.getPrenom();
+            mailUtilisateur = utilisateur.getEmail();
+            anneeUtilisateur = utilisateur.getAnnee();
 
-        anneeToString=String.valueOf(anneeUtilisateur);
+            anneeToString = String.valueOf(anneeUtilisateur);
 
-        nom.setText(nomUtilisateur);
-        prenom.setText(prenomUtilisateur);
-        mail.setText(mailUtilisateur);
-        annee.setText(anneeToString);
-        entreprise.setText(lieu_stage);
-        comment.setText(commentaire);
+            nom.setText(nomUtilisateur);
+            prenom.setText(prenomUtilisateur);
+            mail.setText(mailUtilisateur);
+            annee.setText(anneeToString);
+            entreprise.setText(lieu_stage);
+            comment.setText(commentaire);
+        }
 
+        else{
+            Utilisateur stagiaire = ListeStagiairesAdminController.selectedIntern;
+            nomUtilisateur=stagiaire.getNom();
+            prenomUtilisateur= stagiaire.getPrenom();
+            mailUtilisateur= stagiaire.getEmail();
+            anneeUtilisateur= stagiaire.getAnnee();
 
+            nom.setText(nomUtilisateur);
+            prenom.setText(prenomUtilisateur);
+            mail.setText(mailUtilisateur);
+            annee.setText(String.valueOf(anneeUtilisateur));
+        }
 
     }
 
