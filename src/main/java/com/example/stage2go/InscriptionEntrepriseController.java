@@ -32,7 +32,7 @@ public class InscriptionEntrepriseController extends Controller {
     @FXML private TextField mailContact;
     @FXML private CheckBox teletravail;
     @FXML private TextField ville;
-
+    @FXML private TextField nbEmployesVannes;
 
 /*
    Declaration des variables utiles à la creation d'une entreprise
@@ -47,6 +47,7 @@ public class InscriptionEntrepriseController extends Controller {
     private String mailContactEntreprise;
     private boolean teletravailEntreprise;
     private String villeEntreprise;
+    private int nbEmployesVannesEntreprise;
 
 
 
@@ -71,6 +72,7 @@ public class InscriptionEntrepriseController extends Controller {
             mailContactEntreprise=mailContact.getText();
             teletravailEntreprise=teletravail.isSelected();
             villeEntreprise=ville.getText();
+            nbEmployesVannesEntreprise=parseInt(nbEmployesVannes.getText());
 
 
             //Création d'un nouvel objet entreprise avec les variables en paramètres
@@ -82,7 +84,8 @@ public class InscriptionEntrepriseController extends Controller {
                     nomContactEntreprise,
                     mailContactEntreprise,
                     teletravailEntreprise,
-                    villeEntreprise);
+                    villeEntreprise,
+                    nbEmployesVannesEntreprise);
 
 
             //Insertion de cette nouvelle entreprise dans la base de données

@@ -1,18 +1,13 @@
 package com.example.stage2go;
 
-import com.example.stage2go.Controller;
-import com.example.stage2go.ListeEntrepriseController;
 import dao.CommentaireDAO;
 import dao.EntrepriseDAO;
-import dao.FavoriDAO;
-import dao.UtilisateurDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Text;
 import models.*;
 
 import java.io.IOException;
@@ -32,6 +27,8 @@ public class ProfilEntrepriseController extends Controller {
     @FXML private TextField techno;
     @FXML private TextField adresse;
     @FXML private TextField codePostal;
+    @FXML private TextField nbSalariesVannes;
+
 
     @FXML private TableView<Commentaire> table;
     @FXML private TableColumn<Commentaire, String> comment;
@@ -50,6 +47,7 @@ public class ProfilEntrepriseController extends Controller {
     private String technoEntreprise;
     private String adresseEntreprise;
     private String codePostalEntreprise;
+    private String nbSalariesVannesEntreprise;
 
 
     private void viewData() {
@@ -67,6 +65,7 @@ public class ProfilEntrepriseController extends Controller {
         teletravailEntreprise = entreprise.isTeletravail();
         technoEntreprise = entreprise.getTechno();
         villeEntreprise = entreprise.getVille();
+        nbSalariesVannesEntreprise = String.valueOf(entreprise.getNbEmployesVannes());
 
 
         nom.setText(nomEntreprise);
@@ -79,6 +78,8 @@ public class ProfilEntrepriseController extends Controller {
         teletravail.setSelected(teletravailEntreprise);
         techno.setText(technoEntreprise);
         ville.setText(villeEntreprise);
+        nbSalariesVannes.setText(nbSalariesVannesEntreprise);
+
 
 
         teletravail.setStyle("-fx-opacity: 1");
@@ -95,6 +96,7 @@ public class ProfilEntrepriseController extends Controller {
             techno.setEditable(true);
             adresse.setEditable(true);
             codePostal.setEditable(true);
+            nbSalariesVannes.setEditable(true);
 
             teletravail.setDisable(false);
 
@@ -134,6 +136,7 @@ public class ProfilEntrepriseController extends Controller {
         entreprise.setNb_employes(Integer.parseInt(nbSalaries.getText()));
         entreprise.setDescription(description.getText());
         entreprise.setTeletravail(teletravail.isSelected());
+        entreprise.setNbEmployesVannes(Integer.parseInt(nbSalariesVannes.getText()));
 
         EntrepriseDAO.getInstance().update(entreprise);
         OnAccueilClick(actionEvent);

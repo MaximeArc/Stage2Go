@@ -29,6 +29,7 @@ public class ListeEntrepriseController extends Controller{
     @FXML private TableColumn<Entreprise, String> activites;
     @FXML private TableColumn<Entreprise, String> techno;
     @FXML private TableColumn<Entreprise, String> ville;
+
     @FXML private Button addBtn;
 
 
@@ -40,6 +41,7 @@ public class ListeEntrepriseController extends Controller{
         techno.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("techno"));
         activites.setCellValueFactory(new PropertyValueFactory<Entreprise, String>("activites"));
         ville.setCellValueFactory(new PropertyValueFactory<Entreprise,String>("ville"));
+
 
         table.setItems((ObservableList<Entreprise>) data);
 

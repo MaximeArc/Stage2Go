@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.TableColumn?>
@@ -12,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass=".table-view" stylesheets="@../../../css/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stage2go.ProfilEntrepriseController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass=".table-view" stylesheets="@../../../css/styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stage2go.ProfilEntrepriseController">
    <children>
       <AnchorPane layoutY="-4.0" prefHeight="144.0" prefWidth="1200.0" style="-fx-background-color: #44BBA4;">
          <children>
@@ -63,7 +68,7 @@
       <TextField fx:id="adresse" editable="false" layoutX="393.0" layoutY="302.0" prefHeight="37.0" prefWidth="183.0" promptText="Adresse" />
       <TextField fx:id="ville" editable="false" layoutX="392.0" layoutY="444.0" prefHeight="37.0" prefWidth="183.0" promptText="Ville" />
       <TextArea fx:id="description" editable="false" layoutX="57.0" layoutY="656.0" prefHeight="91.0" prefWidth="222.0" promptText="Description" />
-      <CheckBox fx:id="teletravail" disable="true" layoutX="392.0" layoutY="523.0" mnemonicParsing="false" text="Télétravail" />
+      <CheckBox fx:id="teletravail" disable="true" layoutX="398.0" layoutY="510.0" mnemonicParsing="false" text="Télétravail" />
       <TextField fx:id="nbSalaries" editable="false" layoutX="57.0" layoutY="582.0" prefHeight="37.0" prefWidth="222.0" promptText="Nombres Salariés" />
       <TextField fx:id="techno" editable="false" layoutX="57.0" layoutY="378.0" prefHeight="37.0" prefWidth="222.0" promptText="Techno" />
       <TextField fx:id="mailContact" editable="false" layoutX="57.0" layoutY="510.0" prefHeight="37.0" prefWidth="222.0" promptText="Mail du contact" />
@@ -112,12 +117,18 @@
             <Font size="13.0" />
          </font>
       </Text>
-      <Text layoutX="393.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ville" wrappingWidth="93.578125">
+      <Text layoutX="393.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ville" wrappingWidth="93.578125">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
       <Button fx:id="modify" layoutX="392.0" layoutY="712.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="37.0" prefWidth="86.0" style="-fx-background-color: #44BBA4;" text="Modifier" textFill="WHITE" />
       <Button fx:id="delete" layoutX="509.0" layoutY="712.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="37.0" prefWidth="75.0" style="-fx-background-color: #44BBA4;" text="Supprimer" textFill="WHITE" />
+      <TextField fx:id="nbSalariesVannes" editable="false" layoutX="392.0" layoutY="582.0" prefHeight="37.0" prefWidth="222.0" promptText="Nombres Salariés sur Vannes" />
+      <Text layoutX="393.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de salarié sur Vannes" wrappingWidth="200.578125">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

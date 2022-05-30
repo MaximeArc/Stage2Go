@@ -59,7 +59,7 @@
                 <TableColumn fx:id="nom" prefWidth="266.0" text="Nom" />
                 <TableColumn fx:id="activites" prefWidth="368.0" text="Activité" />
                 <TableColumn fx:id="techno" prefWidth="307.0" text="Technos" />
-                <TableColumn fx:id="ville" prefWidth="232.0" text="Ville" />
+                <TableColumn fx:id="ville" prefWidth="232.0" text="Ville " />
             </columns>
         </TableView>
     </children>

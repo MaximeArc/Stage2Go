@@ -85,19 +85,19 @@
                     <font>
                         <Font size="15.0" />
                     </font></Button>
-                <Text layoutX="856.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du contact">
+                <Text layoutX="855.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du contact">
                     <font>
                         <Font size="16.0" />
                     </font>
                 </Text>
-                <TextField fx:id="nomContact" alignment="CENTER" layoutX="853.0" layoutY="361.0" prefHeight="38.0" prefWidth="215.0" promptText="Nom du contact" />
-                <Text layoutX="856.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email du contact">
+                <TextField fx:id="nomContact" alignment="CENTER" layoutX="853.0" layoutY="443.0" prefHeight="38.0" prefWidth="215.0" promptText="Nom du contact" />
+                <Text layoutX="854.0" layoutY="509.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email du contact">
                     <font>
                         <Font size="16.0" />
                     </font>
                 </Text>
-                <TextField fx:id="mailContact" alignment="CENTER" layoutX="853.0" layoutY="447.0" prefHeight="38.0" prefWidth="215.0" promptText="Email du contact" />
-                <CheckBox fx:id="teletravail" layoutX="853.0" layoutY="595.0" mnemonicParsing="false" text="Télétravail">
+                <TextField fx:id="mailContact" alignment="CENTER" layoutX="853.0" layoutY="522.0" prefHeight="38.0" prefWidth="215.0" promptText="Email du contact" />
+                <CheckBox fx:id="teletravail" layoutX="667.0" layoutY="541.0" mnemonicParsing="false" text="Télétravail">
                     <font>
                         <Font size="16.0" />
                     </font></CheckBox>
@@ -106,12 +106,18 @@
                         <Image url="@../../../images/company.png" />
                     </image>
                 </ImageView>
-                <Text layoutX="856.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ville">
+                <Text layoutX="856.0" layoutY="585.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ville">
                     <font>
                         <Font size="16.0" />
                     </font>
                 </Text>
-                <TextField fx:id="ville" alignment="CENTER" layoutX="853.0" layoutY="528.0" prefHeight="38.0" prefWidth="215.0" promptText="Ville" />
+                <TextField fx:id="ville" alignment="CENTER" layoutX="853.0" layoutY="597.0" prefHeight="38.0" prefWidth="215.0" promptText="Ville" />
+            <TextField fx:id="nbEmployesVannes" alignment="CENTER" layoutX="853.0" layoutY="357.0" prefHeight="38.0" prefWidth="215.0" promptText="Nombre d'employés sur Vannes" />
+            <Text layoutX="850.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre d'employés à Vannes" wrappingWidth="221.6484375">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
             </children>
         </AnchorPane>
     </children>

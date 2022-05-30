@@ -1,7 +1,5 @@
 package dao;
 
-import models.Adresse;
-import models.Commentaire;
 import models.Entreprise;
 
 import java.sql.PreparedStatement;
@@ -25,6 +23,7 @@ public class EntrepriseDAO extends DAO<Entreprise> {
     private static final String EMAIL_CONTACT = "email_contact";
     private static final String TELETRAVAIL = "teletravail";
     private static final String VILLE = "ville";
+    private static final String NB_EMPLOYES_VANNES = "nb_employesVannes";
 
 
 
@@ -58,6 +57,7 @@ public class EntrepriseDAO extends DAO<Entreprise> {
             pst.setBoolean(7, obj.isTeletravail());
             pst.setString(8, obj.getActivites());
             //pst.setInt(9, obj.getAdresse().getId());
+
             pst.executeUpdate();
             ResultSet rs = pst.getGeneratedKeys();
             if (rs.next()) {
@@ -137,11 +137,12 @@ public class EntrepriseDAO extends DAO<Entreprise> {
                 String email_contact = rs.getString(EMAIL_CONTACT);
                 boolean teletravail = rs.getBoolean(String.valueOf(TELETRAVAIL));
                 String ville = rs.getString(VILLE);
+                int nb_employesVannes = rs.getInt(NB_EMPLOYES_VANNES);
 
 
 
 
-                entreprise = new Entreprise(nom, description, activites, techno, nb_employes, nom_contact, email_contact, teletravail, ville );
+                entreprise = new Entreprise(nom, description, activites, techno, nb_employes, nom_contact, email_contact, teletravail, ville, nb_employesVannes );
                 donnees.put(id, entreprise);
 
             } catch (SQLException e) {
@@ -176,16 +177,19 @@ public class EntrepriseDAO extends DAO<Entreprise> {
         String nom = rs.getString(NOM);
         String nom_contact = rs.getString(NOM_CONTACT);
         String email_contact = rs.getString(EMAIL_CONTACT);
-        Integer nb_employes = rs.getInt(NB_EMPLOYES);
+        int nb_employes = rs.getInt(NB_EMPLOYES);
         String description = rs.getString(DESCRIPTION);
         String activites = rs.getString(ACTIVITES);
         boolean teletravail = rs.getBoolean(String.valueOf(TELETRAVAIL));
         String techno = rs.getString(TECHNO);
         String ville = rs.getString(VILLE);
+        int id = rs.getInt(CLE_PRIMAIRE);
+        int nb_employesVannes = rs.getInt(NB_EMPLOYES_VANNES);
 
 
 
-        entreprise = new Entreprise(nom, description, activites, techno, nb_employes, nom_contact, email_contact,teletravail,ville);
+        entreprise = new Entreprise(nom, description, activites, techno, nb_employes, nom_contact, email_contact,teletravail,ville, nb_employesVannes);
+        entreprise.setId(id);
         return entreprise;
     }
 

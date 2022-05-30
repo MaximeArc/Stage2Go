@@ -13,6 +13,7 @@ public class Entreprise {
         private boolean teletravail;
         private String ville;
         private int id_entreprise;
+        private int nb_employesVannes;
 
 
 
@@ -24,7 +25,8 @@ public class Entreprise {
                           String nom_contact,
                           String email_contact,
                           boolean teletravail,
-                          String ville) {
+                          String ville,
+                          int nb_employesVannes) {
 
             this.nom = nom;
             this.description = description;
@@ -35,6 +37,7 @@ public class Entreprise {
             this.email_contact = email_contact;
             this.teletravail = teletravail;
             this.ville = ville;
+            this.nb_employesVannes = nb_employesVannes;
 
         }
 
@@ -103,6 +106,9 @@ public class Entreprise {
 
         public String getVille() { return ville; }
         public void setVille(String nom) { this.ville = ville; }
+
+        public int getNbEmployesVannes() { return nb_employesVannes; }
+        public void setNbEmployesVannes(int nb_employesVannes) { this.nb_employesVannes = nb_employesVannes; }
 
 
 

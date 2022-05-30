@@ -72,15 +72,6 @@
     -fx-background-color: transparent;
 }
 
-.check-box>.box>.mark {
-    -fx-background-image: url("../images/backg.jpg");
-    -fx-background-position: center;
-    -fx-background-repeat: stretch;
-    -fx-shape: none;
-}
 
-.check-box:selected>.box>.mark{
-    -fx-background-color: transparent;
-    -fx-background-image: url("../images/company.png");
-}
+
 
